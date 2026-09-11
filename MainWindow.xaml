@@ -1,0 +1,128 @@
+﻿<Window x:Class="GuildManagerProjet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuildManagerProjet"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1050" Background="#FF292929">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- BARRE SUPÉRIEURE (Gold / Level) -->
+        <Border Grid.Row="0" Background="#FF505050" BorderBrush="#CBA758" BorderThickness="1" Padding="5" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border BorderBrush="#CBA758" BorderThickness="1" Padding="20,2" Margin="0,0,30,0">
+                    <TextBlock x:Name="GoldTextBlock" Text="Gold" Foreground="#CBA758" FontSize="14"/>
+                </Border>
+                <Border BorderBrush="#CBA758" BorderThickness="1" Padding="20,2">
+                    <TextBlock x:Name="LevelTextBlock" Text="Level" Foreground="#CBA758" FontSize="14"/>
+                </Border>
+            </StackPanel>
+        </Border>
+
+        <!-- TITRE PRINCIPAL -->
+        <Border Grid.Row="1" Background="#FF1E1E1D" BorderBrush="#CBA758" BorderThickness="1" Padding="8" Margin="0,0,0,10">
+            <TextBlock Text="PHASE DE PLANIFICATION" Foreground="#8B0000" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- CONTENU (2 Colonnes) -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- PANNEAU GAUCHE : AVENTURIER -->
+            <Border Grid.Column="0" Background="#8A8061" BorderBrush="#CBA758" BorderThickness="1">
+                <Grid Background="#FF1E1E1D">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" BorderBrush="#CBA758" BorderThickness="0,0,0,1" Padding="8,4">
+                        <TextBlock Text="Aventurier" Foreground="#2E7D32" FontWeight="Bold" FontSize="14"/>
+                    </Border>
+
+                    <StackPanel Grid.Row="1" Margin="10">
+                        <Border BorderBrush="#CBA758" BorderThickness="1" Padding="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Column="0" Height="60" Stroke="#CBA758" StrokeThickness="1"/>
+                                <Border Grid.Column="2" BorderBrush="#CBA758" BorderThickness="1" Padding="5">
+                                    <TextBlock Text="Description Aventurier" Foreground="#FFCBA758" TextWrapping="Wrap"/>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- PANNEAU DROIT : QUETE DISPONIBLE -->
+            <Border Grid.Column="2" Background="#FF1E1E1D" BorderBrush="#CBA758" BorderThickness="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" BorderBrush="#CBA758" BorderThickness="0,0,0,1" Padding="8,4">
+                        <TextBlock Text="Quete Disponible" Foreground="#1565C0" FontWeight="Bold" FontSize="14"/>
+                    </Border>
+
+                    <StackPanel Grid.Row="1" Margin="20">
+                        <!-- Quête 1 -->
+                        <Grid Margin="0,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="15"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Rectangle Grid.Column="0" Height="110" Stroke="#CBA758" StrokeThickness="1"/>
+
+                            <Grid Grid.Column="2">
+                                <Border BorderBrush="#CBA758" BorderThickness="1" Padding="8">
+                                    <TextBlock x:Name="InfoQuestOne" Text="Description de la quete" Foreground="#CBA758"/>
+                                </Border>
+                                <Button Content="Choisir" x:Name="BtnQuestOne" Background="#388E3C" Foreground="White" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-30" Click="ToResolveQuestOne"/>
+                            </Grid>
+                        </Grid>
+
+                        <!-- Quête 2 -->
+                        <Grid Margin="0,20,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="15"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Rectangle Grid.Column="0" Height="110" Stroke="#CBA758" StrokeThickness="1"/>
+
+                            <Grid Grid.Column="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="529*"/>
+                                    <ColumnDefinition Width="24*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border BorderBrush="#CBA758" BorderThickness="1" Padding="8" Grid.ColumnSpan="2">
+                                    <TextBlock x:Name="InfoQuestTwo" Text="Description de la quete" Foreground="#CBA758"/>
+                                </Border>
+                                <Button Content="Choisir" x:Name="BtnQuestTwo" Background="#388E3C" Foreground="White" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-30" Click="ToResolveQuestTwo" Grid.ColumnSpan="2"/>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
