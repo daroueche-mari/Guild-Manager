@@ -1,124 +1,120 @@
-﻿<Window x:Class="GuildManagerProject.MainWindow"
+﻿<Window x:Class="GuildManager.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GuildManagerProject"
+        xmlns:local="clr-namespace:GuildManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1050">
-    <Grid Margin="10">
+        Title="MainWindow" Height="650" Width="1050" Background="#4C000000">
+    <Grid Margin="10,75,10,1" RenderTransformOrigin="0.466,0.56">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="550*"/>
+            <ColumnDefinition Width="477*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- BARRE SUPÉRIEURE (Gold / Level) -->
-        <Border Grid.Row="0" Background="#FF505050" BorderBrush="#CBA758" BorderThickness="1" Padding="5" Margin="0,0,0,10">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Border BorderBrush="#CBA758" BorderThickness="1" Padding="20,2" Margin="0,0,30,0">
-                    <TextBlock x:Name="GoldTextBlock" Text="Gold" Foreground="#CBA758" FontSize="14"/>
-                </Border>
-                <Border BorderBrush="#CBA758" BorderThickness="1" Padding="20,2">
-                    <TextBlock x:Name="LevelTextBlock" Text="Level" Foreground="#CBA758" FontSize="14"/>
-                </Border>
-            </StackPanel>
-        </Border>
+        <!-- ==================== HEADER (IDENTIQUE À GAMEWINDOW) ==================== -->
+        <!-- Arrière-plan du titre haut gauche -->
+        <Image x:Name="SupportTitreFenetreMain" HorizontalAlignment="Left" Height="274" Margin="21,-179,0,0" VerticalAlignment="Top" Width="713" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1" Source="/assets/UI/Background/Background_Top.png" Grid.RowSpan="3" Grid.ColumnSpan="2">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.982"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.857"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
 
-        <!-- TITRE PRINCIPAL -->
-        <Border Grid.Row="1" Background="#FF1E1E1D" BorderBrush="#CBA758" BorderThickness="1" Padding="8" Margin="0,0,0,10">
-            <TextBlock Text="PHASE DE PLANIFICATION" Foreground="#8B0000" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
-        </Border>
+        <!-- Titre adapté à la MainWindow -->
+        <TextBox x:Name="TitreFenetreMain" IsReadOnly="True" HorizontalAlignment="Left" Margin="90,-59,0,0" Grid.Row="2" TextWrapping="Wrap" Text="PHASE DE PLANIFICATION" VerticalAlignment="Top" Width="330" Panel.ZIndex="2" Background="#7F000000" Foreground="#B2FF0000" FontSize="21" BorderBrush="{x:Null}" FontFamily="Castellar"/>
 
-        <!-- CONTENU (2 Colonnes) -->
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="280"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <!-- Arrière-plan des stats haut droit -->
+        <Image x:Name="SupportInventaireFenetreMain" HorizontalAlignment="Left" Height="197" Margin="454,-137,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="557" Panel.ZIndex="1" Source="/assets/UI/Background/Background_State.png" Grid.ColumnSpan="2"/>
 
-            <!-- PANNEAU GAUCHE : AVENTURIER -->
-            <Border Grid.Column="0" Background="#8A8061" BorderBrush="#CBA758" BorderThickness="1">
-                <Grid Background="#FF1E1E1D">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+        <!-- Icônes et Textes d'état (Gold / Level / Joueur) -->
+        <Image x:Name="IconGoldFenetreMain" HorizontalAlignment="Left" Height="24" Margin="482,-59,0,0" VerticalAlignment="Top" Width="33" Source="/assets/UI/Icon/Gold_Icon.png" Panel.ZIndex="2"/>
+        <Image x:Name="IconLvlFenetreMain" HorizontalAlignment="Left" Height="29" Margin="29,-61,0,0" VerticalAlignment="Top" Width="28" Source="/assets/UI/Icon/Level_Icon.png" Panel.ZIndex="2" Grid.Column="1"/>
+        <TextBox x:Name="NomJoueurFenetreMain" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" Margin="120,-56,0,0" TextWrapping="Wrap" Text="Nom du joueur" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#7FFF0000" BorderBrush="Black" Panel.ZIndex="2"/>
+        <Button x:Name="BtnSaveFenetreMain" Grid.Column="1" Content="Sauvegarder" HorizontalAlignment="Left" Margin="370,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" BorderBrush="#FF0004FF" Foreground="White" Height="21" Width="76"/>
+        <Button x:Name="BtnLogRegister" Grid.Column="1" Content="Login / Register" HorizontalAlignment="Left" Margin="261,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" Foreground="White" BorderBrush="Black" Height="21" Width="89"/>
+        <TextBox x:Name="NombreGoldFenetreMain" IsReadOnly="True" Margin="511,-56,1,0" TextWrapping="Wrap" Text="Gold" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FFFFFD00"/>
+        <TextBox x:Name="NombreLvlFenetreMain" IsReadOnly="True" Margin="64,-55,375,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FF00FFF1" RenderTransformOrigin="2.061,0.585" Grid.Column="1"/>
+        <Rectangle x:Name="RecAventurierDispo" HorizontalAlignment="Left" Height="433" Margin="10,99,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="444" Fill="#260003FF"/>
+        <TextBox x:Name="TitreAventurierSpeciaux" IsReadOnly="True" HorizontalAlignment="Left" Margin="31,113,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Aventurier Spéciaux :" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFCE00" BorderBrush="{x:Null}"/>
+        <Image Margin="44,147,431,328" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png" Stretch="Fill"/>
+        <Image Margin="191,147,284,328" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers-Spéciaux/Hēi Jiǔ.png" Stretch="Fill" RenderTransformOrigin="0.778,0.45"/>
+        <Image Margin="318,147,157,328" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers-Spéciaux/Zhìyuān.png" Stretch="Fill" RenderTransformOrigin="0.778,0.45"/>
+        <TextBox x:Name="NomFushou" IsReadOnly="True" HorizontalAlignment="Left" Margin="54,247,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Fùchóu" VerticalAlignment="Top" Width="45" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="NomHeiJiu" IsReadOnly="True" HorizontalAlignment="Left" Margin="206,247,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Hēi Jiǔ" VerticalAlignment="Top" Width="45" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+        <TextBox x:Name="NomZhiyuan" IsReadOnly="True" HorizontalAlignment="Left" Margin="334,247,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Zhìyuān" VerticalAlignment="Top" Width="54" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="31,279,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Aventurier :" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFCE00" BorderBrush="{x:Null}"/>
+        <Image Margin="34,309,451,167" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HBarabarian1.png" Stretch="Fill"/>
+        <Image Margin="135,310,350,166" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HMage1.png" Stretch="Fill"/>
+        <Image Margin="242,309,242,167" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HPriest1.png" Stretch="Fill"/>
+        <Image Margin="355,306,130,170" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HRanger1.png" Stretch="Fill"/>
+        <Image Margin="39,421,446,55" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HRogue1.png" Stretch="Fill"/>
+        <Image Margin="200,419,286,57" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HTank1.png" Stretch="Fill"/>
+        <Image Margin="345,418,140,58" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HWarrior1.png" Stretch="Fill"/>
+        <TextBox x:Name="NomBarbare" IsReadOnly="True" HorizontalAlignment="Left" Margin="41,399,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Barbare" VerticalAlignment="Top" Width="53" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="NomMage" IsReadOnly="True" HorizontalAlignment="Left" Margin="145,399,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Mage" VerticalAlignment="Top" Width="45" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="NomPretre" IsReadOnly="True" HorizontalAlignment="Left" Margin="255,399,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Pretre" VerticalAlignment="Top" Width="45" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="NomArcher" IsReadOnly="True" HorizontalAlignment="Left" Margin="365,399,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Archer" VerticalAlignment="Top" Width="45" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="NomVoyou" IsReadOnly="True" HorizontalAlignment="Left" Margin="49,509,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Voyou" VerticalAlignment="Top" Width="45" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="NomTank" IsReadOnly="True" HorizontalAlignment="Left" Margin="210,504,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Tank" VerticalAlignment="Top" Width="54" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="NomChevalier" IsReadOnly="True" HorizontalAlignment="Left" Margin="344,505,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Chevalier" VerticalAlignment="Top" Width="60" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+        <Rectangle HorizontalAlignment="Center" Height="433" Margin="0,99,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="444" Fill="#260003FF" Grid.Column="1" RenderTransformOrigin="0.451,0.582"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="29,122,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Quetes :" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFCE00" BorderBrush="{x:Null}" Grid.Column="1"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="71" Margin="29,190,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="100" Source="/assets/UI/Quest_Illustrations/Quest_Circle.png"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="71" Margin="163,190,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="100" Source="/assets/UI/Quest_Illustrations/Quest_Dragon.png"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="71" Margin="29,314,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="100" Source="/assets/UI/Quest_Illustrations/Quest_Goblins.png"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="71" Margin="168,312,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="100" Source="/assets/UI/Quest_Illustrations/Quest_Spiders.png"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="71" Margin="316,314,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="100" Source="/assets/UI/Quest_Illustrations/Quest_Trees.png"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="71" Margin="29,426,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="100" Source="/assets/UI/Quest_Illustrations/Quest_Zombies.png"/>
+        <Image Grid.Column="1" Margin="316,192,61,301" Grid.RowSpan="3" Source="/assets/UI/Quest_Illustrations/Quest_Fadriass.png" Stretch="Fill"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="41,264,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Quest Circle" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="174,264,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Quest Dragon" VerticalAlignment="Top" Width="89" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="331,264,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Quest Fadriass" VerticalAlignment="Top" Width="85" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="40,384,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Quest Goblins" VerticalAlignment="Top" Width="89" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="178,384,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Quest Spiders" VerticalAlignment="Top" Width="83" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="331,383,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Quest Trees" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="41,502,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Quest Zombies" VerticalAlignment="Top" Width="88" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <Button x:Name="BtnQuestSpiders" Grid.Column="1" Content="Lancer" HorizontalAlignment="Left" Margin="168,312,0,0" Grid.Row="2" VerticalAlignment="Top" Height="67" Width="100" Background="#33000000" Foreground="White" BorderBrush="{x:Null}"/>
+        <Button x:Name="BtnQuestTrees" Grid.Column="1" Content="Lancer" HorizontalAlignment="Left" Margin="316,312,0,0" Grid.Row="2" VerticalAlignment="Top" Height="67" Width="100" Background="#33000000" Foreground="White" BorderBrush="{x:Null}"/>
+        <Button x:Name="BtnQuestGoblins" Grid.Column="1" Content="Lancer" HorizontalAlignment="Left" Margin="29,314,0,0" Grid.Row="2" VerticalAlignment="Top" Height="67" Width="100" Background="#33000000" Foreground="White" BorderBrush="{x:Null}"/>
+        <Button x:Name="BtnQuestZombies" Grid.Column="1" Content="Lancer" HorizontalAlignment="Left" Margin="29,426,0,0" Grid.Row="2" VerticalAlignment="Top" Height="67" Width="100" Background="#33000000" Foreground="White" BorderBrush="{x:Null}"/>
+        <Button Click="LancerQuestCircleBtn" x:Name="BtnQueteCircle" Grid.Column="1" Content="Lancer" HorizontalAlignment="Left" Margin="30,191,0,0" Grid.Row="2" VerticalAlignment="Top" Height="67" Width="100" Background="#33000000" Foreground="White" BorderBrush="{x:Null}"/>
+        <Button x:Name="BtnQuestDragon" Grid.Column="1" Content="Lancer" HorizontalAlignment="Left" Margin="161,190,0,0" Grid.Row="2" VerticalAlignment="Top" Height="67" Width="100" Background="#33000000" Foreground="White" BorderBrush="{x:Null}"/>
+        <Button x:Name="BtnQuestFadriass" Grid.Column="1" Content="Lancer" HorizontalAlignment="Left" Margin="316,190,0,0" Grid.Row="2" VerticalAlignment="Top" Height="67" Width="100" Background="#33000000" Foreground="White" BorderBrush="{x:Null}"/>
+        <CheckBox x:Name="CheckFushou" Grid.Column="1" Content="Fùchóu" HorizontalAlignment="Left" Margin="178,444,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <CheckBox x:Name="CheckHeiJiu" Grid.Column="1" Content="Hēi Jiǔ" HorizontalAlignment="Left" Margin="178,472,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <CheckBox x:Name="CheckZhiyuan" Grid.Column="1" Content="Zhìyuān" HorizontalAlignment="Left" Margin="178,502,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <CheckBox x:Name="CheckMage" Grid.Column="1" Content="Mage" HorizontalAlignment="Left" Margin="387,462,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <CheckBox x:Name="CheckPretre" Grid.Column="1" Content="Pretre" HorizontalAlignment="Left" Margin="387,484,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <CheckBox x:Name="CheckArcher" Grid.Column="1" Content="Archer" HorizontalAlignment="Left" Margin="387,505,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <CheckBox x:Name="CheckBarbare" Grid.Column="1" Content="Barbare" HorizontalAlignment="Left" Margin="387,442,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <CheckBox x:Name="CheckChevalier" Grid.Column="1" Content="Chevalier" HorizontalAlignment="Left" Margin="291,462,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <CheckBox x:Name="CheckTank" Grid.Column="1" Content="Tank" HorizontalAlignment="Left" Margin="291,484,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <CheckBox x:Name="CheckVoyou" Grid.Column="1" Content="Voyou" HorizontalAlignment="Left" Margin="291,506,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="144,418,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Choix Aventurier Spéciaux" VerticalAlignment="Top" Width="150" Foreground="#FFF5D500" Background="#4C000000" BorderBrush="{x:Null}"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="348,418,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Choix Aventurier" VerticalAlignment="Top" Width="150" Foreground="#FFF5D500" Background="#4C000000" BorderBrush="{x:Null}" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Classe" IsReadOnly="True" HorizontalAlignment="Left" Margin="132,147,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Classe" VerticalAlignment="Top" Width="51" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.256,1.311" Height="18"/>
+        <TextBox x:Name="Exp" IsReadOnly="True" HorizontalAlignment="Left" Margin="132,171,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Exp" VerticalAlignment="Top" Width="54" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.256,1.311" Height="18"/>
+        <TextBox x:Name="Niveau" IsReadOnly="True" HorizontalAlignment="Left" Margin="135,194,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Lvl" VerticalAlignment="Top" Width="51" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.256,1.311" Height="18"/>
+        <TextBox x:Name="Classe_Copy" IsReadOnly="True" HorizontalAlignment="Left" Margin="277,147,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Classe" VerticalAlignment="Top" Width="51" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.256,1.311" Height="18"/>
+        <TextBox x:Name="Exp_Copy" IsReadOnly="True" HorizontalAlignment="Left" Margin="277,171,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Exp" VerticalAlignment="Top" Width="54" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.256,1.311" Height="18"/>
+        <TextBox x:Name="Niveau_Copy" IsReadOnly="True" HorizontalAlignment="Left" Margin="280,194,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Lvl" VerticalAlignment="Top" Width="51" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.256,1.311" Height="18"/>
+        <TextBox x:Name="Classe_Copy1" IsReadOnly="True" HorizontalAlignment="Left" Margin="394,147,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Classe" VerticalAlignment="Top" Width="51" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.256,1.311" Height="18"/>
+        <TextBox x:Name="Exp_Copy1" IsReadOnly="True" HorizontalAlignment="Left" Margin="394,171,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Exp" VerticalAlignment="Top" Width="54" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.256,1.311" Height="18"/>
+        <TextBox x:Name="Niveau_Copy1" IsReadOnly="True" HorizontalAlignment="Left" Margin="397,194,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Lvl" VerticalAlignment="Top" Width="51" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.256,1.311" Height="18"/>
+        <!-- ========================================================================= -->
 
-                    <Border Grid.Row="0" BorderBrush="#CBA758" BorderThickness="0,0,0,1" Padding="8,4">
-                        <TextBlock Text="Aventurier" Foreground="#2E7D32" FontWeight="Bold" FontSize="14"/>
-                    </Border>
+        <!-- CONTENU DE LA PHASE DE PLANIFICATION -->
 
-                    <StackPanel Grid.Row="1" Margin="10">
-                        <Border BorderBrush="#CBA758" BorderThickness="1" Padding="10">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="60"/>
-                                    <ColumnDefinition Width="10"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Rectangle Grid.Column="0" Height="60" Stroke="#CBA758" StrokeThickness="1"/>
-                                <Border Grid.Column="2" BorderBrush="#CBA758" BorderThickness="1" Padding="5">
-                                    <TextBlock Text="Description Aventurier" Foreground="#FFCBA758" TextWrapping="Wrap"/>
-                                </Border>
-                            </Grid>
-                        </Border>
-                    </StackPanel>
-                </Grid>
-            </Border>
-
-            <!-- PANNEAU DROIT : QUETE DISPONIBLE -->
-            <Border Grid.Column="2" Background="#FF1E1E1D" BorderBrush="#CBA758" BorderThickness="1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-
-                    <Border Grid.Row="0" BorderBrush="#CBA758" BorderThickness="0,0,0,1" Padding="8,4">
-                        <TextBlock Text="Quete Disponible" Foreground="#1565C0" FontWeight="Bold" FontSize="14"/>
-                    </Border>
-
-                    <StackPanel Grid.Row="1" Margin="20">
-                        <!-- Quête 1 -->
-                        <Grid Margin="0,0,0,20">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="15"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Rectangle Grid.Column="0" Height="110" Stroke="#CBA758" StrokeThickness="1"/>
-
-                            <Grid Grid.Column="2">
-                                <Border BorderBrush="#CBA758" BorderThickness="1" Padding="8">
-                                    <TextBlock Text="Description de la quete" Foreground="#CBA758"/>
-                                </Border>
-                                <Button Content="Choisir" x:Name="BtnQuestOne" Background="#388E3C" Foreground="White" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-30" Click="ToResolveQuestOne"/>
-                            </Grid>
-                        </Grid>
-
-                        <!-- Quête 2 -->
-                        <Grid Margin="0,20,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="15"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Rectangle Grid.Column="0" Height="110" Stroke="#CBA758" StrokeThickness="1"/>
-
-                            <Grid Grid.Column="2">
-                                <Border BorderBrush="#CBA758" BorderThickness="1" Padding="8">
-                                    <TextBlock Text="Description de la quete" Foreground="#CBA758"/>
-                                </Border>
-                                <Button Content="Choisir" x:Name="BtnQuestTwo" Background="#388E3C" Foreground="White" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-30" Click="ToResolveQuestTwo"/>
-                            </Grid>
-                        </Grid>
-                    </StackPanel>
-                </Grid>
-            </Border>
-        </Grid>
     </Grid>
 </Window>

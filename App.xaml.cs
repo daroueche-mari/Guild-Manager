@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace GuildManagerProject
+namespace GuildManager
 {
     /// <summary>
     /// Interaction logic for App.xaml

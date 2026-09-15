@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace GuildManagerProject
+namespace GuildManager
 {
     /// <summary>
     /// Logique d'interaction pour GameWindow.xaml
@@ -22,9 +22,5 @@ namespace GuildManagerProject
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }
