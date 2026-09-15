@@ -6,11 +6,11 @@ namespace GuildManagerProjet
 {
     internal class AdventurerSpecial : Adventurer
     {
-        string Personnalite { get; set; }
+        string Personnality { get; set; }
 
-        public AdventurerSpecial(string personnalite, string name,int vie, string classe, string race, int niveau, int experience, string inventaire, int bourse, string motivation) : base(name, vie , classe, race, niveau, experience, inventaire, bourse, motivation)
+        public AdventurerSpecial(string personnality, string name, int health, string classe, string breed, int level, int experience, string inventory, int gold, string motivation) : base(name, health , classe, breed, level, experience, inventory, gold, motivation)
         {
-            Personnalite = personnalite;
+            Personnality = personnality;
         }
     }
 }

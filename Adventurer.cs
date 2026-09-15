@@ -7,25 +7,25 @@ namespace GuildManagerProjet
     internal class Adventurer
     {
             public string Name { get; set; }
-            public int Vie { get; set; }
+            public int Health { get; set; }
             public string Classe { get; set; }
-            public string Race { get; set; }
-            public int Niveau { get; set; }
+            public string Breed { get; set; }
+            public int Level { get; set; }
             public int Experience { get; set; }
-            public string Inventaire { get; set; }
-            public int Bourse { get; set; }
+            public string Inventory { get; set; }
+            public int Gold { get; set; }
             public string Motivation { get; set; }
 
-            public Adventurer(string name,int vie, string classe, string race, int niveau, int experience, string inventaire, int bourse, string motivation)
+            public Adventurer(string name,int health, string classe, string breed, int level, int experience, string inventory, int gold, string motivation)
             {
                 Name = name;
-                Vie = vie;
+                Health = health;
                 Classe = classe;
-                Race = race;
-                Niveau = niveau;
+                Breed = breed;
+                Level = level;
                 Experience = experience;
-                Inventaire = inventaire;
-                Bourse = bourse;
+                Inventory = inventory;
+                Gold = gold;
                 Motivation = motivation;
             }
         }

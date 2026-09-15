@@ -1,4 +1,4 @@
-﻿using GuildManager.Model;
+﻿
 using System.Diagnostics;
 using System.Text;
 using System.Windows;
@@ -64,17 +64,17 @@ namespace GuildManager
 
             if (CheckVoyou.IsChecked == true)
             {
-                gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Profile_HRogue1.png", UriKind.Relative));
+                gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HRogue1.png", UriKind.Relative));
                 gameWindow.NomAventurier2.Text = NomVoyou.Text;
             }
             if (CheckTank.IsChecked == true)
             {
-                gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Profile_HTank1.png", UriKind.Relative));
+                gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HTank1.png", UriKind.Relative));
                 gameWindow.NomAventurier2.Text = NomTank.Text;
             }
             if (CheckChevalier.IsChecked == true)
             {
-                gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Profil_HWarrior1.png", UriKind.Relative));
+                gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profil_HWarrior1.png", UriKind.Relative));
                 gameWindow.NomAventurier2.Text = NomChevalier.Text;
             }
 
@@ -82,22 +82,22 @@ namespace GuildManager
 
             if (CheckMage.IsChecked == true)
             {
-                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Profile_HMage1.png", UriKind.Relative));
+                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HMage1.png", UriKind.Relative));
                 gameWindow.NomAventurier3.Text = NomMage.Text;
             }
             if (CheckPretre.IsChecked == true)
             {
-                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Profile_HPriest1.png", UriKind.Relative));
+                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HPriest1.png", UriKind.Relative));
                 gameWindow.NomAventurier3.Text = NomPretre.Text;
             }
             if (CheckArcher.IsChecked == true)
             {
-                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Profile_HRanger1.png", UriKind.Relative));
+                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HRanger1.png", UriKind.Relative));
                 gameWindow.NomAventurier3.Text = NomArcher.Text;
             }
             if (CheckBarbare.IsChecked == true)
             {
-                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Profile_HBarabarian1.png", UriKind.Relative));
+                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HBarabarian1.png", UriKind.Relative));
                 gameWindow.NomAventurier3.Text = NomBarbare.Text;
 
             }
@@ -171,9 +171,6 @@ namespace GuildManager
 
         }
 
-        private void NomFushou_Copy1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+       
     }
 }
