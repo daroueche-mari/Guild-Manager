@@ -39,6 +39,8 @@ namespace GuildManager
         AdventurerSpecial myFushou = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
         AdventurerSpecial myHeijiu = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
         AdventurerSpecial myZhiyuan = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
+        Adventurer myPlayer = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+        
 
         public MainWindow()
         {
@@ -54,7 +56,12 @@ namespace GuildManager
             StatVoyou();
             StatTank();
             StatChevalier();
+            myPlayer.Gold = 50;
+            myPlayer.Level = 1;
+            NombreGoldFenetreMain.Text = myPlayer.Gold.ToString();
+            NombreLvlFenetreMain.Text = myPlayer.Level.ToString();
         }
+       
         // Stat Aventurier Speciaux
         private void StatFushou()
         {
