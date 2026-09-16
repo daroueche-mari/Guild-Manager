@@ -1,4 +1,5 @@
 ﻿
+using GuildManagerProjet;
 using System.Diagnostics;
 using System.Text;
 using System.Windows;
@@ -20,90 +21,116 @@ namespace GuildManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Instance des classes
+        QuestCircle questCircle = new QuestCircle();
+        QuestDragon questDragon = new QuestDragon();
+        QuestFadriass questFadriass = new QuestFadriass();
+        QuestGoblins questGoblins = new QuestGoblins();
+        QuestSpiders questSpiders = new QuestSpiders();
+        QuestTrees questTrees = new QuestTrees();
+        QuestZombies questZombies = new QuestZombies();
+        Adventurer myBarbare = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+        Adventurer myMage = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+        Adventurer myPretre = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+        Adventurer myArcher = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+        Adventurer myVoyou = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+        Adventurer myTank = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+        Adventurer myChevalier = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+        AdventurerSpecial myFushou = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
+        AdventurerSpecial myHeijiu = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
+        AdventurerSpecial myZhiyuan = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
+
         public MainWindow()
         {
             InitializeComponent();
             ConfigCheckBoxMain();
+            StatFushou();
+            StatHeijiu();
+            StatZhiyuan();
+            StatBarbare();
+            StatMage();
+            StatPretre();
+            StatArcher();
+            StatVoyou();
+            StatTank();
+            StatChevalier();
+        }
+        // Stat Aventurier Speciaux
+        private void StatFushou()
+        {
+            FushouStats.ShowFushouStats(this, myFushou);
+        }
+        private void StatHeijiu()
+        {
+            HeijiuStats.ShowHeijiuStats(this, myHeijiu);
+        }
+        private void StatZhiyuan()
+        {
+            ZhiyuanStats.ShowZhiyuanStats(this, myZhiyuan);
         }
 
+        // Stat Aventurier Basique
+        private void StatBarbare()
+        {
+            BarbareStats.ShowBarbareStats(this, myBarbare);
+        }
+        private void StatMage()
+        {
+            MageStats.ShowMageStats(this, myMage);
+        }
+        private void StatPretre()
+        {
+            PretreStats.ShowPretreStats(this, myPretre);
+        }
+        private void StatArcher()
+        {
+            ArcherStats.ShowArcherStats(this, myArcher);
+        }
+        private void StatVoyou()
+        {
+            VoyouStats.ShowVoyouStats(this, myVoyou);
+        }
+        private void StatTank()
+        {
+            TankStats.ShowTankStats(this, myTank);
+        }
+        private void StatChevalier()
+        {
+            ChevalierStats.ShowChevalierStats(this, myChevalier);
+        }
+
+        // Bouton lancement de Quest
 
         private void LancerQuestCircleBtn(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow();
-           
-            // Config Images Quetes
-
-            gameWindow.FondQueteChoisi.Source = new BitmapImage(new Uri("/assets/UI/Quest_Illustrations/Quest_Circle.png", UriKind.Relative));
-            gameWindow.Ennemi.Source = new BitmapImage(new Uri("/assets/Personnages/Personnages-Importants/Meurtrier.png", UriKind.Relative));
-            gameWindow.NomEnnemi.Text = "Meurtrier";
-            gameWindow.TypeEnnemi.Text = "Monstre";
-
-            // Config Histoire Quetes
-
-            gameWindow.Histoire.Text = "ssssssssssssssssssssssssssssssssssssssssssssss";
-
-            
-            // CheckBox Aventurier Spéciaux
-
-            if (CheckFushou.IsChecked == true)
-            {
-                gameWindow.Combattant1.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png", UriKind.Relative));
-                gameWindow.NomAventurier1.Text = NomFushou.Text;
-            }
-            if (CheckHeiJiu.IsChecked == true)
-            {
-                gameWindow.Combattant1.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Hēi Jiǔ.png", UriKind.Relative));
-                gameWindow.NomAventurier1.Text = NomHeiJiu.Text;
-            }
-            if (CheckZhiyuan.IsChecked == true)
-            {
-                gameWindow.Combattant1.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Zhìyuān.png", UriKind.Relative));
-                gameWindow.NomAventurier1.Text = NomZhiyuan.Text;
-            }
-            // CheckBox Aventurier 1
-
-            if (CheckVoyou.IsChecked == true)
-            {
-                gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HRogue1.png", UriKind.Relative));
-                gameWindow.NomAventurier2.Text = NomVoyou.Text;
-            }
-            if (CheckTank.IsChecked == true)
-            {
-                gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HTank1.png", UriKind.Relative));
-                gameWindow.NomAventurier2.Text = NomTank.Text;
-            }
-            if (CheckChevalier.IsChecked == true)
-            {
-                gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profil_HWarrior1.png", UriKind.Relative));
-                gameWindow.NomAventurier2.Text = NomChevalier.Text;
-            }
-
-            // CheckBox Aventurier 2
-
-            if (CheckMage.IsChecked == true)
-            {
-                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HMage1.png", UriKind.Relative));
-                gameWindow.NomAventurier3.Text = NomMage.Text;
-            }
-            if (CheckPretre.IsChecked == true)
-            {
-                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HPriest1.png", UriKind.Relative));
-                gameWindow.NomAventurier3.Text = NomPretre.Text;
-            }
-            if (CheckArcher.IsChecked == true)
-            {
-                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HRanger1.png", UriKind.Relative));
-                gameWindow.NomAventurier3.Text = NomArcher.Text;
-            }
-            if (CheckBarbare.IsChecked == true)
-            {
-                gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HBarabarian1.png", UriKind.Relative));
-                gameWindow.NomAventurier3.Text = NomBarbare.Text;
-
-            }
-            gameWindow.Show();
+            QuestCircle.LaunchQuestCircle(this);
+        }
+        private void LancerQuestDragonBtn(object sender, RoutedEventArgs e)
+        {
+            QuestDragon.LaunchQuestDragon(this);
+        }
+        private void LancerQuestFadriassBtn(object sender, RoutedEventArgs e)
+        {
+            QuestFadriass.LaunchQuestFadriass(this);
+        }
+        private void LancerQuestGoblinsBtn(object sender, RoutedEventArgs e)
+        {
+            QuestGoblins.LaunchQuestGoblins(this);
+        }
+        private void LancerQuestSpidersBtn(object sender, RoutedEventArgs e)
+        {
+            QuestSpiders.LaunchQuestSpiders(this);
+        }
+        private void LancerQuestTreesBtn(object sender, RoutedEventArgs e)
+        {
+            QuestTrees.LaunchQuestTrees(this);
+        }
+        private void LancerQuestZombiesBtn(object sender, RoutedEventArgs e)
+        {
+            QuestZombies.LaunchQuestZombies(this);
         }
 
+        // Config des checkbox(à finir)
         private void ConfigCheckBoxMain()
         {
             // Check Aventurier Spéciaux

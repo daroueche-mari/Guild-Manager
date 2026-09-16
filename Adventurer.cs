@@ -28,5 +28,8 @@ namespace GuildManagerProjet
                 Gold = gold;
                 Motivation = motivation;
             }
+
+
+
         }
 }

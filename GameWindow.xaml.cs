@@ -21,6 +21,11 @@ namespace GuildManager
         {
             InitializeComponent();
         }
+        private void BackToQuestBtn(object sender, RoutedEventArgs e)
+        {
+            MainWindow mymainWindow = new MainWindow();
+            mymainWindow.Show();
+        }
 
     }
 }
