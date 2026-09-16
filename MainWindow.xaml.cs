@@ -60,6 +60,7 @@ namespace GuildManager
             myPlayer.Level = 1;
             NombreGoldFenetreMain.Text = myPlayer.Gold.ToString();
             NombreLvlFenetreMain.Text = myPlayer.Level.ToString();
+            QuestCircle.GoldandxpCircle(180, 200, this);   
         }
        
         // Stat Aventurier Speciaux
@@ -111,30 +112,37 @@ namespace GuildManager
         private void LancerQuestCircleBtn(object sender, RoutedEventArgs e)
         {
             QuestCircle.LaunchQuestCircle(this);
+            this.Hide();
         }
         private void LancerQuestDragonBtn(object sender, RoutedEventArgs e)
         {
             QuestDragon.LaunchQuestDragon(this);
+            this.Hide();
         }
         private void LancerQuestFadriassBtn(object sender, RoutedEventArgs e)
         {
             QuestFadriass.LaunchQuestFadriass(this);
+            this.Hide();
         }
         private void LancerQuestGoblinsBtn(object sender, RoutedEventArgs e)
         {
             QuestGoblins.LaunchQuestGoblins(this);
+            this.Hide();
         }
         private void LancerQuestSpidersBtn(object sender, RoutedEventArgs e)
         {
             QuestSpiders.LaunchQuestSpiders(this);
+            this.Hide();
         }
         private void LancerQuestTreesBtn(object sender, RoutedEventArgs e)
         {
             QuestTrees.LaunchQuestTrees(this);
+            this.Hide();
         }
         private void LancerQuestZombiesBtn(object sender, RoutedEventArgs e)
         {
             QuestZombies.LaunchQuestZombies(this);
+            this.Hide();
         }
 
         // Config des checkbox(à finir)

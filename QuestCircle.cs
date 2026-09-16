@@ -10,6 +10,12 @@ namespace GuildManager
 {
     internal class QuestCircle
     {
+        public static void GoldandxpCircle(int goldcircle, int xpcircle, MainWindow mainWindow)
+        {
+            
+            mainWindow.GoldQuestCircle.Text = goldcircle.ToString();
+            mainWindow.XpQuestCircle.Text = xpcircle.ToString();
+        } 
         public static void LaunchQuestCircle(MainWindow mainWindow)
         {
             GameWindow gameWindow = new GameWindow();
@@ -22,9 +28,8 @@ namespace GuildManager
             gameWindow.TypeEnnemi.Text = "Monstre";
 
             // Config Histoire Quetes
-
+            
             gameWindow.Histoire.Text = "Histoire Quete Circle";
-
 
             // CheckBox Aventurier Spéciaux
 

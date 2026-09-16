@@ -32,7 +32,8 @@ namespace GuildManager
         private void BackToQuestBtn(object sender, RoutedEventArgs e)
         {
             MainWindow mymainWindow = new MainWindow();
-            mymainWindow.Show();
+            Application.Current.MainWindow.Show();
+            this.Hide();
         }
 
     }

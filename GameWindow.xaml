@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuildManager"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         Title="GameWindow" Height="650" Width="1050" Background="#4C000000">
+
     <Grid Margin="10,75,10,1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="550*"/>
@@ -19,47 +22,44 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- BARRE SUPÉRIEURE (Gold / Level) -->
-
-        <!-- TITRE PRINCIPAL + BOUTON RETOUR -->
-        <Image x:Name="SupportHistoire" HorizontalAlignment="Left" Height="284" Margin="235,111,0,0" Grid.Row="2" VerticalAlignment="Top" Width="560" Source="/assets/UI/Background/Background_Quest_Resolution.png" Panel.ZIndex="1" Grid.ColumnSpan="2"/>
+        <!-- FOND DE LA QUÊTE EN COURS -->
         <Image x:Name="FondQueteChoisi" HorizontalAlignment="Left" Height="687" Margin="0,52,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1030" Source="/assets/UI/Quest_Illustrations/Quest_Fadriass.png" Grid.RowSpan="2" Grid.ColumnSpan="4"/>
-        <Rectangle x:Name="RecEnnemi" HorizontalAlignment="Left" Height="346" Margin="20,75,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="199" Panel.ZIndex="1" Fill="#7F000000"/>
-        <Rectangle x:Name="RecAventurier" HorizontalAlignment="Left" Height="383" Margin="236,76,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="225" Panel.ZIndex="1" Fill="#7F000000" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Rectangle x:Name="RecNomEnnemi" HorizontalAlignment="Left" Height="50" Margin="19,472,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="199" Panel.ZIndex="1" Fill="#7F000000"/>
-        <Rectangle x:Name="RecNomAventurier" HorizontalAlignment="Left" Height="50" Margin="236,475,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="225" Panel.ZIndex="1" Fill="#7F000000" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="NomEnnemi" IsReadOnly="True" HorizontalAlignment="Left" Margin="83,472,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Fadriass" VerticalAlignment="Top" Width="98" Panel.ZIndex="1"  Background="{x:Null}" Foreground="White" FontSize="17" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="TypeEnnemi" IsReadOnly="True" HorizontalAlignment="Left" Margin="95,500,0,0" Grid.Row="2" TextWrapping="Wrap" Text="BOSS" VerticalAlignment="Top" Width="79" Panel.ZIndex="1"  Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" FontSize="10"/>
-        <Image x:Name="Ennemi" HorizontalAlignment="Left" Height="300" Margin="19,75,0,0" Grid.Row="2" VerticalAlignment="Top" Width="198" Panel.ZIndex="2" Source="/assets/Personnages/Personnages-Importants/Fadriass.png"/>
-        <Image x:Name="Combattant1" HorizontalAlignment="Left" Height="239" Margin="250,77,0,0" Grid.Row="2" VerticalAlignment="Top" Width="199" Panel.ZIndex="2" Source="/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png" Grid.Column="1" Grid.ColumnSpan="2"/>
 
-        <!-- Image corrigée (Height et Margin uniques) -->
-        <Image x:Name="SupportTitreFenetreGame" HorizontalAlignment="Left" Height="274" Margin="21,-179,0,0" VerticalAlignment="Top" Width="713" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1" Source="/assets/UI/Background/Background_Top.png" Grid.RowSpan="3" Grid.ColumnSpan="2">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0.982"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0.857"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-
+        <!-- HEADER PRINCIPAL -->
+        <Image x:Name="SupportTitreFenetreGame" HorizontalAlignment="Left" Height="274" Margin="21,-179,0,0" VerticalAlignment="Top" Width="713" Panel.ZIndex="1" Source="/assets/UI/Background/Background_Top.png" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
         <TextBox x:Name="TitreFenetre" IsReadOnly="True" HorizontalAlignment="Left" Margin="90,-59,0,0" Grid.Row="2" TextWrapping="Wrap" Text="PHASE DE RESOLUTION" VerticalAlignment="Top" Width="310" Panel.ZIndex="2" Background="#7F000000" Foreground="#B2FF0000" FontSize="23" BorderBrush="{x:Null}" FontFamily="Castellar"/>
+
+        <!-- BARRE SUPÉRIEURE (Stats & Joueur) -->
         <Image x:Name="SupportInventaireFenetreGame" HorizontalAlignment="Left" Height="256" Margin="454,-137,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="557" Panel.ZIndex="1" Source="/assets/UI/Background/Background_State.png" Grid.ColumnSpan="3"/>
-        <Image x:Name="IconGold" HorizontalAlignment="Left" Height="24" Margin="482,-59,0,0" VerticalAlignment="Top" Width="33" Source="/assets/UI/Icon/Gold_Icon.png" Panel.ZIndex="2"/>
-        <Image x:Name="IconLvl" HorizontalAlignment="Left" Height="29" Margin="35,-61,0,0" VerticalAlignment="Top" Width="28" Source="/assets/UI/Icon/Level_Icon.png" Panel.ZIndex="2" Grid.Column="1"/>
-        <Button Click="BackToQuestBtn" x:Name="BtnRetourQuest" Content="Retour aux Quetes" HorizontalAlignment="Left" Margin="327,-55,0,0" VerticalAlignment="Top" Grid.Column="1" Width="110" Height="20" Background="#FF18C400" Foreground="White" Panel.ZIndex="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="NomJoueur" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" Margin="120,-56,0,0" TextWrapping="Wrap" Text="Nom du joueur" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#7FFF0000" BorderBrush="Black" Panel.ZIndex="2"/>
+        <Image x:Name="IconGold" HorizontalAlignment="Left" Height="24" Margin="20,23,0,0" VerticalAlignment="Top" Width="33" Source="/assets/UI/Icon/Gold_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
+        <Image x:Name="IconLvl" HorizontalAlignment="Left" Height="29" Margin="438,24,0,0" VerticalAlignment="Top" Width="28" Source="/assets/UI/Icon/Level_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
+        <TextBox x:Name="NombreGold" IsReadOnly="True" Margin="49,26,432,0" TextWrapping="Wrap" Text="Gold" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FFFFFD00" Grid.RowSpan="3"/>
+        <TextBox x:Name="NombreLvl" IsReadOnly="True" Margin="467,30,32,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FF00FFF1" Grid.RowSpan="3"/>
+        <TextBox x:Name="NomJoueur" IsReadOnly="True" HorizontalAlignment="Left" Margin="483,-54,0,0" TextWrapping="Wrap" Text="Nom du joueur" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#7FFF0000" BorderBrush="Black" Panel.ZIndex="2" Grid.ColumnSpan="2"/>
+
+        <!-- BOUTON RETOUR QUETES -->
+        <Button Click="BackToQuestBtn" x:Name="BtnRetourQuest" Content="Retour aux Quetes" HorizontalAlignment="Left" Margin="327,-55,0,0" VerticalAlignment="Top" Grid.Column="1" Width="110" Height="20" Background="#FF18C400" Foreground="White" Panel.ZIndex="2" Grid.ColumnSpan="2" Cursor="Hand"/>
+
+        <!-- ENNEMI ET INFOS -->
+        <Rectangle x:Name="RecEnnemi" HorizontalAlignment="Left" Height="346" Margin="20,75,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="199" Panel.ZIndex="1" Fill="#7F000000"/>
+        <Image x:Name="Ennemi" HorizontalAlignment="Left" Height="300" Margin="19,75,0,0" Grid.Row="2" VerticalAlignment="Top" Width="198" Panel.ZIndex="2" Source="/assets/Personnages/Personnages-Importants/Fadriass.png"/>
+        <Rectangle x:Name="RecNomEnnemi" HorizontalAlignment="Left" Height="50" Margin="19,472,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="199" Panel.ZIndex="1" Fill="#7F000000"/>
+        <TextBox x:Name="NomEnnemi" IsReadOnly="True" HorizontalAlignment="Left" Margin="83,472,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Fadriass" VerticalAlignment="Top" Width="98" Panel.ZIndex="1" Background="{x:Null}" Foreground="White" FontSize="17" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="TypeEnnemi" IsReadOnly="True" HorizontalAlignment="Left" Margin="95,500,0,0" Grid.Row="2" TextWrapping="Wrap" Text="BOSS" VerticalAlignment="Top" Width="79" Panel.ZIndex="1" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" FontSize="10"/>
+
+        <!-- JOURNAL DE LA QUÊTE (CENTRE) -->
+        <Image x:Name="SupportHistoire" HorizontalAlignment="Left" Height="284" Margin="235,111,0,0" Grid.Row="2" VerticalAlignment="Top" Width="560" Source="/assets/UI/Background/Background_Quest_Resolution.png" Panel.ZIndex="1" Grid.ColumnSpan="2"/>
         <TextBox x:Name="Histoire" IsReadOnly="True" HorizontalAlignment="Left" Margin="282,151,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Journal de la quete" VerticalAlignment="Top" Width="462" Panel.ZIndex="2" Grid.ColumnSpan="2" Height="159" Background="#19000000" Foreground="White"/>
-        <TextBox x:Name="NombreGold" IsReadOnly="True" Margin="511,-56,367,0" TextWrapping="Wrap" Text="Gold" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FFFFFD00" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="NombreLvl" IsReadOnly="True" Margin="64,-55,282,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FF00FFF1" RenderTransformOrigin="2.061,0.585" Grid.Column="1"/>
-        <TextBox x:Name="NomAventurier1" IsReadOnly="True" HorizontalAlignment="Left" Margin="312,475,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Aventurier" VerticalAlignment="Top" Width="86" Panel.ZIndex="1"  Background="{x:Null}" Foreground="White" FontSize="17" BorderBrush="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="NomAventurier2" IsReadOnly="True" HorizontalAlignment="Left" Margin="238,500,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Soutien 1" VerticalAlignment="Top" Width="86" Panel.ZIndex="1"  Background="{x:Null}" Foreground="White" FontSize="17" BorderBrush="{x:Null}" Grid.Column="1"/>
-        <TextBox x:Name="NomAventurier3" IsReadOnly="True" HorizontalAlignment="Left" Margin="375,500,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Soutien 2" VerticalAlignment="Top" Width="86" Panel.ZIndex="1"  Background="{x:Null}" Foreground="White" FontSize="17" BorderBrush="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+        <!-- AVENTURIERS SÉLECTIONNÉS (DROITE) -->
+        <Rectangle x:Name="RecAventurier" HorizontalAlignment="Left" Height="383" Margin="236,76,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="225" Panel.ZIndex="1" Fill="#7F000000" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Image x:Name="Combattant1" HorizontalAlignment="Left" Height="239" Margin="250,77,0,0" Grid.Row="2" VerticalAlignment="Top" Width="199" Panel.ZIndex="2" Source="/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png" Grid.Column="1" Grid.ColumnSpan="2"/>
         <Image x:Name="Combattant2" Margin="250,343,73,119" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HBarabarian1.png" Stretch="Fill" Grid.Column="1" Panel.ZIndex="2"/>
         <Image x:Name="Combattant3" Margin="375,343,28,108" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HMage1.png" Stretch="Fill" Grid.Column="1" Panel.ZIndex="2" Grid.ColumnSpan="2"/>
 
-        <!-- ZONE DU JOURNAL DE L'AVENTURE -->
+        <Rectangle x:Name="RecNomAventurier" HorizontalAlignment="Left" Height="50" Margin="236,475,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="225" Panel.ZIndex="1" Fill="#7F000000" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="NomAventurier1" IsReadOnly="True" HorizontalAlignment="Left" Margin="312,475,0,0" Grid.Row="2" Text="Aventurier" VerticalAlignment="Top" Width="86" Panel.ZIndex="1" Background="{x:Null}" Foreground="White" FontSize="17" BorderBrush="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="NomAventurier2" IsReadOnly="True" HorizontalAlignment="Left" Margin="238,500,0,0" Grid.Row="2" Text="Soutien 1" VerticalAlignment="Top" Width="86" Panel.ZIndex="1" Background="{x:Null}" Foreground="White" FontSize="17" BorderBrush="{x:Null}" Grid.Column="1"/>
+        <TextBox x:Name="NomAventurier3" IsReadOnly="True" HorizontalAlignment="Left" Margin="375,500,0,0" Grid.Row="2" Text="Soutien 2" VerticalAlignment="Top" Width="86" Panel.ZIndex="1" Background="{x:Null}" Foreground="White" FontSize="17" BorderBrush="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
