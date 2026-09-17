@@ -22,92 +22,167 @@
         </Grid.RowDefinitions>
 
         <!-- HEADER -->
-        <Image x:Name="SupportTitreFenetreMain" HorizontalAlignment="Left" Height="274" Margin="21,-179,0,0" VerticalAlignment="Top" Width="713" Panel.ZIndex="1" Source="/assets/UI/Background/Background_Top.png" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+        <Image x:Name="SupportTitreFenetreMain" HorizontalAlignment="Left" Height="274" Margin="21,-180,0,0" VerticalAlignment="Top" Width="713" Panel.ZIndex="1" Source="/assets/UI/Background/Background_Top.png" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
         <TextBox x:Name="TitreFenetreMain" IsReadOnly="True" HorizontalAlignment="Left" Margin="90,-59,0,0" Grid.Row="2" TextWrapping="Wrap" Text="PHASE DE PLANIFICATION" VerticalAlignment="Top" Width="330" Panel.ZIndex="2" Background="#7F000000" Foreground="#B2FF0000" FontSize="21" BorderBrush="{x:Null}" FontFamily="Castellar"/>
         <Image x:Name="SupportInventaireFenetreMain" HorizontalAlignment="Left" Height="197" Margin="454,-137,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="557" Panel.ZIndex="1" Source="/assets/UI/Background/Background_State.png" Grid.ColumnSpan="2"/>
 
         <!-- STATS / BARRE SUPÉRIEURE -->
-        <Image x:Name="IconGoldFenetreMain" HorizontalAlignment="Left" Height="24" Margin="11,5,0,0" VerticalAlignment="Top" Width="32" Source="/assets/UI/Icon/Gold_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
-        <Image x:Name="IconLvlFenetreMain" HorizontalAlignment="Left" Height="29" Margin="452,0,0,0" VerticalAlignment="Top" Width="28" Source="/assets/UI/Icon/Level_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
+        <Image x:Name="IconGoldFenetreMain" HorizontalAlignment="Left" Height="24" Margin="11,-9,0,0" VerticalAlignment="Top" Width="32" Source="/assets/UI/Icon/Gold_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
+        <Image x:Name="IconLvlFenetreMain" HorizontalAlignment="Left" Height="29" Margin="452,-11,0,0" VerticalAlignment="Top" Width="28" Source="/assets/UI/Icon/Level_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
         <TextBox x:Name="NomJoueurFenetreMain" IsReadOnly="True" HorizontalAlignment="Left" Margin="482,-54,0,0" TextWrapping="Wrap" Text="Nom du joueur" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#7FFF0000" BorderBrush="Black" Panel.ZIndex="2" Grid.ColumnSpan="2"/>
         <Button x:Name="BtnSaveFenetreMain" Grid.Column="1" Content="Sauvegarder" HorizontalAlignment="Left" Margin="370,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" BorderBrush="#FF0004FF" Foreground="White" Height="21" Width="76"/>
-        <Button x:Name="BtnLogRegister" Grid.Column="1" Content="Login / Register" HorizontalAlignment="Left" Margin="261,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" Foreground="White" BorderBrush="Black" Height="21" Width="89"/>
-        <TextBox x:Name="NombreGoldFenetreMain" IsReadOnly="True" Margin="39,8,447,0" TextWrapping="Wrap" Text="Gold" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FFFFFD00" Grid.RowSpan="3"/>
-        <TextBox x:Name="NombreLvlFenetreMain" IsReadOnly="True" Margin="487,6,12,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FF00FFF1" Grid.RowSpan="3"/>
+        <Button Click="ShowLogRegisterWindowBtn" x:Name="BtnLogRegister" Grid.Column="1" Content="Login / Register" HorizontalAlignment="Left" Margin="261,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" Foreground="White" BorderBrush="Black" Height="21" Width="89"/>
+        <TextBox x:Name="NombreGoldFenetreMain" IsReadOnly="True" Margin="39,-8,447,0" TextWrapping="Wrap" Text="Gold" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FFFFFD00" Grid.RowSpan="3"/>
+        <TextBox x:Name="NombreLvlFenetreMain" IsReadOnly="True" Margin="487,-7,12,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FF00FFF1" Grid.RowSpan="3"/>
 
         <!-- SECTEUR AVENTURIERS (GAUCHE) -->
-        <Rectangle x:Name="RecAventurierDispo" HorizontalAlignment="Center" Height="503" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="530" Fill="#260003FF"/>
-        <TextBox x:Name="TitreAventurierSpeciaux" IsReadOnly="True" HorizontalAlignment="Left" Margin="31,52,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Aventurier Spéciaux :" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFCE00" BorderBrush="{x:Null}"/>
+        <Grid Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="530" Height="503">
+            <!-- FOND BLEU SEMI-TRANSPARENT -->
+            <Rectangle x:Name="RecAventurierDispo" Fill="#260003FF" Stroke="Black"/>
 
-        <Image Margin="26,86,449,384" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png" Stretch="Fill"/>
-        <Image Margin="194,86,281,384" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers-Spéciaux/Hēi Jiǔ.png" Stretch="Fill"/>
-        <Image Margin="366,86,109,384" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers-Spéciaux/Zhìyuān.png" Stretch="Fill"/>
+            <!-- STRUCTURE PRINCIPALE (HAUT FIXE + CONTENU SCROLLABLE) -->
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- En-tête avec bouton fixe -->
+                    <RowDefinition Height="*"/>
+                    <!-- Zone avec scroll -->
+                </Grid.RowDefinitions>
 
-        <TextBox x:Name="NomFushou" IsReadOnly="True" HorizontalAlignment="Left" Margin="113,156,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Fùchóu" VerticalAlignment="Top" Width="45" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="NomHeiJiu" IsReadOnly="True" HorizontalAlignment="Left" Margin="268,156,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Hēi Jiǔ" VerticalAlignment="Top" Width="45" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
-        <TextBox x:Name="NomZhiyuan" IsReadOnly="True" HorizontalAlignment="Left" Margin="446,156,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Zhìyuān" VerticalAlignment="Top" Width="54" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+                <!-- EN-TÊTE FIXE EN HAUT -->
+                <DockPanel Grid.Row="0" Margin="0,0,10,10">
 
-        <TextBox x:Name="ClasseFushou_Copy" IsReadOnly="True" HorizontalAlignment="Left" Margin="204,45,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Classe" VerticalAlignment="Top" Width="50" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="ExpFushou_Copy" IsReadOnly="True" HorizontalAlignment="Left" Margin="263,45,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Exp" VerticalAlignment="Top" Width="54" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauFushou_Copy" IsReadOnly="True" HorizontalAlignment="Left" Margin="310,45,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Lvl" VerticalAlignment="Top" Width="50" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                    <TextBlock x:Name="TitreAventurierSpeciaux" Text="Aventurier Spéciaux :" 
+                       Foreground="#FFFFCE00" FontWeight="Bold" VerticalAlignment="Center"/>
+                </DockPanel>
 
-        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="31,216,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Aventurier :" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFCE00" BorderBrush="{x:Null}"/>
-        <Image Margin="26,303,459,167" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HBarabarian1.png" Stretch="Fill"/>
-        <Image Margin="164,227,316,246" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HMage1.png" Stretch="Fill"/>
-        <Image Margin="271,303,206,167" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HPriest1.png" Stretch="Fill"/>
-        <Image Margin="400,227,80,248" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HRanger1.png" Stretch="Fill"/>
-        <Image Margin="39,421,446,48" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HRogue1.png" Stretch="Fill"/>
-        <Image Margin="209,419,281,50" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HTank1.png" Stretch="Fill"/>
-        <Image Margin="377,417,102,50" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HWarrior1.png" Stretch="Fill"/>
+                <!-- ZONE SCROLLABLE -->
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel>
 
-        <TextBox x:Name="NomBarbare" IsReadOnly="True" HorizontalAlignment="Left" Margin="99,384,0,0" Grid.Row="2" Text="Thalion" VerticalAlignment="Top" Width="53" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="NomMage" IsReadOnly="True" HorizontalAlignment="Left" Margin="238,295,0,0" Grid.Row="2" Text="Ualiar" VerticalAlignment="Top" Width="46" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="NomPretre" IsReadOnly="True" HorizontalAlignment="Left" Margin="350,382,0,0" Grid.Row="2" Text="Eryndel" VerticalAlignment="Top" Width="46" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="NomArcher" IsReadOnly="True" HorizontalAlignment="Left" Margin="475,293,0,0" Grid.Row="2" Text="Salgar" VerticalAlignment="Top" Width="44" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="NomVoyou" IsReadOnly="True" HorizontalAlignment="Left" Margin="108,490,0,0" Grid.Row="2" Text="Dwargo" VerticalAlignment="Top" Width="50" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="NomTank" IsReadOnly="True" HorizontalAlignment="Left" Margin="272,492,0,0" Grid.Row="2" Text="Sulvar" VerticalAlignment="Top" Width="54" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="NomChevalier" IsReadOnly="True" HorizontalAlignment="Left" Margin="454,488,0,0" Grid.Row="2" Text="Stark" VerticalAlignment="Top" Width="60" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+                        <!-- LISTE AVENTURIERS SPÉCIAUX (3 PAR LIGNE) -->
+                        <WrapPanel Margin="0,5,0,15">
+                            <!-- FÙCHÓU -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseFushou" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpFushou" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauFushou" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomFushou" Text="Fùchóu" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-        <!-- STATS NIVEAUX / CLASSES / EXP -->
-        <TextBox x:Name="ClasseFushou" IsReadOnly="True" HorizontalAlignment="Left" Margin="114,86,0,0" Grid.Row="2" Text="Classe" VerticalAlignment="Top" Width="68" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="Black" Height="18"/>
-        <TextBox x:Name="ExpFushou" IsReadOnly="True" HorizontalAlignment="Left" Margin="114,110,0,0" Grid.Row="2" Text="Exp" VerticalAlignment="Top" Width="68" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauFushou" IsReadOnly="True" HorizontalAlignment="Left" Margin="114,133,0,0" Grid.Row="2" Text="Lvl" VerticalAlignment="Top" Width="59" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                            <!-- HĒI JIǓ -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers-Spéciaux/Hēi Jiǔ.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseHeiJiu" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpHeiJiu" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauHeiJiu" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomHeiJiu" Text="Hēi Jiǔ" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-        <TextBox x:Name="ClasseHeiJiu" IsReadOnly="True" HorizontalAlignment="Left" Margin="268,86,0,0" Grid.Row="2" Text="Classe" VerticalAlignment="Top" Width="108" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="ExpHeiJiu" IsReadOnly="True" HorizontalAlignment="Left" Margin="268,110,0,0" Grid.Row="2" Text="Exp" VerticalAlignment="Top" Width="76" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauHeiJiu" IsReadOnly="True" HorizontalAlignment="Left" Margin="268,133,0,0" Grid.Row="2" Text="Lvl" VerticalAlignment="Top" Width="76" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                            <!-- ZHÌYUĀN -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers-Spéciaux/Zhìyuān.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseZhiyuan" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpZhiyuan" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauZhiyuan" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomZhiyuan" Text="Zhìyuān" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
 
-        <TextBox x:Name="ClasseZhiyuan" IsReadOnly="True" HorizontalAlignment="Left" Margin="444,86,0,0" Grid.Row="2" Text="Classe" VerticalAlignment="Top" Width="96" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="ExpZhiyuan" IsReadOnly="True" HorizontalAlignment="Left" Margin="444,110,0,0" Grid.Row="2" Text="Exp" VerticalAlignment="Top" Width="81" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauZhiyuan" IsReadOnly="True" HorizontalAlignment="Left" Margin="444,133,0,0" Grid.Row="2" Text="Lvl" VerticalAlignment="Top" Width="76" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                        <!-- TITRE AVENTURIERS -->
+                        <TextBlock Text="Aventurier :" Foreground="#FFFFCE00" FontWeight="Bold" Margin="0,0,0,10"/>
 
-        <TextBox x:Name="ClasseBarbare" IsReadOnly="True" HorizontalAlignment="Left" Margin="99,312,0,0" Grid.Row="2" Text="Classe" VerticalAlignment="Top" Width="74" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="ExpBarbare" IsReadOnly="True" HorizontalAlignment="Left" Margin="99,340,0,0" Grid.Row="2" Text="Exp" VerticalAlignment="Top" Width="59" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauBarbare" IsReadOnly="True" HorizontalAlignment="Left" Margin="99,364,0,0" Grid.Row="2" Text="Lvl" VerticalAlignment="Top" Width="49" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                        <!-- LISTE AVENTURIERS CLASSIQUES (3 PAR LIGNE) -->
+                        <WrapPanel>
+                            <!-- UALIAR -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HMage1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseMage" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpMage" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauMage" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomMage" Text="Ualiar" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-        <TextBox x:Name="ClasseMage" IsReadOnly="True" HorizontalAlignment="Left" Margin="230,219,0,0" Grid.Row="2" Text="Classe" VerticalAlignment="Top" Width="85" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="ExpMage" IsReadOnly="True" HorizontalAlignment="Left" Margin="235,247,0,0" Grid.Row="2" Text="Exp" VerticalAlignment="Top" Width="59" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauMage" IsReadOnly="True" HorizontalAlignment="Left" Margin="238,272,0,0" Grid.Row="2" Text="Lvl" VerticalAlignment="Top" Width="46" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                            <!-- SALGAR -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HRanger1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseArcher" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpArcher" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauArcher" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomArcher" Text="Salgar" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-        <TextBox x:Name="ClassePretre" IsReadOnly="True" HorizontalAlignment="Left" Margin="350,310,0,0" Grid.Row="2" Text="Classe" VerticalAlignment="Top" Width="76" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="ExpPretre" IsReadOnly="True" HorizontalAlignment="Left" Margin="350,338,0,0" Grid.Row="2" Text="Exp" VerticalAlignment="Top" Width="80" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauPretre" IsReadOnly="True" HorizontalAlignment="Left" Margin="350,362,0,0" Grid.Row="2" Text="Lvl" VerticalAlignment="Top" Width="76" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                            <!-- THALION -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HBarabarian1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseBarbare" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpBarbare" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauBarbare" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomBarbare" Text="Thalion" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-        <TextBox x:Name="ClasseArcher" IsReadOnly="True" HorizontalAlignment="Left" Margin="468,219,0,0" Grid.Row="2" Text="Classe" VerticalAlignment="Top" Width="72" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="ExpArcher" IsReadOnly="True" HorizontalAlignment="Left" Margin="468,247,0,0" Grid.Row="2" Text="Exp" VerticalAlignment="Top" Width="66" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauArcher" IsReadOnly="True" HorizontalAlignment="Left" Margin="468,0,0,0" Grid.Row="2" Text="Lvl" VerticalAlignment="Center" Width="72" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                            <!-- ERYNDEL -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HPriest1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClassePretre" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpPretre" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauPretre" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomPretre" Text="Eryndel" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-        <TextBox x:Name="ClasseVoyou" IsReadOnly="True" HorizontalAlignment="Left" Margin="106,422,0,0" Grid.Row="2" Text="Classe" VerticalAlignment="Top" Width="52" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="ExpVoyou" IsReadOnly="True" HorizontalAlignment="Left" Margin="106,446,0,0" Grid.Row="2" Text="Exp" VerticalAlignment="Top" Width="54" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauVoyou" IsReadOnly="True" HorizontalAlignment="Left" Margin="106,469,0,0" Grid.Row="2" Text="Lvl" VerticalAlignment="Top" Width="50" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                            <!-- DWARGO -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HRogue1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseVoyou" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpVoyou" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauVoyou" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomVoyou" Text="Dwargo" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-        <TextBox x:Name="ClasseTank" IsReadOnly="True" HorizontalAlignment="Left" Margin="270,422,0,0" Grid.Row="2" Text="Classe" VerticalAlignment="Top" Width="94" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="ExpTank" IsReadOnly="True" HorizontalAlignment="Left" Margin="276,446,0,0" Grid.Row="2" Text="Exp" VerticalAlignment="Top" Width="90" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauTank" IsReadOnly="True" HorizontalAlignment="Left" Margin="276,472,0,0" Grid.Row="2" Text="Lvl" VerticalAlignment="Top" Width="90" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                            <!-- SULVAR -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HTank1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseTank" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpTank" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauTank" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomTank" Text="Sulvar" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-        <TextBox x:Name="ClasseChevalier" IsReadOnly="True" HorizontalAlignment="Left" Margin="452,422,0,0" Grid.Row="2" Text="Classe" VerticalAlignment="Top" Width="82" Background="{x:Null}" Foreground="#FF00FF17" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="ExpChevalier" IsReadOnly="True" HorizontalAlignment="Left" Margin="452,445,0,0" Grid.Row="2" Text="Exp" VerticalAlignment="Top" Width="88" Background="{x:Null}" Foreground="#FFF1FF00" BorderBrush="{x:Null}" Height="18"/>
-        <TextBox x:Name="NiveauChevalier" IsReadOnly="True" HorizontalAlignment="Left" Margin="454,468,0,0" Grid.Row="2" Text="Lvl" VerticalAlignment="Top" Width="63" Background="{x:Null}" Foreground="#FF00EDFF" BorderBrush="{x:Null}" Height="18"/>
+                            <!-- STARK -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HWarrior1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseChevalier" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpChevalier" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauChevalier" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomChevalier" Text="Stark" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
 
         <!-- SECTEUR QUÊTES (DROITE) -->
         <Rectangle HorizontalAlignment="Center" Height="503" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="444" Fill="#260003FF" Grid.Column="1"/>
@@ -279,42 +354,60 @@
         <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="41,190,0,0" Grid.Row="2" Text="Quest Circle" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
         <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="174,190,0,0" Grid.Row="2" Text="Quest Dragon" VerticalAlignment="Top" Width="89" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
         <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="331,190,0,0" Grid.Row="2" Text="Quest Fadriass" VerticalAlignment="Top" Width="85" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
-        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="40,318,0,0" Grid.Row="2" Text="Quest Goblins" VerticalAlignment="Top" Width="89" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="40,317,0,0" Grid.Row="2" Text="Quest Goblins" VerticalAlignment="Top" Width="89" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
         <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="178,318,0,0" Grid.Row="2" Text="Quest Spiders" VerticalAlignment="Top" Width="83" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
         <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="331,317,0,0" Grid.Row="2" Text="Quest Trees" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
         <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="41,428,0,0" Grid.Row="2" Text="Quest Zombies" VerticalAlignment="Top" Width="88" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
 
         <!-- SELECTION DES AVENTURIERS (CHECKBOXES) -->
-        <TextBox x:Name="ChoixAventurierSpTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="144,353,0,0" Grid.Row="2" Text="Choix Aventurier Spéciaux" VerticalAlignment="Top" Width="150" Foreground="#FFF5D500" Background="#4C000000" BorderBrush="{x:Null}"/>
-        <CheckBox x:Name="CheckFushou" Grid.Column="1" Content="Fùchóu" HorizontalAlignment="Left" Margin="178,379,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
-        <CheckBox x:Name="CheckHeiJiu" Grid.Column="1" Content="Hēi Jiǔ" HorizontalAlignment="Left" Margin="178,407,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
-        <CheckBox x:Name="CheckZhiyuan" Grid.Column="1" Content="Zhìyuān" HorizontalAlignment="Left" Margin="178,437,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="ChoixAventurierSpTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="144,379,0,0" Grid.Row="2" Text="Choix Aventurier Spéciaux" VerticalAlignment="Top" Width="150" Foreground="#FFF5D500" Background="#4C000000" BorderBrush="{x:Null}"/>
 
-        <TextBox x:Name="ChoixAventurierTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="348,353,0,0" Grid.Row="2" Text="Choix Aventurier" VerticalAlignment="Top" Width="100" Foreground="#FFF5D500" Background="#4C000000" BorderBrush="{x:Null}"/>
-        <CheckBox x:Name="CheckBarbare" Grid.Column="1" Content="Barbare" HorizontalAlignment="Left" Margin="387,377,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
-        <CheckBox x:Name="CheckMage" Grid.Column="1" Content="Mage" HorizontalAlignment="Left" Margin="387,397,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
-        <CheckBox x:Name="CheckPretre" Grid.Column="1" Content="Pretre" HorizontalAlignment="Left" Margin="387,419,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
-        <CheckBox x:Name="CheckArcher" Grid.Column="1" Content="Archer" HorizontalAlignment="Left" Margin="387,440,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
-
-        <CheckBox x:Name="CheckChevalier" Grid.Column="1" Content="Chevalier" HorizontalAlignment="Left" Margin="291,397,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
-        <CheckBox x:Name="CheckTank" Grid.Column="1" Content="Tank" HorizontalAlignment="Left" Margin="291,419,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
-        <CheckBox x:Name="CheckVoyou" Grid.Column="1" Content="Voyou" HorizontalAlignment="Left" Margin="291,441,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestCircle" Grid.Column="1" HorizontalAlignment="Left" Margin="21,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="59" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle" Grid.Column="1" HorizontalAlignment="Left" Margin="89,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="63" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestFadriass" Grid.Column="1" HorizontalAlignment="Left" Margin="308,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="59" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestFadriass" Grid.Column="1" HorizontalAlignment="Left" Margin="376,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="63" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestDragon" Grid.Column="1" HorizontalAlignment="Left" Margin="163,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="59" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestDragon" Grid.Column="1" HorizontalAlignment="Left" Margin="231,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="63" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestGoblins" Grid.Column="1" HorizontalAlignment="Left" Margin="18,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="59" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestGoblins" Grid.Column="1" HorizontalAlignment="Left" Margin="86,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="63" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestSpiders" Grid.Column="1" HorizontalAlignment="Left" Margin="163,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="59" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestSpiders" Grid.Column="1" HorizontalAlignment="Left" Margin="231,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="63" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestTrees" Grid.Column="1" HorizontalAlignment="Left" Margin="313,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="59" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestTrees" Grid.Column="1" HorizontalAlignment="Left" Margin="381,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="63" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestZombies" Grid.Column="1" HorizontalAlignment="Left" Margin="21,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="59" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestZombies" Grid.Column="1" HorizontalAlignment="Left" Margin="89,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="63" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="330,77,0,0" Grid.Row="2" TextWrapping="Wrap" Text="GOLD" VerticalAlignment="Top" Width="44" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBox x:Name="ChoixAventurierTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="337,440,0,0" Grid.Row="2" Text="Choix Aventurier 3" VerticalAlignment="Top" Width="105" Foreground="#FFF5D500" Background="#4C000000" BorderBrush="{x:Null}"/>
+        <TextBox IsReadOnly="True" x:Name="GoldQuestCircle" Grid.Column="1" HorizontalAlignment="Left" Margin="21,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle" Grid.Column="1" HorizontalAlignment="Left" Margin="65,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBox IsReadOnly="True" x:Name="GoldQuestFadriass" Grid.Column="1" HorizontalAlignment="Left" Margin="308,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="27" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestFadriass" Grid.Column="1" HorizontalAlignment="Left" Margin="348,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBox IsReadOnly="True" x:Name="GoldQuestDragon" Grid.Column="1" HorizontalAlignment="Left" Margin="163,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestDragon" Grid.Column="1" HorizontalAlignment="Left" Margin="203,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="30" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBox IsReadOnly="True" x:Name="GoldQuestGoblins" Grid.Column="1" HorizontalAlignment="Left" Margin="18,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestGoblins" Grid.Column="1" HorizontalAlignment="Left" Margin="59,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBox IsReadOnly="True" x:Name="GoldQuestSpiders" Grid.Column="1" HorizontalAlignment="Left" Margin="163,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestSpiders" Grid.Column="1" HorizontalAlignment="Left" Margin="201,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="30" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBox IsReadOnly="True" x:Name="GoldQuestTrees" Grid.Column="1" HorizontalAlignment="Left" Margin="313,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestTrees" Grid.Column="1" HorizontalAlignment="Left" Margin="353,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBox IsReadOnly="True" x:Name="GoldQuestZombies" Grid.Column="1" HorizontalAlignment="Left" Margin="21,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestZombies" Grid.Column="1" HorizontalAlignment="Left" Margin="64,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="348,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="GOLD" VerticalAlignment="Top" Width="44" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="398,77,0,0" Grid.Row="2" TextWrapping="Wrap" Text="EXP" VerticalAlignment="Top" Width="39" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="101,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy1" Grid.Column="1" HorizontalAlignment="Left" Margin="238,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="18" Height="18" Background="#33000000" Foreground="Red"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy2" Grid.Column="1" HorizontalAlignment="Left" Margin="390,214,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="16" Height="18" Background="#33000000" Foreground="Red"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy3" Grid.Column="1" HorizontalAlignment="Left" Margin="101,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy4" Grid.Column="1" HorizontalAlignment="Left" Margin="244,338,0,0" Grid.Row="2" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy5" Grid.Column="1" HorizontalAlignment="Left" Margin="391,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="Red"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy6" Grid.Column="1" HorizontalAlignment="Left" Margin="101,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy7" Grid.Column="1" HorizontalAlignment="Left" Margin="230,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Facile" VerticalAlignment="Top" Width="38" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy8" Grid.Column="1" HorizontalAlignment="Left" Margin="274,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Moyen" VerticalAlignment="Top" Width="45" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
+        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy9" Grid.Column="1" HorizontalAlignment="Left" Margin="172,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Difficile" VerticalAlignment="Top" Width="52" Height="18" Background="#33000000" Foreground="Red"/>
+
+        <Button Click="ShowAddAdventurerWindowBtn" Content="Ajouter Aventurier" HorizontalAlignment="Left" Margin="408,42,0,0" Grid.Row="2" VerticalAlignment="Top" Width="116" Background="#B2F10000" Foreground="White" Panel.ZIndex="2"/>
+        <ComboBox x:Name="Aventurier1Choix" Grid.Column="1" HorizontalAlignment="Left" Margin="153,404,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Fùchóu"/>
+            <ComboBoxItem Content="Hēi Jiǔ"/>
+            <ComboBoxItem Content="Zhìyuān"/>
+         </ComboBox>
+        <ComboBox x:Name="Aventurier2Choix" Grid.Column="1" HorizontalAlignment="Left" Margin="322,404,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Voyou" />
+            <ComboBoxItem Content="Tank" />
+            <ComboBoxItem Content="Chevalier" />
+        </ComboBox>
+        <TextBox x:Name="ChoixAventurierTxt_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="337,379,0,0" Grid.Row="2" Text="Choix Aventurier 2" VerticalAlignment="Top" Width="105" Foreground="#FFF5D500" Background="#4C000000" BorderBrush="{x:Null}"/>
+        <ComboBox x:Name="Aventurier3Choix" Grid.Column="1" HorizontalAlignment="Left" Margin="323,463,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Mage" />
+            <ComboBoxItem Content="Archer" />
+            <ComboBoxItem Content="Pretre" />
+            <ComboBoxItem Content="Barbare" />
+        </ComboBox>
 
     </Grid>
 </Window>

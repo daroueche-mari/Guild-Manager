@@ -40,12 +40,10 @@ namespace GuildManager
         AdventurerSpecial myHeijiu = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
         AdventurerSpecial myZhiyuan = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
         Adventurer myPlayer = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
-        
 
         public MainWindow()
         {
             InitializeComponent();
-            ConfigCheckBoxMain();
             StatFushou();
             StatHeijiu();
             StatZhiyuan();
@@ -60,7 +58,13 @@ namespace GuildManager
             myPlayer.Level = 1;
             NombreGoldFenetreMain.Text = myPlayer.Gold.ToString();
             NombreLvlFenetreMain.Text = myPlayer.Level.ToString();
-            QuestCircle.GoldandxpCircle(180, 200, this);   
+            QuestCircle.GoldandxpCircle(180, 200, this);
+            QuestDragon.GoldandxpDragon(280, 300, this);
+            QuestFadriass.GoldandxpFadriass(380, 400, this);
+            QuestGoblins.GoldandxpGoblins(480, 500, this);
+            QuestSpiders.GoldandxpSpiders(580, 600, this);
+            QuestTrees.GoldandxpTrees(680, 700, this);
+            QuestZombies.GoldandxpZombies(780, 800, this);
         }
        
         // Stat Aventurier Speciaux
@@ -111,107 +115,89 @@ namespace GuildManager
 
         private void LancerQuestCircleBtn(object sender, RoutedEventArgs e)
         {
+            if(Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return; 
+            }
             QuestCircle.LaunchQuestCircle(this);
             this.Hide();
         }
         private void LancerQuestDragonBtn(object sender, RoutedEventArgs e)
         {
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return;
+            }
             QuestDragon.LaunchQuestDragon(this);
             this.Hide();
         }
         private void LancerQuestFadriassBtn(object sender, RoutedEventArgs e)
         {
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return;
+            }
             QuestFadriass.LaunchQuestFadriass(this);
             this.Hide();
         }
         private void LancerQuestGoblinsBtn(object sender, RoutedEventArgs e)
         {
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return;
+            }
             QuestGoblins.LaunchQuestGoblins(this);
             this.Hide();
         }
         private void LancerQuestSpidersBtn(object sender, RoutedEventArgs e)
         {
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return;
+            }
             QuestSpiders.LaunchQuestSpiders(this);
             this.Hide();
         }
         private void LancerQuestTreesBtn(object sender, RoutedEventArgs e)
         {
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return;
+            }
             QuestTrees.LaunchQuestTrees(this);
             this.Hide();
         }
         private void LancerQuestZombiesBtn(object sender, RoutedEventArgs e)
         {
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return;
+            }
             QuestZombies.LaunchQuestZombies(this);
             this.Hide();
         }
 
-        // Config des checkbox(à finir)
-        private void ConfigCheckBoxMain()
+        // Bouton pour Register/Login & Ajouter Aventurier
+        private void ShowLogRegisterWindowBtn(object sender, RoutedEventArgs e)
         {
-            // Check Aventurier Spéciaux
-            if(CheckFushou.IsChecked == true)
-            {
-                CheckHeiJiu.IsChecked = false;
-                CheckZhiyuan.IsChecked = false;
-            }
-            if (CheckHeiJiu.IsChecked == true)
-            {
-                CheckFushou.IsChecked = false;
-                CheckZhiyuan.IsChecked = false;
-            }
-            if (CheckZhiyuan.IsChecked == true)
-            {
-                CheckHeiJiu.IsChecked = false;
-                CheckFushou.IsChecked = false;
-            }
-            // Check Aventurier 1
-            if (CheckVoyou.IsChecked == true)
-            {
-                CheckTank.IsChecked = false;
-                CheckChevalier.IsChecked = false;
-            }
-            if (CheckTank.IsChecked == true)
-            {
-                CheckVoyou.IsChecked = false;
-                CheckChevalier.IsChecked = false;
-            }
-            if (CheckChevalier.IsChecked == true)
-            {
-                CheckTank.IsChecked = false;
-                CheckVoyou.IsChecked = false;
-            }
-            // Check Aventurier 2
-
-            if (CheckMage.IsChecked == true)
-            {
-                CheckPretre.IsChecked = false;
-                CheckArcher.IsChecked = false;
-                CheckBarbare.IsChecked = false;
-
-            }
-            if (CheckArcher.IsChecked == true)
-            {
-                CheckPretre.IsChecked = false;
-                CheckMage.IsChecked = false;
-                CheckBarbare.IsChecked = false;
-
-            }
-            if (CheckPretre.IsChecked == true)
-            {
-                CheckMage.IsChecked = false;
-                CheckArcher.IsChecked = false;
-                CheckBarbare.IsChecked = false;
-
-            }
-            if (CheckBarbare.IsChecked == true)
-            {
-                CheckPretre.IsChecked = false;
-                CheckArcher.IsChecked = false;
-                CheckMage.IsChecked = false;
-
-            }
-
+            Register_Login reglog = new Register_Login();
+            reglog.Show();
+            this.Hide();
         }
+        private void ShowAddAdventurerWindowBtn(object sender, RoutedEventArgs e)
+        {
+            AddCharacters addCharacters = new AddCharacters();
+            addCharacters.Show();
+            this.Hide();
+        }
+
 
        
     }
