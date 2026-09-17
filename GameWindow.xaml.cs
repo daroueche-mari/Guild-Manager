@@ -18,15 +18,10 @@ namespace GuildManager
     /// </summary>
     public partial class GameWindow : Window
     {
-        Adventurer myPlayer = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+       public Adventurer myPlayer = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
         public GameWindow()
         {
             InitializeComponent();
-            myPlayer.Gold = 50;
-            myPlayer.Level = 1;
-            NombreGold.Text = myPlayer.Gold.ToString();
-            NombreLvl.Text = myPlayer.Level.ToString();
-
         }
        
         private void BackToQuestBtn(object sender, RoutedEventArgs e)
@@ -35,6 +30,7 @@ namespace GuildManager
             Application.Current.MainWindow.Show();
             this.Hide();
         }
+       
 
     }
 }

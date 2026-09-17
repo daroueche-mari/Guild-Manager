@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuildManager"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         Title="Register_Login" Height="650" Width="1050" Background="#4C000000">
     <Grid OpacityMask="#FFEA6969">
         <Grid.ColumnDefinitions>

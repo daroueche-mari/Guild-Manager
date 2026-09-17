@@ -1,7 +1,9 @@
 ﻿using GuildManagerProjet;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Text;
+using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 using System.Xml.Linq;
@@ -90,6 +92,33 @@ namespace GuildManager
 
             }
             gameWindow.Show();
+
+            //var facile = 1;
+            //var moyen = 10;
+            //var difficile = 20;
+            //var lootgold = mainWindow.myPlayer.Gold += 180;
+            //var lootexp = mainWindow.myPlayer.Experience += 200;
+
+            //if (mainWindow.myPlayer.Level < facile) 
+            //{
+            //    MessageBox.Show("Vous n'avez pas reussi la quete");
+            //} else if(mainWindow.myPlayer.Level < moyen)
+            //{
+            //    MessageBox.Show("Vous n'avez pas reussi la quete");
+            //} else if(mainWindow.myPlayer.Level < difficile)
+            //{
+            //    MessageBox.Show("Vous n'avez pas reussi la quete");
+
+            //} else if (mainWindow.myPlayer.Level >= facile || mainWindow.myPlayer.Level >= moyen || mainWindow.myPlayer.Level >= difficile)
+            //{
+            //    Adventurer myadv = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+            //    myadv.UpLvl();
+            //    MessageBox.Show("Vous avez reussi la quete" +
+            //        "Vous avez gagné" + lootgold + 
+            //        "d'Or et " + 
+            //        lootexp + "d'experience");
+            //}
+
         }
     }
 }

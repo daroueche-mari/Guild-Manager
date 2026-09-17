@@ -23,17 +23,17 @@
 
         <!-- HEADER -->
         <Image x:Name="SupportTitreFenetreMain" HorizontalAlignment="Left" Height="274" Margin="21,-180,0,0" VerticalAlignment="Top" Width="713" Panel.ZIndex="1" Source="/assets/UI/Background/Background_Top.png" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TitreFenetreMain" IsReadOnly="True" HorizontalAlignment="Left" Margin="90,-59,0,0" Grid.Row="2" TextWrapping="Wrap" Text="PHASE DE PLANIFICATION" VerticalAlignment="Top" Width="330" Panel.ZIndex="2" Background="#7F000000" Foreground="#B2FF0000" FontSize="21" BorderBrush="{x:Null}" FontFamily="Castellar"/>
+        <TextBlock x:Name="TitreFenetreMain"  HorizontalAlignment="Left" Margin="90,-59,0,0" Grid.Row="2" TextWrapping="Wrap" Text="PHASE DE PLANIFICATION" VerticalAlignment="Top" Width="330" Panel.ZIndex="2" Background="#7F000000" Foreground="#B2FF0000" FontSize="21"  FontFamily="Castellar"/>
         <Image x:Name="SupportInventaireFenetreMain" HorizontalAlignment="Left" Height="197" Margin="454,-137,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="557" Panel.ZIndex="1" Source="/assets/UI/Background/Background_State.png" Grid.ColumnSpan="2"/>
 
         <!-- STATS / BARRE SUPÉRIEURE -->
         <Image x:Name="IconGoldFenetreMain" HorizontalAlignment="Left" Height="24" Margin="11,-9,0,0" VerticalAlignment="Top" Width="32" Source="/assets/UI/Icon/Gold_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
         <Image x:Name="IconLvlFenetreMain" HorizontalAlignment="Left" Height="29" Margin="452,-11,0,0" VerticalAlignment="Top" Width="28" Source="/assets/UI/Icon/Level_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
-        <TextBox x:Name="NomJoueurFenetreMain" IsReadOnly="True" HorizontalAlignment="Left" Margin="482,-54,0,0" TextWrapping="Wrap" Text="Nom du joueur" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#7FFF0000" BorderBrush="Black" Panel.ZIndex="2" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="NomJoueurFenetreMain"  HorizontalAlignment="Left" Margin="482,-54,0,0" TextWrapping="Wrap" Text="Nom du joueur" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFFD00" Panel.ZIndex="2" Grid.ColumnSpan="2"/>
         <Button x:Name="BtnSaveFenetreMain" Grid.Column="1" Content="Sauvegarder" HorizontalAlignment="Left" Margin="370,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" BorderBrush="#FF0004FF" Foreground="White" Height="21" Width="76"/>
         <Button Click="ShowLogRegisterWindowBtn" x:Name="BtnLogRegister" Grid.Column="1" Content="Login / Register" HorizontalAlignment="Left" Margin="261,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" Foreground="White" BorderBrush="Black" Height="21" Width="89"/>
-        <TextBox x:Name="NombreGoldFenetreMain" IsReadOnly="True" Margin="39,-8,447,0" TextWrapping="Wrap" Text="Gold" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FFFFFD00" Grid.RowSpan="3"/>
-        <TextBox x:Name="NombreLvlFenetreMain" IsReadOnly="True" Margin="487,-7,12,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FF00FFF1" Grid.RowSpan="3"/>
+        <TextBlock x:Name="NombreGoldFenetreMain"  Margin="39,-8,447,0" TextWrapping="Wrap" Text="Gold" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FFFFFD00" Grid.RowSpan="3"/>
+        <TextBlock x:Name="NombreLvlFenetreMain"  Margin="487,-7,12,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FF00FFF1" Grid.RowSpan="3"/>
 
         <!-- SECTEUR AVENTURIERS (GAUCHE) -->
         <Grid Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="530" Height="503">
@@ -186,13 +186,13 @@
 
         <!-- SECTEUR QUÊTES (DROITE) -->
         <Rectangle HorizontalAlignment="Center" Height="503" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="444" Fill="#260003FF" Grid.Column="1"/>
-        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="29,48,0,0" Grid.Row="2" Text="Quetes :" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFCE00" BorderBrush="{x:Null}" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="29,48,0,0" Grid.Row="2" Text="Quetes :" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFCE00"  Grid.Column="1"/>
 
         <!-- CARTES DE QUÊTES (IMAGE + BOUTON EMBARQUÉ) -->
         <!-- Quest Circle -->
         <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,119,0,0" Width="100" Height="71">
             <Image Source="/assets/UI/Quest_Illustrations/Quest_Circle.png" Stretch="Fill"/>
-            <Button Click="LancerQuestCircleBtn" x:Name="BtnQueteCircle" Content="Lancer" Foreground="White" Cursor="Hand" BorderBrush="{x:Null}">
+            <Button Click="LancerQuestCircleBtn" x:Name="BtnQueteCircle" Content="Lancer" Foreground="White" Cursor="Hand" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="#33000000" CornerRadius="2">
@@ -215,7 +215,7 @@
         <!-- Quest Dragon -->
         <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,119,0,0" Width="100" Height="71">
             <Image Source="/assets/UI/Quest_Illustrations/Quest_Dragon.png" Stretch="Fill"/>
-            <Button Click="LancerQuestDragonBtn" x:Name="BtnQuestDragon" Content="Lancer" Foreground="White" Cursor="Hand" BorderBrush="{x:Null}">
+            <Button Click="LancerQuestDragonBtn" x:Name="BtnQuestDragon" Content="Lancer" Foreground="White" Cursor="Hand" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="#33000000" CornerRadius="2">
@@ -238,7 +238,7 @@
         <!-- Quest Fadriass -->
         <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="316,119,0,0" Width="100" Height="71">
             <Image Source="/assets/UI/Quest_Illustrations/Quest_Fadriass.png" Stretch="Fill"/>
-            <Button Click="LancerQuestFadriassBtn" x:Name="BtnQuestFadriass" Content="Lancer" Foreground="White" Cursor="Hand" BorderBrush="{x:Null}">
+            <Button Click="LancerQuestFadriassBtn" x:Name="BtnQuestFadriass" Content="Lancer" Foreground="White" Cursor="Hand" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="#33000000" CornerRadius="2">
@@ -261,7 +261,7 @@
         <!-- Quest Goblins -->
         <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,245,0,0" Width="100" Height="71">
             <Image Source="/assets/UI/Quest_Illustrations/Quest_Goblins.png" Stretch="Fill"/>
-            <Button Click="LancerQuestGoblinsBtn" x:Name="BtnQuestGoblins" Content="Lancer" Foreground="White" Cursor="Hand" BorderBrush="{x:Null}">
+            <Button Click="LancerQuestGoblinsBtn" x:Name="BtnQuestGoblins" Content="Lancer" Foreground="White" Cursor="Hand" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="#33000000" CornerRadius="2">
@@ -284,7 +284,7 @@
         <!-- Quest Spiders -->
         <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="168,245,0,0" Width="100" Height="71">
             <Image Source="/assets/UI/Quest_Illustrations/Quest_Spiders.png" Stretch="Fill"/>
-            <Button Click="LancerQuestSpidersBtn" x:Name="BtnQuestSpiders" Content="Lancer" Foreground="White" Cursor="Hand" BorderBrush="{x:Null}">
+            <Button Click="LancerQuestSpidersBtn" x:Name="BtnQuestSpiders" Content="Lancer" Foreground="White" Cursor="Hand" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="#33000000" CornerRadius="2">
@@ -307,7 +307,7 @@
         <!-- Quest Trees -->
         <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="316,245,0,0" Width="100" Height="71">
             <Image Source="/assets/UI/Quest_Illustrations/Quest_Trees.png" Stretch="Fill"/>
-            <Button Click="LancerQuestTreesBtn" x:Name="BtnQuestTrees" Content="Lancer" Foreground="White" Cursor="Hand" BorderBrush="{x:Null}">
+            <Button Click="LancerQuestTreesBtn" x:Name="BtnQuestTrees" Content="Lancer" Foreground="White" Cursor="Hand" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="#33000000" CornerRadius="2">
@@ -330,7 +330,7 @@
         <!-- Quest Zombies -->
         <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,355,0,0" Width="100" Height="71">
             <Image Source="/assets/UI/Quest_Illustrations/Quest_Zombies.png" Stretch="Fill"/>
-            <Button Click="LancerQuestZombiesBtn" x:Name="BtnQuestZombies" Content="Lancer" Foreground="White" Cursor="Hand" BorderBrush="{x:Null}">
+            <Button Click="LancerQuestZombiesBtn" x:Name="BtnQuestZombies" Content="Lancer" Foreground="White" Cursor="Hand" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="#33000000" CornerRadius="2">
@@ -351,44 +351,44 @@
         </Grid>
 
         <!-- TITRES DES QUÊTES -->
-        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="41,190,0,0" Grid.Row="2" Text="Quest Circle" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
-        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="174,190,0,0" Grid.Row="2" Text="Quest Dragon" VerticalAlignment="Top" Width="89" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
-        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="331,190,0,0" Grid.Row="2" Text="Quest Fadriass" VerticalAlignment="Top" Width="85" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
-        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="40,317,0,0" Grid.Row="2" Text="Quest Goblins" VerticalAlignment="Top" Width="89" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
-        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="178,318,0,0" Grid.Row="2" Text="Quest Spiders" VerticalAlignment="Top" Width="83" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
-        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="331,317,0,0" Grid.Row="2" Text="Quest Trees" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
-        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="41,428,0,0" Grid.Row="2" Text="Quest Zombies" VerticalAlignment="Top" Width="88" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="41,190,0,0" Grid.Row="2" Text="Quest Circle" VerticalAlignment="Top" Width="77"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="174,190,0,0" Grid.Row="2" Text="Quest Dragon" VerticalAlignment="Top" Width="89"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="331,190,0,0" Grid.Row="2" Text="Quest Fadriass" VerticalAlignment="Top" Width="85"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="40,317,0,0" Grid.Row="2" Text="Quest Goblins" VerticalAlignment="Top" Width="89"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="178,318,0,0" Grid.Row="2" Text="Quest Spiders" VerticalAlignment="Top" Width="83"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="331,317,0,0" Grid.Row="2" Text="Quest Trees" VerticalAlignment="Top" Width="77"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="41,428,0,0" Grid.Row="2" Text="Quest Zombies" VerticalAlignment="Top" Width="88"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
 
         <!-- SELECTION DES AVENTURIERS (CHECKBOXES) -->
-        <TextBox x:Name="ChoixAventurierSpTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="144,379,0,0" Grid.Row="2" Text="Choix Aventurier Spéciaux" VerticalAlignment="Top" Width="150" Foreground="#FFF5D500" Background="#4C000000" BorderBrush="{x:Null}"/>
+        <TextBlock x:Name="ChoixAventurierSpTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="144,379,0,0" Grid.Row="2" Text="Choix Aventurier Spéciaux" VerticalAlignment="Top" Width="150" Foreground="#FFF5D500" Background="#4C000000" />
 
-        <TextBox x:Name="ChoixAventurierTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="337,440,0,0" Grid.Row="2" Text="Choix Aventurier 3" VerticalAlignment="Top" Width="105" Foreground="#FFF5D500" Background="#4C000000" BorderBrush="{x:Null}"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestCircle" Grid.Column="1" HorizontalAlignment="Left" Margin="21,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle" Grid.Column="1" HorizontalAlignment="Left" Margin="65,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestFadriass" Grid.Column="1" HorizontalAlignment="Left" Margin="308,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="27" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestFadriass" Grid.Column="1" HorizontalAlignment="Left" Margin="348,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestDragon" Grid.Column="1" HorizontalAlignment="Left" Margin="163,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestDragon" Grid.Column="1" HorizontalAlignment="Left" Margin="203,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="30" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestGoblins" Grid.Column="1" HorizontalAlignment="Left" Margin="18,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestGoblins" Grid.Column="1" HorizontalAlignment="Left" Margin="59,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestSpiders" Grid.Column="1" HorizontalAlignment="Left" Margin="163,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestSpiders" Grid.Column="1" HorizontalAlignment="Left" Margin="201,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="30" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestTrees" Grid.Column="1" HorizontalAlignment="Left" Margin="313,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestTrees" Grid.Column="1" HorizontalAlignment="Left" Margin="353,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="GoldQuestZombies" Grid.Column="1" HorizontalAlignment="Left" Margin="21,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestZombies" Grid.Column="1" HorizontalAlignment="Left" Margin="64,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="348,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="GOLD" VerticalAlignment="Top" Width="44" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="398,77,0,0" Grid.Row="2" TextWrapping="Wrap" Text="EXP" VerticalAlignment="Top" Width="39" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="101,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy1" Grid.Column="1" HorizontalAlignment="Left" Margin="238,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="18" Height="18" Background="#33000000" Foreground="Red"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy2" Grid.Column="1" HorizontalAlignment="Left" Margin="390,214,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="16" Height="18" Background="#33000000" Foreground="Red"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy3" Grid.Column="1" HorizontalAlignment="Left" Margin="101,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy4" Grid.Column="1" HorizontalAlignment="Left" Margin="244,338,0,0" Grid.Row="2" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy5" Grid.Column="1" HorizontalAlignment="Left" Margin="391,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="Red"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy6" Grid.Column="1" HorizontalAlignment="Left" Margin="101,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy7" Grid.Column="1" HorizontalAlignment="Left" Margin="230,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Facile" VerticalAlignment="Top" Width="38" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy8" Grid.Column="1" HorizontalAlignment="Left" Margin="274,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Moyen" VerticalAlignment="Top" Width="45" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
-        <TextBox IsReadOnly="True" x:Name="XpQuestCircle_Copy9" Grid.Column="1" HorizontalAlignment="Left" Margin="172,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Difficile" VerticalAlignment="Top" Width="52" Height="18" Background="#33000000" Foreground="Red"/>
+        <TextBlock x:Name="ChoixAventurierTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="337,440,0,0" Grid.Row="2" Text="Choix Aventurier 3" VerticalAlignment="Top" Width="105" Foreground="#FFF5D500" Background="#4C000000" />
+        <TextBlock  x:Name="GoldQuestCircle" Grid.Column="1" HorizontalAlignment="Left" Margin="21,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestCircle" Grid.Column="1" HorizontalAlignment="Left" Margin="65,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestFadriass" Grid.Column="1" HorizontalAlignment="Left" Margin="308,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="27" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestFadriass" Grid.Column="1" HorizontalAlignment="Left" Margin="348,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestDragon" Grid.Column="1" HorizontalAlignment="Left" Margin="163,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestDragon" Grid.Column="1" HorizontalAlignment="Left" Margin="203,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="30" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestGoblins" Grid.Column="1" HorizontalAlignment="Left" Margin="18,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestGoblins" Grid.Column="1" HorizontalAlignment="Left" Margin="59,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestSpiders" Grid.Column="1" HorizontalAlignment="Left" Margin="163,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestSpiders" Grid.Column="1" HorizontalAlignment="Left" Margin="201,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="30" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestTrees" Grid.Column="1" HorizontalAlignment="Left" Margin="313,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestTrees" Grid.Column="1" HorizontalAlignment="Left" Margin="353,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestZombies" Grid.Column="1" HorizontalAlignment="Left" Margin="21,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestZombies" Grid.Column="1" HorizontalAlignment="Left" Margin="64,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="348,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="GOLD" VerticalAlignment="Top" Width="44" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="398,77,0,0" Grid.Row="2" TextWrapping="Wrap" Text="EXP" VerticalAlignment="Top" Width="39" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="101,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy1" Grid.Column="1" HorizontalAlignment="Left" Margin="238,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="18" Height="18" Background="#33000000" Foreground="Red"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy2" Grid.Column="1" HorizontalAlignment="Left" Margin="390,214,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="16" Height="18" Background="#33000000" Foreground="Red"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy3" Grid.Column="1" HorizontalAlignment="Left" Margin="101,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy4" Grid.Column="1" HorizontalAlignment="Left" Margin="244,338,0,0" Grid.Row="2" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy5" Grid.Column="1" HorizontalAlignment="Left" Margin="391,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="Red"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy6" Grid.Column="1" HorizontalAlignment="Left" Margin="101,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy7" Grid.Column="1" HorizontalAlignment="Left" Margin="230,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Facile" VerticalAlignment="Top" Width="38" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy8" Grid.Column="1" HorizontalAlignment="Left" Margin="274,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Moyen" VerticalAlignment="Top" Width="45" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy9" Grid.Column="1" HorizontalAlignment="Left" Margin="172,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Difficile" VerticalAlignment="Top" Width="52" Height="18" Background="#33000000" Foreground="Red"/>
 
         <Button Click="ShowAddAdventurerWindowBtn" Content="Ajouter Aventurier" HorizontalAlignment="Left" Margin="408,42,0,0" Grid.Row="2" VerticalAlignment="Top" Width="116" Background="#B2F10000" Foreground="White" Panel.ZIndex="2"/>
         <ComboBox x:Name="Aventurier1Choix" Grid.Column="1" HorizontalAlignment="Left" Margin="153,404,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
@@ -401,7 +401,7 @@
             <ComboBoxItem Content="Tank" />
             <ComboBoxItem Content="Chevalier" />
         </ComboBox>
-        <TextBox x:Name="ChoixAventurierTxt_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="337,379,0,0" Grid.Row="2" Text="Choix Aventurier 2" VerticalAlignment="Top" Width="105" Foreground="#FFF5D500" Background="#4C000000" BorderBrush="{x:Null}"/>
+        <TextBlock x:Name="ChoixAventurierTxt_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="337,379,0,0" Grid.Row="2" Text="Choix Aventurier 2" VerticalAlignment="Top" Width="105" Foreground="#FFF5D500" Background="#4C000000" />
         <ComboBox x:Name="Aventurier3Choix" Grid.Column="1" HorizontalAlignment="Left" Margin="323,463,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Mage" />
             <ComboBoxItem Content="Archer" />

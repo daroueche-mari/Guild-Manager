@@ -39,7 +39,7 @@ namespace GuildManager
         AdventurerSpecial myFushou = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
         AdventurerSpecial myHeijiu = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
         AdventurerSpecial myZhiyuan = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
-        Adventurer myPlayer = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+       public Adventurer myPlayer = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
 
         public MainWindow()
         {
@@ -56,15 +56,17 @@ namespace GuildManager
             StatChevalier();
             myPlayer.Gold = 50;
             myPlayer.Level = 1;
+            myPlayer.Experience = 10;
             NombreGoldFenetreMain.Text = myPlayer.Gold.ToString();
             NombreLvlFenetreMain.Text = myPlayer.Level.ToString();
             QuestCircle.GoldandxpCircle(180, 200, this);
-            QuestDragon.GoldandxpDragon(280, 300, this);
-            QuestFadriass.GoldandxpFadriass(380, 400, this);
-            QuestGoblins.GoldandxpGoblins(480, 500, this);
-            QuestSpiders.GoldandxpSpiders(580, 600, this);
+            QuestGoblins.GoldandxpGoblins(280, 300, this);
+            QuestZombies.GoldandxpZombies(380, 400, this);
+            QuestSpiders.GoldandxpSpiders(480, 500, this);
+            QuestDragon.GoldandxpDragon(580, 600, this);
             QuestTrees.GoldandxpTrees(680, 700, this);
-            QuestZombies.GoldandxpZombies(780, 800, this);
+            QuestFadriass.GoldandxpFadriass(780, 800, this);
+            
         }
        
         // Stat Aventurier Speciaux

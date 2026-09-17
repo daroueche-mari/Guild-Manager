@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GuildManagerProjet
 {
-    internal class Adventurer
+    public class Adventurer
     {
             public string Name { get; set; }
             public int Health { get; set; }
@@ -28,7 +28,13 @@ namespace GuildManagerProjet
                 Gold = gold;
                 Motivation = motivation;
             }
-
+        //public void UpLvl()
+        //{
+        //    if(Experience > 200)
+        //    {
+        //        Level += 1;
+        //    }
+        //}
 
 
         }

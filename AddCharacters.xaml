@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GuildManager"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         Title="AddCharacters" Height="650" Width="1050">
     <Grid Background="#E5000000">
         <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="465,267,0,0" TextWrapping="Wrap" Text="Choisissez la classe" VerticalAlignment="Top" Width="133" Panel.ZIndex="2" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
@@ -18,7 +20,7 @@
             <ComboBoxItem Content="Mage" />
             <ComboBoxItem Content="Pretre" />
         </ComboBox>
-        <TextBox HorizontalAlignment="Center" Margin="0,349,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Background="#33000000" BorderBrush="#33ABADB3" Panel.ZIndex="2"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#33000000" BorderBrush="#33ABADB3" Panel.ZIndex="2" Foreground="White"/>
         <Rectangle HorizontalAlignment="Center" Height="317" Stroke="Black" VerticalAlignment="Center" Width="352" Fill="#260003FF" Panel.ZIndex="1"/>
         <Rectangle HorizontalAlignment="Center" Height="177" Stroke="#33D1D1D1" VerticalAlignment="Center" Width="204" Panel.ZIndex="1"/>
         <TextBox HorizontalAlignment="Center" Margin="0,179,0,0" TextWrapping="Wrap" Text="AJOUTER UN PERSONNAGE" VerticalAlignment="Top" Width="234" Panel.ZIndex="2" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18"/>
