@@ -93,31 +93,26 @@ namespace GuildManager
             }
             gameWindow.Show();
 
-            //var facile = 1;
-            //var moyen = 10;
-            //var difficile = 20;
-            //var lootgold = mainWindow.myPlayer.Gold += 180;
-            //var lootexp = mainWindow.myPlayer.Experience += 200;
+            var facile = 1;
+            
 
-            //if (mainWindow.myPlayer.Level < facile) 
-            //{
-            //    MessageBox.Show("Vous n'avez pas reussi la quete");
-            //} else if(mainWindow.myPlayer.Level < moyen)
-            //{
-            //    MessageBox.Show("Vous n'avez pas reussi la quete");
-            //} else if(mainWindow.myPlayer.Level < difficile)
-            //{
-            //    MessageBox.Show("Vous n'avez pas reussi la quete");
-
-            //} else if (mainWindow.myPlayer.Level >= facile || mainWindow.myPlayer.Level >= moyen || mainWindow.myPlayer.Level >= difficile)
-            //{
-            //    Adventurer myadv = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
-            //    myadv.UpLvl();
-            //    MessageBox.Show("Vous avez reussi la quete" +
-            //        "Vous avez gagné" + lootgold + 
-            //        "d'Or et " + 
-            //        lootexp + "d'experience");
-            //}
+            if (mainWindow.myPlayer.Level < facile)
+            {
+                MessageBox.Show("Vous n'avez pas reussi la quete");
+            } else if (mainWindow.myPlayer.Level >= facile)
+            {
+                var lootgold = mainWindow.myPlayer.Gold += 180;
+                var lootexp = mainWindow.myPlayer.Experience += 200;
+                mainWindow.myPlayer.UpLvl();
+                mainWindow.NombreGoldFenetreMain.Text = mainWindow.myPlayer.Gold.ToString();
+                mainWindow.NombreLvlFenetreMain.Text = mainWindow.myPlayer.Level.ToString();
+                MessageBox.Show("Vous avez réussi la quête !\n" +
+                    "Vous avez gagné : " + mainWindow.GoldQuestCircle.Text + " d'Or et " +
+                    mainWindow.XpQuestCircle.Text + " d'expérience.\n\n" +
+                    "Vos Stats :\n" +
+                    "Niveau : " + mainWindow.NombreLvlFenetreMain.Text + "\n" +
+                    "Or : " + mainWindow.NombreGoldFenetreMain.Text);
+            }
 
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace GuildManager
@@ -87,6 +88,28 @@ namespace GuildManager
 
             }
             gameWindow.Show();
+
+            var moyen = 10;
+
+
+            if (mainWindow.myPlayer.Level < moyen)
+            {
+                MessageBox.Show("Vous n'avez pas reussi la quete");
+            }
+            else if (mainWindow.myPlayer.Level >= moyen)
+            {
+                var lootgold = mainWindow.myPlayer.Gold += 380;
+                var lootexp = mainWindow.myPlayer.Experience += 400;
+                mainWindow.myPlayer.UpLvl();
+                mainWindow.NombreGoldFenetreMain.Text = mainWindow.myPlayer.Gold.ToString();
+                mainWindow.NombreLvlFenetreMain.Text = mainWindow.myPlayer.Level.ToString();
+                MessageBox.Show("Vous avez réussi la quête !\n" +
+                    "Vous avez gagné : " + mainWindow.GoldQuestCircle.Text + " d'Or et " +
+                    mainWindow.XpQuestCircle.Text + " d'expérience.\n\n" +
+                    "Vos Stats :\n" +
+                    "Niveau : " + mainWindow.NombreLvlFenetreMain.Text + "\n" +
+                    "Or : " + mainWindow.NombreGoldFenetreMain.Text);
+            }
         }
     }
 }

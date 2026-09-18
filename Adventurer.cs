@@ -28,14 +28,15 @@ namespace GuildManagerProjet
                 Gold = gold;
                 Motivation = motivation;
             }
-        //public void UpLvl()
-        //{
-        //    if(Experience > 200)
-        //    {
-        //        Level += 1;
-        //    }
-        //}
-
-
+        public void UpLvl()
+        {
+            if (Experience > 200)
+            {
+                Level += 1;
+                Experience = 0;
+            }
         }
+
+
+    }
 }
