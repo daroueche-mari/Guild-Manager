@@ -1,0 +1,15 @@
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\obj\Debug\net10.0\Guild-Manager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\obj\Debug\net10.0\Guild-Manager.AssemblyInfoInputs.cache
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\obj\Debug\net10.0\Guild-Manager.AssemblyInfo.cs
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\obj\Debug\net10.0\Guild-Manager.csproj.CoreCompileInputs.cache
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\obj\Debug\net10.0\Guild-Manager.sourcelink.json
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\bin\Debug\net10.0\Guild-Manager.exe
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\bin\Debug\net10.0\Guild-Manager.deps.json
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\bin\Debug\net10.0\Guild-Manager.runtimeconfig.json
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\bin\Debug\net10.0\Guild-Manager.dll
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\bin\Debug\net10.0\Guild-Manager.pdb
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\obj\Debug\net10.0\Guild-Manager.dll
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\obj\Debug\net10.0\refint\Guild-Manager.dll
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\obj\Debug\net10.0\Guild-Manager.pdb
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\obj\Debug\net10.0\Guild-Manager.genruntimeconfig.cache
+C:\Users\Utilisateur\Documents\Cours\2.Guild_Manager\Guild-Manager\obj\Debug\net10.0\ref\Guild-Manager.dll

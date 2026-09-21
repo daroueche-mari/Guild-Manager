@@ -1,0 +1,35 @@
+{
+    "special" :
+    {
+        "Fuchou" :
+        {
+            "name" : "Fùchóu",
+            "class" : "Berserker",
+            "race" : "Panda",
+            "paths_images" : "",
+            "power_curve" : [4, 5, 6, 7, 8, 9, 11, 12, 14, 15, 17, 19, 21, 23, 26, 28, 30, 32, 34, 35],
+            "motivation" : "Venger la mort de sa famille.",
+            "personality" : "Rancunier, impulsif"
+        },
+        "Hei_Jiu" :
+        {
+            "name" : "Hēi Jiǔ",
+            "class" : "Maître Brasseur",
+            "race" : "Panda",
+            "paths_images" : "",
+            "power_curve" : [4, 5, 5, 7, 8, 8, 10, 11, 11, 13, 15, 15, 17, 18, 18, 21, 23, 26, 30, 35],
+            "motivation" : "Venger la mort de sa famille.",
+            "personality" : "Alcoolique, loyal"
+        },
+        "Zhiyuan" :
+        {
+            "name" : "Zhìyuān",
+            "class" : "Archimage",
+            "race" : "Panda",
+            "paths_images" : "",
+            "power_curve" : [4, 4, 5, 5, 6, 7, 8, 9, 11, 13, 15, 17, 20, 23, 26, 29, 31, 33, 34, 35],
+            "motivation" : "Venger la mort de sa famille.",
+            "personality" : "Sage, empathique"
+        }
+    }
+}
