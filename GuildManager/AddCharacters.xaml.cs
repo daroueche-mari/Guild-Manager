@@ -21,7 +21,6 @@ namespace GuildManager
         {
             InitializeComponent();
         }
-
         private void BackToMenuFromCharacterWindowBtn(object sender, RoutedEventArgs e)
         {
             MainWindow newmainWindow = new MainWindow();

@@ -39,11 +39,19 @@ namespace GuildManager
         AdventurerSpecial myFushou = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
         AdventurerSpecial myHeijiu = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
         AdventurerSpecial myZhiyuan = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
-       public Adventurer myPlayer = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+        public Adventurer myPlayer = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
 
         public MainWindow()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'initialisation XAML : {ex.Message}",
+                                "Erreur XAML", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             StatFushou();
             StatHeijiu();
             StatZhiyuan();
@@ -66,9 +74,9 @@ namespace GuildManager
             QuestDragon.GoldandxpDragon(580, 600, this);
             QuestTrees.GoldandxpTrees(680, 700, this);
             QuestFadriass.GoldandxpFadriass(780, 800, this);
-            
+
         }
-       
+
         // Stat Aventurier Speciaux
         private void StatFushou()
         {
@@ -117,10 +125,10 @@ namespace GuildManager
 
         private void LancerQuestCircleBtn(object sender, RoutedEventArgs e)
         {
-            if(Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
             {
                 MessageBox.Show("Veuillez choisir des aventuriers !");
-                return; 
+                return;
             }
             QuestCircle.LaunchQuestCircle(this);
             this.Hide();
@@ -201,6 +209,6 @@ namespace GuildManager
         }
 
 
-       
+
     }
 }

@@ -395,7 +395,7 @@
             <ComboBoxItem Content="Fùchóu"/>
             <ComboBoxItem Content="Hēi Jiǔ"/>
             <ComboBoxItem Content="Zhìyuān"/>
-         </ComboBox>
+        </ComboBox>
         <ComboBox x:Name="Aventurier2Choix" Grid.Column="1" HorizontalAlignment="Left" Margin="322,404,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Voyou" />
             <ComboBoxItem Content="Tank" />

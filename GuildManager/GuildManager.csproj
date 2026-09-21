@@ -21,20 +21,20 @@
     <None Remove="assets\Personnages\Aventuriers\Profile_HWarrior1.png" />
     <None Remove="assets\Personnages\Personnages-Importants\Fadriass.png" />
     <None Remove="assets\Personnages\Personnages-Importants\Meurtrier.png" />
-    <None Remove="assets\Ui\Background\Background_Adventurer.png" />
-    <None Remove="assets\Ui\Background\Background_Quest.png" />
-    <None Remove="assets\Ui\Background\Background_Quest_Resolution.png" />
-    <None Remove="assets\Ui\Background\Background_State.png" />
-    <None Remove="assets\Ui\Background\Background_Top.png" />
-    <None Remove="assets\Ui\Icon\Gold_Icon.png" />
-    <None Remove="assets\Ui\Icon\Level_Icon.png" />
-    <None Remove="assets\Ui\Quest_Illustrations\Quest_Circle.png" />
-    <None Remove="assets\Ui\Quest_Illustrations\Quest_Dragon.png" />
-    <None Remove="assets\Ui\Quest_Illustrations\Quest_Fadriass.png" />
-    <None Remove="assets\Ui\Quest_Illustrations\Quest_Goblins.png" />
-    <None Remove="assets\Ui\Quest_Illustrations\Quest_Spiders.png" />
-    <None Remove="assets\Ui\Quest_Illustrations\Quest_Trees.png" />
-    <None Remove="assets\Ui\Quest_Illustrations\Quest_Zombies.png" />
+    <None Remove="assets\UI\Background\Background_Adventurer.png" />
+    <None Remove="assets\UI\Background\Background_Quest.png" />
+    <None Remove="assets\UI\Background\Background_Quest_Resolution.png" />
+    <None Remove="assets\UI\Background\Background_State.png" />
+    <None Remove="assets\UI\Background\Background_Top.png" />
+    <None Remove="assets\UI\Icon\Gold_Icon.png" />
+    <None Remove="assets\UI\Icon\Level_Icon.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Circle.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Dragon.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Fadriass.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Goblins.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Spiders.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Trees.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Zombies.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,20 +50,20 @@
     <Resource Include="assets\Personnages\Aventuriers\Profile_HWarrior1.png" />
     <Resource Include="assets\Personnages\Personnages-Importants\Fadriass.png" />
     <Resource Include="assets\Personnages\Personnages-Importants\Meurtrier.png" />
-    <Resource Include="assets\Ui\Background\Background_Adventurer.png" />
-    <Resource Include="assets\Ui\Background\Background_Quest.png" />
-    <Resource Include="assets\Ui\Background\Background_Quest_Resolution.png" />
-    <Resource Include="assets\Ui\Background\Background_State.png" />
-    <Resource Include="assets\Ui\Background\Background_Top.png" />
-    <Resource Include="assets\Ui\Icon\Gold_Icon.png" />
-    <Resource Include="assets\Ui\Icon\Level_Icon.png" />
-    <Resource Include="assets\Ui\Quest_Illustrations\Quest_Circle.png" />
-    <Resource Include="assets\Ui\Quest_Illustrations\Quest_Dragon.png" />
-    <Resource Include="assets\Ui\Quest_Illustrations\Quest_Fadriass.png" />
-    <Resource Include="assets\Ui\Quest_Illustrations\Quest_Goblins.png" />
-    <Resource Include="assets\Ui\Quest_Illustrations\Quest_Spiders.png" />
-    <Resource Include="assets\Ui\Quest_Illustrations\Quest_Trees.png" />
-    <Resource Include="assets\Ui\Quest_Illustrations\Quest_Zombies.png" />
+    <Resource Include="assets\UI\Background\Background_Adventurer.png" />
+    <Resource Include="assets\UI\Background\Background_Quest.png" />
+    <Resource Include="assets\UI\Background\Background_Quest_Resolution.png" />
+    <Resource Include="assets\UI\Background\Background_State.png" />
+    <Resource Include="assets\UI\Background\Background_Top.png" />
+    <Resource Include="assets\UI\Icon\Gold_Icon.png" />
+    <Resource Include="assets\UI\Icon\Level_Icon.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Circle.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Dragon.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Fadriass.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Goblins.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Spiders.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Trees.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Zombies.png" />
   </ItemGroup>
 
 </Project>
