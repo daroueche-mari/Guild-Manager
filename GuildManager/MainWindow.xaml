@@ -1,0 +1,413 @@
+﻿<Window x:Class="GuildManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuildManager"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="650" Width="1050" Background="#4C000000">
+
+    <Grid Margin="10,88,10,-12">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="550*"/>
+            <ColumnDefinition Width="477*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <Image x:Name="SupportTitreFenetreMain" HorizontalAlignment="Left" Height="274" Margin="21,-180,0,0" VerticalAlignment="Top" Width="713" Panel.ZIndex="1" Source="/assets/UI/Background/Background_Top.png" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="TitreFenetreMain"  HorizontalAlignment="Left" Margin="90,-59,0,0" Grid.Row="2" TextWrapping="Wrap" Text="PHASE DE PLANIFICATION" VerticalAlignment="Top" Width="330" Panel.ZIndex="2" Background="#7F000000" Foreground="#B2FF0000" FontSize="21"  FontFamily="Castellar"/>
+        <Image x:Name="SupportInventaireFenetreMain" HorizontalAlignment="Left" Height="197" Margin="454,-137,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="557" Panel.ZIndex="1" Source="/assets/UI/Background/Background_State.png" Grid.ColumnSpan="2"/>
+
+        <!-- STATS / BARRE SUPÉRIEURE -->
+        <Image x:Name="IconGoldFenetreMain" HorizontalAlignment="Left" Height="24" Margin="11,-9,0,0" VerticalAlignment="Top" Width="32" Source="/assets/UI/Icon/Gold_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
+        <Image x:Name="IconLvlFenetreMain" HorizontalAlignment="Left" Height="29" Margin="452,-11,0,0" VerticalAlignment="Top" Width="28" Source="/assets/UI/Icon/Level_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
+        <TextBlock x:Name="NomJoueurFenetreMain"  HorizontalAlignment="Left" Margin="482,-54,0,0" TextWrapping="Wrap" Text="Nom du joueur" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFFD00" Panel.ZIndex="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="BtnSaveFenetreMain" Grid.Column="1" Content="Sauvegarder" HorizontalAlignment="Left" Margin="370,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" BorderBrush="#FF0004FF" Foreground="White" Height="21" Width="76"/>
+        <Button Click="ShowLogRegisterWindowBtn" x:Name="BtnLogRegister" Grid.Column="1" Content="Login / Register" HorizontalAlignment="Left" Margin="261,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" Foreground="White" BorderBrush="Black" Height="21" Width="89"/>
+        <TextBlock x:Name="NombreGoldFenetreMain"  Margin="39,-8,447,0" TextWrapping="Wrap" Text="Gold" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FFFFFD00" Grid.RowSpan="3"/>
+        <TextBlock x:Name="NombreLvlFenetreMain"  Margin="487,-7,12,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FF00FFF1" Grid.RowSpan="3"/>
+
+        <!-- SECTEUR AVENTURIERS (GAUCHE) -->
+        <Grid Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="530" Height="503">
+            <!-- FOND BLEU SEMI-TRANSPARENT -->
+            <Rectangle x:Name="RecAventurierDispo" Fill="#260003FF" Stroke="Black"/>
+
+            <!-- STRUCTURE PRINCIPALE (HAUT FIXE + CONTENU SCROLLABLE) -->
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- En-tête avec bouton fixe -->
+                    <RowDefinition Height="*"/>
+                    <!-- Zone avec scroll -->
+                </Grid.RowDefinitions>
+
+                <!-- EN-TÊTE FIXE EN HAUT -->
+                <DockPanel Grid.Row="0" Margin="0,0,10,10">
+
+                    <TextBlock x:Name="TitreAventurierSpeciaux" Text="Aventurier Spéciaux :" 
+                       Foreground="#FFFFCE00" FontWeight="Bold" VerticalAlignment="Center"/>
+                </DockPanel>
+
+                <!-- ZONE SCROLLABLE -->
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel>
+
+                        <!-- LISTE AVENTURIERS SPÉCIAUX (3 PAR LIGNE) -->
+                        <WrapPanel Margin="0,5,0,15">
+                            <!-- FÙCHÓU -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseFushou" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpFushou" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauFushou" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomFushou" Text="Fùchóu" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- HĒI JIǓ -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers-Spéciaux/Hēi Jiǔ.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseHeiJiu" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpHeiJiu" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauHeiJiu" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomHeiJiu" Text="Hēi Jiǔ" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- ZHÌYUĀN -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers-Spéciaux/Zhìyuān.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseZhiyuan" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpZhiyuan" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauZhiyuan" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomZhiyuan" Text="Zhìyuān" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
+
+                        <!-- TITRE AVENTURIERS -->
+                        <TextBlock Text="Aventurier :" Foreground="#FFFFCE00" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                        <!-- LISTE AVENTURIERS CLASSIQUES (3 PAR LIGNE) -->
+                        <WrapPanel>
+                            <!-- UALIAR -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HMage1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseMage" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpMage" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauMage" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomMage" Text="Ualiar" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- SALGAR -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HRanger1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseArcher" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpArcher" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauArcher" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomArcher" Text="Salgar" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- THALION -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HBarabarian1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseBarbare" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpBarbare" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauBarbare" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomBarbare" Text="Thalion" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- ERYNDEL -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HPriest1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClassePretre" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpPretre" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauPretre" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomPretre" Text="Eryndel" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- DWARGO -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HRogue1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseVoyou" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpVoyou" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauVoyou" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomVoyou" Text="Dwargo" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- SULVAR -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HTank1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseTank" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpTank" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauTank" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomTank" Text="Sulvar" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- STARK -->
+                            <StackPanel Orientation="Horizontal" Width="160" Margin="0,0,5,15">
+                                <Image Source="/assets/Personnages/Aventuriers/Profile_HWarrior1.png" Width="65" Height="85" Stretch="Uniform"/>
+                                <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock x:Name="ClasseChevalier" Text="Classe" Foreground="#FF00FF17" FontSize="11"/>
+                                    <TextBlock x:Name="ExpChevalier" Text="Exp" Foreground="#FFF1FF00" FontSize="11"/>
+                                    <TextBlock x:Name="NiveauChevalier" Text="Lvl" Foreground="#FF00EDFF" FontSize="11"/>
+                                    <TextBlock x:Name="NomChevalier" Text="Stark" Foreground="White" FontWeight="Bold" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+
+        <!-- SECTEUR QUÊTES (DROITE) -->
+        <Rectangle HorizontalAlignment="Center" Height="503" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="444" Fill="#260003FF" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="29,48,0,0" Grid.Row="2" Text="Quetes :" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFCE00"  Grid.Column="1"/>
+
+        <!-- CARTES DE QUÊTES (IMAGE + BOUTON EMBARQUÉ) -->
+        <!-- Quest Circle -->
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,119,0,0" Width="100" Height="71">
+            <Image Source="/assets/UI/Quest_Illustrations/Quest_Circle.png" Stretch="Fill"/>
+            <Button Click="LancerQuestCircleBtn" x:Name="BtnQueteCircle" Content="Lancer" Foreground="White" Cursor="Hand" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#33000000" CornerRadius="2">
+                            <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CC000000"/>
+                                <Setter Property="Foreground" Value="#FFFFCE00"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF000000"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+
+        <!-- Quest Dragon -->
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="163,119,0,0" Width="100" Height="71">
+            <Image Source="/assets/UI/Quest_Illustrations/Quest_Dragon.png" Stretch="Fill"/>
+            <Button Click="LancerQuestDragonBtn" x:Name="BtnQuestDragon" Content="Lancer" Foreground="White" Cursor="Hand" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#33000000" CornerRadius="2">
+                            <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CC000000"/>
+                                <Setter Property="Foreground" Value="#FFFFCE00"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF000000"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+
+        <!-- Quest Fadriass -->
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="316,119,0,0" Width="100" Height="71">
+            <Image Source="/assets/UI/Quest_Illustrations/Quest_Fadriass.png" Stretch="Fill"/>
+            <Button Click="LancerQuestFadriassBtn" x:Name="BtnQuestFadriass" Content="Lancer" Foreground="White" Cursor="Hand" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#33000000" CornerRadius="2">
+                            <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CC000000"/>
+                                <Setter Property="Foreground" Value="#FFFFCE00"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF000000"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+
+        <!-- Quest Goblins -->
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,245,0,0" Width="100" Height="71">
+            <Image Source="/assets/UI/Quest_Illustrations/Quest_Goblins.png" Stretch="Fill"/>
+            <Button Click="LancerQuestGoblinsBtn" x:Name="BtnQuestGoblins" Content="Lancer" Foreground="White" Cursor="Hand" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#33000000" CornerRadius="2">
+                            <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CC000000"/>
+                                <Setter Property="Foreground" Value="#FFFFCE00"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF000000"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+
+        <!-- Quest Spiders -->
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="168,245,0,0" Width="100" Height="71">
+            <Image Source="/assets/UI/Quest_Illustrations/Quest_Spiders.png" Stretch="Fill"/>
+            <Button Click="LancerQuestSpidersBtn" x:Name="BtnQuestSpiders" Content="Lancer" Foreground="White" Cursor="Hand" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#33000000" CornerRadius="2">
+                            <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CC000000"/>
+                                <Setter Property="Foreground" Value="#FFFFCE00"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF000000"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+
+        <!-- Quest Trees -->
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="316,245,0,0" Width="100" Height="71">
+            <Image Source="/assets/UI/Quest_Illustrations/Quest_Trees.png" Stretch="Fill"/>
+            <Button Click="LancerQuestTreesBtn" x:Name="BtnQuestTrees" Content="Lancer" Foreground="White" Cursor="Hand" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#33000000" CornerRadius="2">
+                            <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CC000000"/>
+                                <Setter Property="Foreground" Value="#FFFFCE00"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF000000"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+
+        <!-- Quest Zombies -->
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,355,0,0" Width="100" Height="71">
+            <Image Source="/assets/UI/Quest_Illustrations/Quest_Zombies.png" Stretch="Fill"/>
+            <Button Click="LancerQuestZombiesBtn" x:Name="BtnQuestZombies" Content="Lancer" Foreground="White" Cursor="Hand" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#33000000" CornerRadius="2">
+                            <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CC000000"/>
+                                <Setter Property="Foreground" Value="#FFFFCE00"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF000000"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+
+        <!-- TITRES DES QUÊTES -->
+        <TextBlock  HorizontalAlignment="Left" Margin="41,190,0,0" Grid.Row="2" Text="Quest Circle" VerticalAlignment="Top" Width="77"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="174,190,0,0" Grid.Row="2" Text="Quest Dragon" VerticalAlignment="Top" Width="89"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="331,190,0,0" Grid.Row="2" Text="Quest Fadriass" VerticalAlignment="Top" Width="85"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="40,317,0,0" Grid.Row="2" Text="Quest Goblins" VerticalAlignment="Top" Width="89"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="178,318,0,0" Grid.Row="2" Text="Quest Spiders" VerticalAlignment="Top" Width="83"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="331,317,0,0" Grid.Row="2" Text="Quest Trees" VerticalAlignment="Top" Width="77"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="41,428,0,0" Grid.Row="2" Text="Quest Zombies" VerticalAlignment="Top" Width="88"  Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+
+        <!-- SELECTION DES AVENTURIERS (CHECKBOXES) -->
+        <TextBlock x:Name="ChoixAventurierSpTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="144,379,0,0" Grid.Row="2" Text="Choix Aventurier Spéciaux" VerticalAlignment="Top" Width="150" Foreground="#FFF5D500" Background="#4C000000" />
+
+        <TextBlock x:Name="ChoixAventurierTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="337,440,0,0" Grid.Row="2" Text="Choix Aventurier 3" VerticalAlignment="Top" Width="105" Foreground="#FFF5D500" Background="#4C000000" />
+        <TextBlock  x:Name="GoldQuestCircle" Grid.Column="1" HorizontalAlignment="Left" Margin="21,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestCircle" Grid.Column="1" HorizontalAlignment="Left" Margin="65,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestFadriass" Grid.Column="1" HorizontalAlignment="Left" Margin="308,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="27" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestFadriass" Grid.Column="1" HorizontalAlignment="Left" Margin="348,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestDragon" Grid.Column="1" HorizontalAlignment="Left" Margin="163,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestDragon" Grid.Column="1" HorizontalAlignment="Left" Margin="203,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="30" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestGoblins" Grid.Column="1" HorizontalAlignment="Left" Margin="18,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestGoblins" Grid.Column="1" HorizontalAlignment="Left" Margin="59,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="32" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestSpiders" Grid.Column="1" HorizontalAlignment="Left" Margin="163,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestSpiders" Grid.Column="1" HorizontalAlignment="Left" Margin="201,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="30" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestTrees" Grid.Column="1" HorizontalAlignment="Left" Margin="313,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestTrees" Grid.Column="1" HorizontalAlignment="Left" Margin="353,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="GoldQuestZombies" Grid.Column="1" HorizontalAlignment="Left" Margin="21,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="31" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock  x:Name="XpQuestZombies" Grid.Column="1" HorizontalAlignment="Left" Margin="64,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="29" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="348,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="GOLD" VerticalAlignment="Top" Width="44" Height="18" Background="#33000000" Foreground="#FFFFB700"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="398,77,0,0" Grid.Row="2" TextWrapping="Wrap" Text="EXP" VerticalAlignment="Top" Width="39" Height="18" Background="#33000000" Foreground="#FF00A7FF"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="101,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy1" Grid.Column="1" HorizontalAlignment="Left" Margin="238,213,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="18" Height="18" Background="#33000000" Foreground="Red"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy2" Grid.Column="1" HorizontalAlignment="Left" Margin="390,214,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="16" Height="18" Background="#33000000" Foreground="Red"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy3" Grid.Column="1" HorizontalAlignment="Left" Margin="101,336,0,0" Grid.Row="2" TextWrapping="Wrap" Text="F" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy4" Grid.Column="1" HorizontalAlignment="Left" Margin="244,338,0,0" Grid.Row="2" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy5" Grid.Column="1" HorizontalAlignment="Left" Margin="391,335,0,0" Grid.Row="2" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="Red"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy6" Grid.Column="1" HorizontalAlignment="Left" Margin="101,449,0,0" Grid.Row="2" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="17" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy7" Grid.Column="1" HorizontalAlignment="Left" Margin="230,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Facile" VerticalAlignment="Top" Width="38" Height="18" Background="#33000000" Foreground="#FF1BE100"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy8" Grid.Column="1" HorizontalAlignment="Left" Margin="274,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Moyen" VerticalAlignment="Top" Width="45" Height="18" Background="#33000000" Foreground="#FF6773FF"/>
+        <TextBlock  x:Name="XpQuestCircle_Copy9" Grid.Column="1" HorizontalAlignment="Left" Margin="172,76,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Difficile" VerticalAlignment="Top" Width="52" Height="18" Background="#33000000" Foreground="Red"/>
+
+        <Button Click="ShowAddAdventurerWindowBtn" Content="Ajouter Aventurier" HorizontalAlignment="Left" Margin="408,42,0,0" Grid.Row="2" VerticalAlignment="Top" Width="116" Background="#B2F10000" Foreground="White" Panel.ZIndex="2"/>
+        <ComboBox x:Name="Aventurier1Choix" Grid.Column="1" HorizontalAlignment="Left" Margin="153,404,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Fùchóu"/>
+            <ComboBoxItem Content="Hēi Jiǔ"/>
+            <ComboBoxItem Content="Zhìyuān"/>
+         </ComboBox>
+        <ComboBox x:Name="Aventurier2Choix" Grid.Column="1" HorizontalAlignment="Left" Margin="322,404,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Voyou" />
+            <ComboBoxItem Content="Tank" />
+            <ComboBoxItem Content="Chevalier" />
+        </ComboBox>
+        <TextBlock x:Name="ChoixAventurierTxt_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="337,379,0,0" Grid.Row="2" Text="Choix Aventurier 2" VerticalAlignment="Top" Width="105" Foreground="#FFF5D500" Background="#4C000000" />
+        <ComboBox x:Name="Aventurier3Choix" Grid.Column="1" HorizontalAlignment="Left" Margin="323,463,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Mage" />
+            <ComboBoxItem Content="Archer" />
+            <ComboBoxItem Content="Pretre" />
+            <ComboBoxItem Content="Barbare" />
+        </ComboBox>
+
+    </Grid>
+</Window>
