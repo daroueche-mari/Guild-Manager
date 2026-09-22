@@ -2,7 +2,9 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-public struct AdventurerData
+// Basic Adventurer generator
+
+public struct BasicAdventurerData
 {
     public Names names {get; set;}
     public List<string> classes {get; set;}
@@ -35,25 +37,26 @@ public class PowerCurves
 public class Adventurer
 {
     Random rnd = new Random();
-    AdventurerData data;
+    BasicAdventurerData data;
 
     public string name {get; set;}
     public string advClass {get; set;}
     public string race {get; set;}
     public List<int> powerCurve {get; set;}
+    public string pathImage {get; set;}
     public string motivation {get; set;}
 
 
-    public Adventurer(AdventurerData data)
+    public Adventurer(BasicAdventurerData basicData)
     {
-        this.data = data;
+        this.data = basicData;
         int raceChoice = rnd.Next(data.races.Count());
         this.race = data.races[raceChoice];
         this.name = ChooseName(raceChoice, data.names);
         int classChoice = rnd.Next(data.classes.Count());
         this.advClass = data.classes[classChoice];
         this.powerCurve = ChoosePowerCurve(classChoice, data.power_curves);
-        // this.path_image = "";
+        // this.pathImage = "";
         this.motivation = data.motivations[rnd.Next(data.motivations.Count())];
     }
 
@@ -81,25 +84,119 @@ public class Adventurer
     }
 }
 
+// Special Adventurer Generator
+
+public class SpecialAdventurersData
+{
+    // public Dictionary<string, List<SpecialAdventurerData>> specials { get; set;}
+    public SpecialAdventurerData Fuchou { get; set;}
+    public SpecialAdventurerData Hei_Jiu { get; set;}
+    public SpecialAdventurerData Zhiyuan { get; set;}
+}
+
+public struct SpecialAdventurerData
+{
+    public string name {get; set;}
+    public string advClass {get; set;}
+    public string race {get; set;} 
+    public List<int> power_curve {get; set;}
+    public string path_image {get; set;}
+    public string motivation {get; set;}
+}
+
+public class SpecialAdventurer
+{
+    Random rnd = new Random();
+    SpecialAdventurersData specialData;
+    SpecialAdventurerData data;
+
+    public string specialName {get; set;}
+    public string name {get; set;}
+    public string advClass {get; set;}
+    public string race {get; set;}
+    public List<int> powerCurve {get; set;}
+    public string path_image {get; set;}
+    public string motivation {get; set;}
+
+
+    public SpecialAdventurer(string specialName, SpecialAdventurersData specialData)
+    {
+        // SpecialAdventurerData selectedChar = specialSource.First(a => a.name == specialName);
+
+        this.data = ChooseSpecialAdventurer(specialName, specialData);
+        this.race = data.race;
+        this.name = data.name;
+        this.advClass = data.advClass;
+        this.powerCurve = data.power_curve;
+        // this.pathImage = "";
+        this.motivation = data.motivation;
+    }
+
+    public SpecialAdventurerData ChooseSpecialAdventurer(string specialName, SpecialAdventurersData specialData)
+    {
+        // var properties = typeof(SpecialAdventurersData)
+        //     .GetProperties()
+        //     .Where(p => p.PropertyType == typeof(SpecialAdventurerData))
+        //     .ToList();
+        // var property = properties[specialName];
+        // SpecialAdventurerData selectedSpecChar = (SpecialAdventurerData)property.GetValue(specialData);
+
+        var property = typeof(SpecialAdventurersData).GetProperty(specialName);
+        SpecialAdventurerData selectedSpecChar = (SpecialAdventurerData)property.GetValue(specialData);
+
+        return selectedSpecChar;
+    }
+}
+
+
+// Main code
 
 class Retrieve
 {
     static void Main ()
     {
-        AdventurerData source;
+        BasicAdventurerData basicSource = RetrieveBasicData();
 
-        using (StreamReader r = new StreamReader("./assets/JSON/BasicAdventurers.json"))
-        {
-            string json = r.ReadToEnd();
-            source = JsonSerializer.Deserialize<AdventurerData>(json);
-        }
-
-        Adventurer adv1 = new Adventurer(source);
+        Adventurer adv1 = new Adventurer(basicSource);
         Console.WriteLine(adv1.name);
         Console.WriteLine(adv1.advClass);
         Console.WriteLine(adv1.race);
         Console.WriteLine(string.Join(", ", adv1.powerCurve));
         // Console.WriteLine(adv1.powerCurve);
         Console.WriteLine(adv1.motivation);
+
+
+        SpecialAdventurersData specialSource = RetrieveSpecialData();
+
+        SpecialAdventurer adv2 = new SpecialAdventurer("Zhiyuan", specialSource);
+        Console.WriteLine(adv2.name);
+        Console.WriteLine(adv2.advClass);
+        Console.WriteLine(adv2.race);
+        Console.WriteLine(string.Join(", ", adv2.powerCurve));
+        Console.WriteLine(adv2.motivation);
+
+        
+    }
+
+    public static BasicAdventurerData RetrieveBasicData()
+    {
+        BasicAdventurerData basicSource;
+        using (StreamReader r = new StreamReader("./assets/JSON/BasicAdventurers.json"))
+        {
+            string basicJson = r.ReadToEnd();
+            basicSource = JsonSerializer.Deserialize<BasicAdventurerData>(basicJson);
+        }
+        return basicSource;
+    }
+
+    public static SpecialAdventurersData RetrieveSpecialData()
+    {
+        SpecialAdventurersData specialSource;
+        using (StreamReader r = new StreamReader("./assets/JSON/SpecialAdventurers.json"))
+        {
+            string specialJson = r.ReadToEnd();
+            specialSource = JsonSerializer.Deserialize<SpecialAdventurersData>(specialJson);
+        }
+        return specialSource;
     }
 }
