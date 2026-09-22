@@ -21,8 +21,11 @@ namespace GuildManager
         /// </summary>
         public static void Charger()
         {
+            // Force la relecture des paramètres depuis le disque Windows
+            Settings.Default.Reload();
             Joueur.Instance.Gold = Settings.Default.Gold;
             Joueur.Instance.Level = Settings.Default.Level;
+            System.Diagnostics.Debug.WriteLine($"[CHARGEMENT] Gold: {Joueur.Instance.Gold}, Level: {Joueur.Instance.Level}");
         }
     }
 }

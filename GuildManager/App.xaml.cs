@@ -14,6 +14,13 @@ namespace GuildManager
             SaveManager.Sauvegarder();
             base.OnExit(e);
         }
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            // Charger les paramètres enregistrés avant d'afficher l'interface
+            SaveManager.Charger();
+        }
 
     }
 

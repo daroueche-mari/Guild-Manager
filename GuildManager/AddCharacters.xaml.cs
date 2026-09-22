@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GuildManagerProjet;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -26,6 +27,20 @@ namespace GuildManager
             MainWindow mw = new MainWindow();
             Application.Current.MainWindow.Show();
             this.Hide();
+        }
+
+        private void NewAdventurerBtn(object sender, RoutedEventArgs e)
+        {
+            if (Application.Current.MainWindow is MainWindow mys)
+            {
+                mys.AventuriersClassiques.Add(new Adventurer(
+                    Nomforaddcharacter.Text,
+                    Classeforaddcharacter.Text,
+                    Imagepathforaddcharacter.Text
+                ));
+                Nomforaddcharacter.Clear();
+                Imagepathforaddcharacter.Clear();                
+            }
         }
     }
 }

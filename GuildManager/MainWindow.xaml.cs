@@ -1,4 +1,5 @@
 ﻿
+using GuildManager.Properties;
 using GuildManagerProjet;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -38,7 +39,8 @@ namespace GuildManager
         public MainWindow()
         {
             InitializeComponent();
-            SaveManager.Charger();
+            // On associe l'interface à l'instance déjà chargée par App.xaml.cs
+            this.DataContext = Joueur.Instance;
             NombreGoldFenetreMain.Text = myPlayer.Gold.ToString();
             NombreLvlFenetreMain.Text = myPlayer.Level.ToString();
             //NomJoueurFenetreMain.Text = Nomenvoyéàlabdd;
@@ -90,6 +92,15 @@ namespace GuildManager
             Application.Current.Shutdown();
         }
 
+        private void NewGameBtn(object sender, RoutedEventArgs e)
+        {
+            myPlayer.Gold = 50;
+            myPlayer.Level = 1;
+            myPlayer.Experience = 10;
+            NombreGoldFenetreMain.Text = myPlayer.Gold.ToString();
+            NombreLvlFenetreMain.Text = myPlayer.Level.ToString();
+            SaveManager.Sauvegarder();
+        }
         // Bouton lancement de Quest
 
         private void LancerQuestCircleBtn(object sender, RoutedEventArgs e)

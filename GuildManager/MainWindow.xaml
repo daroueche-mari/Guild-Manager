@@ -334,6 +334,7 @@
             <ComboBoxItem Content="Thalion" />
         </ComboBox>
         <Button Click="GiveLvlBtn" Grid.Column="1" Content="Level +1 1000 Or" HorizontalAlignment="Left" Margin="40,73,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="109" Background="{x:Null}" Foreground="#FFFFFA00" BorderBrush="#FFFFDE00"/>
+        <Button Click="NewGameBtn" Grid.Column="1" Content="Nouvelle Partie" HorizontalAlignment="Left" Margin="128,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="1" Width="96" Background="{x:Null}" Foreground="White" BorderBrush="#FF5CFF00" Height="23"/>
 
     </Grid>
 </Window>
