@@ -1,5 +1,6 @@
 ﻿
 using GuildManagerProjet;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,7 @@ namespace GuildManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Joueur myPlayer => Joueur.Instance;
         // Instance des classes
         QuestCircle questCircle = new QuestCircle();
         QuestDragon questDragon = new QuestDragon();
@@ -29,44 +31,16 @@ namespace GuildManager
         QuestSpiders questSpiders = new QuestSpiders();
         QuestTrees questTrees = new QuestTrees();
         QuestZombies questZombies = new QuestZombies();
-        Adventurer myBarbare = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
-        Adventurer myMage = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
-        Adventurer myPretre = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
-        Adventurer myArcher = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
-        Adventurer myVoyou = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
-        Adventurer myTank = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
-        Adventurer myChevalier = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
-        AdventurerSpecial myFushou = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
-        AdventurerSpecial myHeijiu = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
-        AdventurerSpecial myZhiyuan = new AdventurerSpecial("", "", 0, "", "", 0, 0, "", 0, "");
-        public Adventurer myPlayer = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
+        
+        public ObservableCollection<AdventurerSpecial> AventuriersSpeciaux { get; set; } = new ObservableCollection<AdventurerSpecial>();
+        public ObservableCollection<Adventurer> AventuriersClassiques { get; set; } = new ObservableCollection<Adventurer>();
 
         public MainWindow()
         {
-            try
-            {
-                InitializeComponent();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur lors de l'initialisation XAML : {ex.Message}",
-                                "Erreur XAML", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            StatFushou();
-            StatHeijiu();
-            StatZhiyuan();
-            StatBarbare();
-            StatMage();
-            StatPretre();
-            StatArcher();
-            StatVoyou();
-            StatTank();
-            StatChevalier();
-            myPlayer.Gold = 50;
-            myPlayer.Level = 1;
-            myPlayer.Experience = 10;
+            InitializeComponent();
             NombreGoldFenetreMain.Text = myPlayer.Gold.ToString();
             NombreLvlFenetreMain.Text = myPlayer.Level.ToString();
+            //NomJoueurFenetreMain.Text = Nomenvoyéàlabdd;
             QuestCircle.GoldandxpCircle(180, 200, this);
             QuestGoblins.GoldandxpGoblins(280, 300, this);
             QuestZombies.GoldandxpZombies(380, 400, this);
@@ -74,51 +48,45 @@ namespace GuildManager
             QuestDragon.GoldandxpDragon(580, 600, this);
             QuestTrees.GoldandxpTrees(680, 700, this);
             QuestFadriass.GoldandxpFadriass(780, 800, this);
+            ListAventuriersSpeciaux.ItemsSource = AventuriersSpeciaux;
+            ListAventuriersClassiques.ItemsSource = AventuriersClassiques;
+            LoadData();
+        }
+        private void LoadData()
+        {
+            // Spéciaux
+            AventuriersSpeciaux.Add(new AdventurerSpecial("Fùchóu", "Berserker", "/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png"));
+            AventuriersSpeciaux.Add(new AdventurerSpecial("Hēi Jiǔ", "Maître Brasseur", "/assets/Personnages/Aventuriers-Spéciaux/Hēi Jiǔ.png"));
+            AventuriersSpeciaux.Add(new AdventurerSpecial("Zhìyuān", "Archimage", "/assets/Personnages/Aventuriers-Spéciaux/Zhìyuān.png"));
+            // Classiques
+            AventuriersClassiques.Add(new Adventurer("Dwargo", "Voyou", "/assets/Personnages/Aventuriers/Profile_HRogue1.png"));
+            AventuriersClassiques.Add(new Adventurer("Sulvar", "Tank", "/assets/Personnages/Aventuriers/Profile_HTank1.png"));
+            AventuriersClassiques.Add(new Adventurer("Stark", "Chevalier", "/assets/Personnages/Aventuriers/Profile_HWarrior1.png"));
+            AventuriersClassiques.Add(new Adventurer("Ualiar", "Mage", "/assets/Personnages/Aventuriers/Profile_HMage1.png"));
+            AventuriersClassiques.Add(new Adventurer("Eryndel", "Prêtre", "/assets/Personnages/Aventuriers/Profile_HPriest1.png"));
+            AventuriersClassiques.Add(new Adventurer("Salgar", "Archer", "/assets/Personnages/Aventuriers/Profile_HRanger1.png"));
+            AventuriersClassiques.Add(new Adventurer("Thalion", "Barbare", "/assets/Personnages/Aventuriers/Profile_HBarabarian1.png"));
+            
+        }
+
+        private void GiveLvlBtn(object sender, RoutedEventArgs e)
+        {
+           if (myPlayer.Gold < 1000)
+            {
+                MessageBox.Show("Vous n'avez pas assez d'or pour acheter ce bonus.");
+                return;
+            }
+            myPlayer.Gold -= 1000;
+            myPlayer.Level += 1;
+            NombreGoldFenetreMain.Text = myPlayer.Gold.ToString();
+            NombreLvlFenetreMain.Text = myPlayer.Level.ToString();
 
         }
 
-        // Stat Aventurier Speciaux
-        private void StatFushou()
+        private void QuitBtn(object sender, RoutedEventArgs e)
         {
-            FushouStats.ShowFushouStats(this, myFushou);
-        }
-        private void StatHeijiu()
-        {
-            HeijiuStats.ShowHeijiuStats(this, myHeijiu);
-        }
-        private void StatZhiyuan()
-        {
-            ZhiyuanStats.ShowZhiyuanStats(this, myZhiyuan);
-        }
-
-        // Stat Aventurier Basique
-        private void StatBarbare()
-        {
-            BarbareStats.ShowBarbareStats(this, myBarbare);
-        }
-        private void StatMage()
-        {
-            MageStats.ShowMageStats(this, myMage);
-        }
-        private void StatPretre()
-        {
-            PretreStats.ShowPretreStats(this, myPretre);
-        }
-        private void StatArcher()
-        {
-            ArcherStats.ShowArcherStats(this, myArcher);
-        }
-        private void StatVoyou()
-        {
-            VoyouStats.ShowVoyouStats(this, myVoyou);
-        }
-        private void StatTank()
-        {
-            TankStats.ShowTankStats(this, myTank);
-        }
-        private void StatChevalier()
-        {
-            ChevalierStats.ShowChevalierStats(this, myChevalier);
+            SaveManager.Sauvegarder();
+            Application.Current.Shutdown();
         }
 
         // Bouton lancement de Quest
@@ -131,28 +99,9 @@ namespace GuildManager
                 return;
             }
             QuestCircle.LaunchQuestCircle(this);
-            this.Hide();
+            this.Close();
         }
-        private void LancerQuestDragonBtn(object sender, RoutedEventArgs e)
-        {
-            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
-            {
-                MessageBox.Show("Veuillez choisir des aventuriers !");
-                return;
-            }
-            QuestDragon.LaunchQuestDragon(this);
-            this.Hide();
-        }
-        private void LancerQuestFadriassBtn(object sender, RoutedEventArgs e)
-        {
-            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
-            {
-                MessageBox.Show("Veuillez choisir des aventuriers !");
-                return;
-            }
-            QuestFadriass.LaunchQuestFadriass(this);
-            this.Hide();
-        }
+
         private void LancerQuestGoblinsBtn(object sender, RoutedEventArgs e)
         {
             if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
@@ -160,29 +109,12 @@ namespace GuildManager
                 MessageBox.Show("Veuillez choisir des aventuriers !");
                 return;
             }
+
             QuestGoblins.LaunchQuestGoblins(this);
-            this.Hide();
+            this.Close();
         }
-        private void LancerQuestSpidersBtn(object sender, RoutedEventArgs e)
-        {
-            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
-            {
-                MessageBox.Show("Veuillez choisir des aventuriers !");
-                return;
-            }
-            QuestSpiders.LaunchQuestSpiders(this);
-            this.Hide();
-        }
-        private void LancerQuestTreesBtn(object sender, RoutedEventArgs e)
-        {
-            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
-            {
-                MessageBox.Show("Veuillez choisir des aventuriers !");
-                return;
-            }
-            QuestTrees.LaunchQuestTrees(this);
-            this.Hide();
-        }
+
+
         private void LancerQuestZombiesBtn(object sender, RoutedEventArgs e)
         {
             if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
@@ -190,22 +122,102 @@ namespace GuildManager
                 MessageBox.Show("Veuillez choisir des aventuriers !");
                 return;
             }
+            if (myPlayer.Level < 10)
+            {
+                MessageBox.Show("Vous devez être au moins niveau 10 pour lancer cette quête !");
+                return;
+            }
+
             QuestZombies.LaunchQuestZombies(this);
-            this.Hide();
+            this.Close();
         }
+
+        private void LancerQuestSpidersBtn(object sender, RoutedEventArgs e)
+        {
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return;
+            }
+            if (myPlayer.Level < 10)
+            {
+                MessageBox.Show("Vous devez être au moins niveau 10 pour lancer cette quête !");
+                return;
+            }
+
+            QuestSpiders.LaunchQuestSpiders(this);
+            this.Close();
+        }
+
+
+        private void LancerQuestDragonBtn(object sender, RoutedEventArgs e)
+        {
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return;
+            }
+            if (myPlayer.Level < 20)
+            {
+                MessageBox.Show("Vous devez être au moins niveau 20 pour lancer cette quête !");
+                return;
+            }
+            
+            QuestDragon.LaunchQuestDragon(this);
+            this.Close();
+        }
+
+        private void LancerQuestTreesBtn(object sender, RoutedEventArgs e)
+        {
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return;
+            }
+            if (myPlayer.Level < 20)
+            {
+                MessageBox.Show("Vous devez être au moins niveau 20 pour lancer cette quête !");
+                return;
+            }
+
+            QuestTrees.LaunchQuestTrees(this);
+            this.Close();
+        }
+
+
+        private void LancerQuestFadriassBtn(object sender, RoutedEventArgs e)
+        {
+            if (Aventurier1Choix.SelectedIndex == -1 || Aventurier2Choix.SelectedIndex == -1 || Aventurier3Choix.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez choisir des aventuriers !");
+                return;
+            }
+            if (myPlayer.Level < 20)
+            {
+                MessageBox.Show("Vous devez être au moins niveau 20 pour lancer cette quête !");
+                return;
+            }
+
+            QuestFadriass.LaunchQuestFadriass(this);
+            this.Close();
+        }
+        
+        
+        
+        
 
         // Bouton pour Register/Login & Ajouter Aventurier
         private void ShowLogRegisterWindowBtn(object sender, RoutedEventArgs e)
         {
             Register_Login reglog = new Register_Login();
             reglog.Show();
-            this.Hide();
+            this.Close();
         }
         private void ShowAddAdventurerWindowBtn(object sender, RoutedEventArgs e)
         {
             AddCharacters addCharacters = new AddCharacters();
             addCharacters.Show();
-            this.Hide();
+            this.Close();
         }
 
 

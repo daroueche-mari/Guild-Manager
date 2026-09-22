@@ -18,7 +18,6 @@ namespace GuildManager
     /// </summary>
     public partial class GameWindow : Window
     {
-        public Adventurer myPlayer = new Adventurer("", 0, "", "", 0, 0, "", 0, "");
 
         public GameWindow()
         {
@@ -26,9 +25,8 @@ namespace GuildManager
         }
         private void BackToQuestBtn(object sender, RoutedEventArgs e)
         {
-            MainWindow mymainWindow = new MainWindow();
             Application.Current.MainWindow.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

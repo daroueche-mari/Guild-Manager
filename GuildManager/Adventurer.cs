@@ -6,36 +6,17 @@ namespace GuildManagerProjet
 {
     public class Adventurer
     {
-            public string Name { get; set; }
-            public int Health { get; set; }
+            public string Nom { get; set; }
             public string Classe { get; set; }
-            public string Breed { get; set; }
-            public int Level { get; set; }
-            public int Experience { get; set; }
-            public string Inventory { get; set; }
-            public int Gold { get; set; }
-            public string Motivation { get; set; }
+            public string ImagePath { get; set; }
 
-            public Adventurer(string name,int health, string classe, string breed, int level, int experience, string inventory, int gold, string motivation)
+        public Adventurer(string nom, string classe, string imagePath)
             {
-                Name = name;
-                Health = health;
+                Nom = nom;
                 Classe = classe;
-                Breed = breed;
-                Level = level;
-                Experience = experience;
-                Inventory = inventory;
-                Gold = gold;
-                Motivation = motivation;
+                ImagePath = imagePath;
             }
-        public void UpLvl()
-        {
-            if (Experience > 200)
-            {
-                Level += 1;
-                Experience = 0;
-            }
-        }
+        
 
 
     }

@@ -35,34 +35,34 @@ namespace GuildManager
             if (mainWindow.Aventurier1Choix.SelectedIndex == 0)
             {
                 gameWindow.Combattant1.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png", UriKind.Relative));
-                gameWindow.NomAventurier1.Text = mainWindow.NomFushou.Text;
+                gameWindow.NomAventurier1.Text = mainWindow.AventuriersSpeciaux[0].Nom;
             }
             if (mainWindow.Aventurier1Choix.SelectedIndex == 1)
             {
                 gameWindow.Combattant1.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Hēi Jiǔ.png", UriKind.Relative));
-                gameWindow.NomAventurier1.Text = mainWindow.NomHeiJiu.Text;
+                gameWindow.NomAventurier1.Text = mainWindow.AventuriersSpeciaux[1].Nom;
             }
             if (mainWindow.Aventurier1Choix.SelectedIndex == 2)
             {
                 gameWindow.Combattant1.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers-Spéciaux/Zhìyuān.png", UriKind.Relative));
-                gameWindow.NomAventurier1.Text = mainWindow.NomZhiyuan.Text;
+                gameWindow.NomAventurier1.Text = mainWindow.AventuriersSpeciaux[2].Nom;
             }
             // ComboBox Aventurier 2
 
             if (mainWindow.Aventurier2Choix.SelectedIndex == 0)
             {
                 gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HRogue1.png", UriKind.Relative));
-                gameWindow.NomAventurier2.Text = mainWindow.NomVoyou.Text;
+                gameWindow.NomAventurier2.Text = mainWindow.AventuriersClassiques[0].Nom;
             }
             if (mainWindow.Aventurier2Choix.SelectedIndex == 1)
             {
                 gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HTank1.png", UriKind.Relative));
-                gameWindow.NomAventurier2.Text = mainWindow.NomTank.Text;
+                gameWindow.NomAventurier2.Text = mainWindow.AventuriersClassiques[1].Nom;
             }
             if (mainWindow.Aventurier2Choix.SelectedIndex == 2)
             {
                 gameWindow.Combattant2.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HWarrior1.png", UriKind.Relative));
-                gameWindow.NomAventurier2.Text = mainWindow.NomChevalier.Text;
+                gameWindow.NomAventurier2.Text = mainWindow.AventuriersClassiques[2].Nom;
             }
 
             // ComboBox Aventurier 3
@@ -70,23 +70,22 @@ namespace GuildManager
             if (mainWindow.Aventurier3Choix.SelectedIndex == 0)
             {
                 gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HMage1.png", UriKind.Relative));
-                gameWindow.NomAventurier3.Text = mainWindow.NomMage.Text;
+                gameWindow.NomAventurier3.Text = mainWindow.AventuriersClassiques[3].Nom;
             }
             if (mainWindow.Aventurier3Choix.SelectedIndex == 1)
             {
                 gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HPriest1.png", UriKind.Relative));
-                gameWindow.NomAventurier3.Text = mainWindow.NomPretre.Text;
+                gameWindow.NomAventurier3.Text = mainWindow.AventuriersClassiques[4].Nom;
             }
             if (mainWindow.Aventurier3Choix.SelectedIndex == 2)
             {
                 gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HRanger1.png", UriKind.Relative));
-                gameWindow.NomAventurier3.Text = mainWindow.NomArcher.Text;
+                gameWindow.NomAventurier3.Text = mainWindow.AventuriersClassiques[5].Nom;
             }
             if (mainWindow.Aventurier3Choix.SelectedIndex == 3)
             {
                 gameWindow.Combattant3.Source = new BitmapImage(new Uri("/assets/Personnages/Aventuriers/Profile_HBarabarian1.png", UriKind.Relative));
-                gameWindow.NomAventurier3.Text = mainWindow.NomBarbare.Text;
-
+                gameWindow.NomAventurier3.Text = mainWindow.AventuriersClassiques[6].Nom;
             }
             gameWindow.Show();
 
