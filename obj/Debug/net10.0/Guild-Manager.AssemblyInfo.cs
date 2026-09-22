@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Guild-Manager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15a42463c30ebaeaa9c90fe23f5eb604a0c43772")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d48bc0bd5a366f6d65170d793a48c201483f05a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Guild-Manager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Guild-Manager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

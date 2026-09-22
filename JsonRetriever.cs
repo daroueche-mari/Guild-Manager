@@ -23,8 +23,6 @@ public class Names
 
 public class PowerCurves
 {
-    // public List<int> Default {get; set;}
-    // "Default" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23],
     public List<int> Warrior {get; set;}
     public List<int> Barbarian {get; set;}
     public List<int> Tank {get; set;}
@@ -88,7 +86,6 @@ public class Adventurer
 
 public class SpecialAdventurersData
 {
-    // public Dictionary<string, List<SpecialAdventurerData>> specials { get; set;}
     public SpecialAdventurerData Fuchou { get; set;}
     public SpecialAdventurerData Hei_Jiu { get; set;}
     public SpecialAdventurerData Zhiyuan { get; set;}
@@ -121,8 +118,6 @@ public class SpecialAdventurer
 
     public SpecialAdventurer(string specialName, SpecialAdventurersData specialData)
     {
-        // SpecialAdventurerData selectedChar = specialSource.First(a => a.name == specialName);
-
         this.data = ChooseSpecialAdventurer(specialName, specialData);
         this.race = data.race;
         this.name = data.name;
@@ -134,13 +129,6 @@ public class SpecialAdventurer
 
     public SpecialAdventurerData ChooseSpecialAdventurer(string specialName, SpecialAdventurersData specialData)
     {
-        // var properties = typeof(SpecialAdventurersData)
-        //     .GetProperties()
-        //     .Where(p => p.PropertyType == typeof(SpecialAdventurerData))
-        //     .ToList();
-        // var property = properties[specialName];
-        // SpecialAdventurerData selectedSpecChar = (SpecialAdventurerData)property.GetValue(specialData);
-
         var property = typeof(SpecialAdventurersData).GetProperty(specialName);
         SpecialAdventurerData selectedSpecChar = (SpecialAdventurerData)property.GetValue(specialData);
 
