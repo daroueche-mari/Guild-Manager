@@ -25,8 +25,9 @@ namespace GuildManager
         }
         private void BackToQuestBtn(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
             Application.Current.MainWindow.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

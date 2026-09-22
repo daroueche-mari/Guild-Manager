@@ -1,55 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Text.Json;
+﻿using GuildManager.Properties;
 
 namespace GuildManager
 {
     public static class SaveManager
     {
-        // Le fichier savegame.json sera stocké directement à côté du fichier .exe du jeu
-        private static readonly string FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "savegame.json");
-
         /// <summary>
-        /// Sauvegarde les données actuelles du joueur dans le fichier JSON.
+        /// Sauvegarde l'or et le niveau du joueur dans les paramètres de l'application.
         /// </summary>
         public static void Sauvegarder()
         {
-            try
-            {
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                string jsonString = JsonSerializer.Serialize(Joueur.Instance, options);
-                File.WriteAllText(FilePath, jsonString);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Erreur lors de la sauvegarde : {ex.Message}");
-            }
+            Settings.Default.Gold = Joueur.Instance.Gold;
+            Settings.Default.Level = Joueur.Instance.Level;
+
+            // Enregistrement définitif sur le système
+            Settings.Default.Save();
         }
 
         /// <summary>
-        /// Charge les données du fichier JSON s'il existe.
+        /// Charge l'or et le niveau sauvegardés au démarrage.
         /// </summary>
         public static void Charger()
         {
-            try
-            {
-                if (File.Exists(FilePath))
-                {
-                    string jsonString = File.ReadAllText(FilePath);
-                    Joueur? loadedJoueur = JsonSerializer.Deserialize<Joueur>(jsonString);
-
-                    if (loadedJoueur != null)
-                    {
-                        Joueur.Instance = loadedJoueur;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Erreur lors du chargement : {ex.Message}");
-            }
+            Joueur.Instance.Gold = Settings.Default.Gold;
+            Joueur.Instance.Level = Settings.Default.Level;
         }
     }
 }

@@ -23,8 +23,9 @@ namespace GuildManager
         }
         private void BackToMenuFromCharacterWindowBtn(object sender, RoutedEventArgs e)
         {
+            MainWindow mw = new MainWindow();
             Application.Current.MainWindow.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

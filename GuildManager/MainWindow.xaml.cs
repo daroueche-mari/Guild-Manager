@@ -38,6 +38,7 @@ namespace GuildManager
         public MainWindow()
         {
             InitializeComponent();
+            SaveManager.Charger();
             NombreGoldFenetreMain.Text = myPlayer.Gold.ToString();
             NombreLvlFenetreMain.Text = myPlayer.Level.ToString();
             //NomJoueurFenetreMain.Text = Nomenvoyéàlabdd;
@@ -99,7 +100,7 @@ namespace GuildManager
                 return;
             }
             QuestCircle.LaunchQuestCircle(this);
-            this.Close();
+            this.Hide();
         }
 
         private void LancerQuestGoblinsBtn(object sender, RoutedEventArgs e)
@@ -111,7 +112,7 @@ namespace GuildManager
             }
 
             QuestGoblins.LaunchQuestGoblins(this);
-            this.Close();
+            this.Hide();
         }
 
 
@@ -129,7 +130,7 @@ namespace GuildManager
             }
 
             QuestZombies.LaunchQuestZombies(this);
-            this.Close();
+            this.Hide();
         }
 
         private void LancerQuestSpidersBtn(object sender, RoutedEventArgs e)
@@ -146,7 +147,7 @@ namespace GuildManager
             }
 
             QuestSpiders.LaunchQuestSpiders(this);
-            this.Close();
+            this.Hide();
         }
 
 
@@ -164,7 +165,7 @@ namespace GuildManager
             }
             
             QuestDragon.LaunchQuestDragon(this);
-            this.Close();
+            this.Hide();
         }
 
         private void LancerQuestTreesBtn(object sender, RoutedEventArgs e)
@@ -181,7 +182,7 @@ namespace GuildManager
             }
 
             QuestTrees.LaunchQuestTrees(this);
-            this.Close();
+            this.Hide();
         }
 
 
@@ -199,7 +200,7 @@ namespace GuildManager
             }
 
             QuestFadriass.LaunchQuestFadriass(this);
-            this.Close();
+            this.Hide();
         }
         
         
@@ -211,13 +212,13 @@ namespace GuildManager
         {
             Register_Login reglog = new Register_Login();
             reglog.Show();
-            this.Close();
+            this.Hide();
         }
         private void ShowAddAdventurerWindowBtn(object sender, RoutedEventArgs e)
         {
             AddCharacters addCharacters = new AddCharacters();
             addCharacters.Show();
-            this.Close();
+            this.Hide();
         }
 
 
