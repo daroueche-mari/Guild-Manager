@@ -165,9 +165,9 @@ class Retrieve
 {
     static void Main ()
     {
-        BasicAdventurerData basicSource = RetrieveBasicData();
+        BasicAdventurerData basicData = RetrieveBasicData();
 
-        BasicAdventurerDataRetriever basicAdvRetriever = new BasicAdventurerDataRetriever(basicSource);
+        BasicAdventurerDataRetriever basicAdvRetriever = new BasicAdventurerDataRetriever(basicData);
         var basicAdv1 = basicAdvRetriever.ReturnBasicAdv();
         Console.WriteLine(basicAdv1.name + ", " + basicAdv1.advClass + ", " + basicAdv1.race + ", " +
                           basicAdv1.pathImage + ", " + basicAdv1.motivation);
@@ -178,9 +178,9 @@ class Retrieve
         Console.WriteLine(string.Join(", ", basicAdv2.powerCurve));
 
 
-        SpecialAdventurersData specialSource = RetrieveSpecialData();
+        SpecialAdventurersData specialData = RetrieveSpecialData();
 
-        SpecialAdventurerDataRetriever specialAdvRetriever = new SpecialAdventurerDataRetriever(specialSource);
+        SpecialAdventurerDataRetriever specialAdvRetriever = new SpecialAdventurerDataRetriever(specialData);
         var specialAdv1 = specialAdvRetriever.ReturnSpecialAdv("Fuchou");
         Console.WriteLine(specialAdv1.name + ", " + specialAdv1.advClass + ", " + specialAdv1.race + ", " +
                           specialAdv1.pathImage + ", " + specialAdv1.motivation);
@@ -193,23 +193,23 @@ class Retrieve
 
     public static BasicAdventurerData RetrieveBasicData()
     {
-        BasicAdventurerData basicSource;
+        BasicAdventurerData basicData;
         using (StreamReader r = new StreamReader("./assets/JSON/BasicAdventurers.json"))
         {
             string basicJson = r.ReadToEnd();
-            basicSource = JsonSerializer.Deserialize<BasicAdventurerData>(basicJson);
+            basicData = JsonSerializer.Deserialize<BasicAdventurerData>(basicJson);
         }
-        return basicSource;
+        return basicData;
     }
 
     public static SpecialAdventurersData RetrieveSpecialData()
     {
-        SpecialAdventurersData specialSource;
+        SpecialAdventurersData specialData;
         using (StreamReader r = new StreamReader("./assets/JSON/SpecialAdventurers.json"))
         {
             string specialJson = r.ReadToEnd();
-            specialSource = JsonSerializer.Deserialize<SpecialAdventurersData>(specialJson);
+            specialData = JsonSerializer.Deserialize<SpecialAdventurersData>(specialJson);
         }
-        return specialSource;
+        return specialData;
     }
 }
