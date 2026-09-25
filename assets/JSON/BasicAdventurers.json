@@ -29,7 +29,36 @@
         },
         "paths_images" :
         {
-            "default" : ""
+            "Human" :
+            {
+                "Warrior" : ["HW1","HW2","HW3"],
+                "Barbarian" : ["HB1","HB2","HB3"],
+                "Tank" : ["HT1","HT2","HT3"],
+                "Rogue" : ["HRo1","HRo2","HRo3"],
+                "Ranger" : ["HRa1","HRa2","HRa3"],
+                "Mage" : ["HM1","HM2","HM3"],
+                "Priest" : ["HP1","HP2","HP3"]
+            },
+            "Elf" :
+            {
+                "Warrior" : ["EW1","EW2","EW3"],
+                "Barbarian" : ["EB1","EB2","EB3"],
+                "Tank" : ["ET1","ET2","ET3"],
+                "Rogue" : ["ERo1","ERo2","ERo3"],
+                "Ranger" : ["ERa1","ERa2","ERa3"],
+                "Mage" : ["EM1","EM2","EM3"],
+                "Priest" : ["EP1","EP2","EP3"]
+            },
+            "Dwarf" :
+            {
+                "Warrior" : ["DW1","DW2","DW3"],
+                "Barbarian" : ["DB1","DB2","DB3"],
+                "Tank" : ["DT1","DT2","DT3"],
+                "Rogue" : ["DRo1","DRo2","DRo3"],
+                "Ranger" : ["DRa1","DRa2","DRa3"],
+                "Mage" : ["DM1","DM2","DM3"],
+                "Priest" : ["DP1","DP2","DP3"]
+            }
         },
         "motivations" : ["Souhaite aider les autres du mieux qu'il peut.",
                          "Cherche à accomplir de hauts faits d'arme et obtenir la gloire.",
