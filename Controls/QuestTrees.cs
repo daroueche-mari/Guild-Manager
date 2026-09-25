@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Threading.Tasks;
 
 namespace GuildManager.Controls
 {
@@ -14,7 +15,7 @@ namespace GuildManager.Controls
             mainWindow.GoldQuestTrees.Text = goldtrees.ToString();
             mainWindow.XpQuestTrees.Text = xptrees.ToString();
         }
-        public static void LaunchQuestTrees(ChoiceCharacter choiceCharacter, MainWindow? mainWindow)
+        public static async void LaunchQuestTrees(ChoiceCharacter choiceCharacter, MainWindow? mainWindow)
         {
             // 1. Récupération de sécurité si mainWindow est passée à null
             if (mainWindow == null)
@@ -36,14 +37,11 @@ namespace GuildManager.Controls
             // Config Images Quetes
 
             gameWindow.FondQueteChoisi.Source = new BitmapImage(new Uri("/assets/UI/Quest_Illustrations/Quest_Trees.png", UriKind.Relative));
-            gameWindow.Ennemi.Source = new BitmapImage(new Uri("/assets/Personnages/Personnages-Importants/Meurtrier.png", UriKind.Relative));
-            gameWindow.NomEnnemi.Text = "Meurtrier";
-            gameWindow.TypeEnnemi.Text = "Monstre";
+            gameWindow.Ennemi.Source = new BitmapImage(new Uri("/assets/Personnages/Personnages-Importants/Trees.png", UriKind.Relative));
+            gameWindow.NomEnnemi.Text = "Tréant Corrompu";
+            gameWindow.TypeEnnemi.Text = "Esprit Végétal";
 
-            // Config Histoire Quetes
-
-            gameWindow.Histoire.Text = "Histoire Quete Trees";
-
+           
             // Choice Adventurer 
 
             gameWindow.Combattant1.Source = choiceCharacter.Slot1Image.Source;
@@ -59,6 +57,18 @@ namespace GuildManager.Controls
 
             gameWindow.Show();
 
+            // Config Histoire Quetes
+
+            gameWindow.Histoire.Text =
+                "Autrefois, le Démon Sauvage Fadriass terrorisait ces terres en créant des plantes et des bêtes monstrueuses.\n\n";
+            await Task.Delay(2000);
+            gameWindow.Histoire.Text +=
+                "Des rejets de ces anciennes plantes sauvages refont surface aux limites de la forêt. Leurs racines sont marquées de runes profanes et infusées d'énergie sombre.\n\n";
+            await Task.Delay(2000);
+            gameWindow.Histoire.Text +=
+                "Vos aventuriers partent purger la zone. Mais attention : détruire ces créatures libère leur énergie spirituelle... Une énergie que le démon endormi commence déjà à réabsorber.";
+
+            await Task.Delay(2000);
             // 4. Variables de quête et conversion sécurisée de la puissance
             int facile = 150;
             int Goldwin = 180;

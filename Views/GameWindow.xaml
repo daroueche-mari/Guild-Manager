@@ -7,54 +7,224 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Title="GameWindow" Height="650" Width="1050" Background="#4C000000">
-    <Grid Margin="10,75,10,1">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="550*"/>
-            <ColumnDefinition Width="397*"/>
-            <ColumnDefinition Width="80*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        Title="GameWindow" Height="680" Width="1050" 
+        Background="#1A1A1A">
 
+    <Grid>
         <!-- FOND DE LA QUÊTE EN COURS -->
-        <Image x:Name="FondQueteChoisi" HorizontalAlignment="Left" Height="687" Margin="0,52,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1030" Source="/assets/UI/Quest_Illustrations/Quest_Fadriass.png" Grid.RowSpan="2" Grid.ColumnSpan="4"/>
+        <Image x:Name="FondQueteChoisi" 
+               Stretch="UniformToFill" 
+               Source="/assets/UI/Quest_Illustrations/Quest_Fadriass.png" 
+               Opacity="0.4"/>
 
-        <!-- HEADER PRINCIPAL -->
-        <Image x:Name="SupportTitreFenetreGame" HorizontalAlignment="Left" Height="274" Margin="21,-179,0,0" VerticalAlignment="Top" Width="713" Panel.ZIndex="1" Source="/assets/UI/Background/Background_Top.png" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="TitreFenetre"  HorizontalAlignment="Left" Margin="90,-59,0,0" Grid.Row="2" TextWrapping="Wrap" Text="PHASE DE RESOLUTION" VerticalAlignment="Top" Width="310" Panel.ZIndex="2" Background="#7F000000" Foreground="#B2FF0000" FontSize="23"  FontFamily="Castellar"/>
+        <!-- LAYOUT PRINCIPAL -->
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <!-- Barre Supérieure Header -->
+                <RowDefinition Height="*"/>
+                <!-- Zone de Jeu Principale -->
+            </Grid.RowDefinitions>
 
-        <!-- BARRE SUPÉRIEURE (Stats & Joueur) -->
-        <Image x:Name="SupportInventaireFenetreGame" HorizontalAlignment="Left" Height="256" Margin="454,-137,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="557" Panel.ZIndex="1" Source="/assets/UI/Background/Background_State.png" Grid.ColumnSpan="3"/>
-        <TextBlock x:Name="NomJoueur"  HorizontalAlignment="Left" Margin="483,-54,0,0" TextWrapping="Wrap" Text="Nom du joueur" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFFD00" Panel.ZIndex="2" Grid.ColumnSpan="2"/>
+            <!-- ================= HEADER SUPÉRIEUR ================= -->
+            <Grid Grid.Row="0" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <!-- BOUTON RETOUR QUETES -->
-        <Button Click="BackToQuestBtn" x:Name="BtnRetourQuest" Content="Retour aux Quetes" HorizontalAlignment="Left" Margin="327,-55,0,0" VerticalAlignment="Top" Grid.Column="1" Width="110" Height="20" Background="#FF18C400" Foreground="White" Panel.ZIndex="2" Grid.ColumnSpan="2" Cursor="Hand"/>
+                <!-- Support Titre -->
+                <Border Grid.Column="0" Background="#7F000000" CornerRadius="5" Padding="10,5" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TitreFenetre" 
+                               Text="PHASE DE RESOLUTION" 
+                               Foreground="#FFB20000" 
+                               FontSize="22" 
+                               FontWeight="Bold"
+                               FontFamily="Castellar" 
+                               VerticalAlignment="Center"/>
+                </Border>
 
-        <!-- ENNEMI ET INFOS -->
-        <Rectangle x:Name="RecEnnemi" HorizontalAlignment="Left" Height="346" Margin="20,75,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="199" Panel.ZIndex="1" Fill="#7F000000"/>
-        <Image x:Name="Ennemi" HorizontalAlignment="Left" Height="300" Margin="19,75,0,0" Grid.Row="2" VerticalAlignment="Top" Width="198" Panel.ZIndex="2" Source="/assets/Personnages/Personnages-Importants/Fadriass.png"/>
-        <Rectangle x:Name="RecNomEnnemi" HorizontalAlignment="Left" Height="50" Margin="19,472,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="199" Panel.ZIndex="1" Fill="#7F000000"/>
-        <TextBlock x:Name="NomEnnemi"  HorizontalAlignment="Left" Margin="83,472,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Fadriass" VerticalAlignment="Top" Width="98" Panel.ZIndex="1" Background="{x:Null}" Foreground="White" FontSize="17" />
-        <TextBlock x:Name="TypeEnnemi"  HorizontalAlignment="Left" Margin="95,500,0,0" Grid.Row="2" TextWrapping="Wrap" Text="BOSS" VerticalAlignment="Top" Width="79" Panel.ZIndex="1" Background="{x:Null}" Foreground="White"  FontSize="10"/>
+                <!-- Bouton Retour -->
+                <Button Grid.Column="1" 
+                        Click="BackToQuestBtn" 
+                        x:Name="BtnRetourQuest" 
+                        Content="Retour aux Quêtes" 
+                        Width="160" Height="35" 
+                        Background="#FF18C400" Foreground="White" 
+                        FontWeight="Bold" FontSize="13"
+                        Cursor="Hand" VerticalAlignment="Center">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
 
-        <!-- JOURNAL DE LA QUÊTE (CENTRE) -->
-        <Image x:Name="SupportHistoire" HorizontalAlignment="Left" Height="284" Margin="235,111,0,0" Grid.Row="2" VerticalAlignment="Top" Width="560" Source="/assets/UI/Background/Background_Quest_Resolution.png" Panel.ZIndex="1" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="Histoire"  HorizontalAlignment="Left" Margin="282,151,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Journal de la quete" VerticalAlignment="Top" Width="462" Panel.ZIndex="2" Grid.ColumnSpan="2" Height="159" Background="#19000000" Foreground="White"/>
+                <!-- Infos Joueur -->
+                <Border Grid.Column="2" Background="#7F000000" CornerRadius="5" Padding="10,5" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock x:Name="NomJoueur" 
+                               Text="Nom du joueur" 
+                               Foreground="#FFFFFD00" 
+                               FontSize="16" FontWeight="Bold"/>
+                </Border>
+            </Grid>
 
-        <!-- AVENTURIERS SÉLECTIONNÉS (DROITE) -->
-        <Rectangle x:Name="RecAventurier" HorizontalAlignment="Left" Height="383" Margin="236,76,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="225" Panel.ZIndex="1" Fill="#7F000000" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Image x:Name="Combattant1" HorizontalAlignment="Left" Height="239" Margin="250,77,0,0" Grid.Row="2" VerticalAlignment="Top" Width="199" Panel.ZIndex="2" Source="/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Image x:Name="Combattant2" Margin="250,343,73,119" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HBarabarian1.png" Stretch="Fill" Grid.Column="1" Panel.ZIndex="2"/>
-        <Image x:Name="Combattant3" Margin="375,343,28,108" Grid.RowSpan="3" Source="/assets/Personnages/Aventuriers/Profile_HMage1.png" Stretch="Fill" Grid.Column="1" Panel.ZIndex="2" Grid.ColumnSpan="2"/>
+            <!-- ================= CONTENU PRINCIPAL ================= -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="240"/>
+                    <!-- Panneau Ennemi -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Panneau Histoire / Journal -->
+                    <ColumnDefinition Width="320"/>
+                    <!-- Panneau Aventuriers -->
+                </Grid.ColumnDefinitions>
 
-        <Rectangle x:Name="RecNomAventurier" HorizontalAlignment="Left" Height="50" Margin="236,475,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="225" Panel.ZIndex="1" Fill="#7F000000" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="NomAventurier1"  HorizontalAlignment="Left" Margin="312,475,0,0" Grid.Row="2" Text="Aventurier" VerticalAlignment="Top" Width="86" Panel.ZIndex="1" Background="{x:Null}" Foreground="White" FontSize="17"  Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="NomAventurier2"  HorizontalAlignment="Left" Margin="238,500,0,0" Grid.Row="2" Text="Soutien 1" VerticalAlignment="Top" Width="86" Panel.ZIndex="1" Background="{x:Null}" Foreground="White" FontSize="17"  Grid.Column="1"/>
-        <TextBlock x:Name="NomAventurier3"  HorizontalAlignment="Left" Margin="375,500,0,0" Grid.Row="2" Text="Soutien 2" VerticalAlignment="Top" Width="86" Panel.ZIndex="1" Background="{x:Null}" Foreground="White" FontSize="17"  Grid.Column="1" Grid.ColumnSpan="2"/>
+                <!-- 1. BLOC ENNEMI (GAUCHE) -->
+                <Border Grid.Column="0" Background="#B3000000" BorderBrush="#FF555555" BorderThickness="2" CornerRadius="8" Margin="5">
+                    <Grid Margin="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Avatar Ennemi -->
+                        <Image x:Name="Ennemi" 
+                               Grid.Row="0" 
+                               Stretch="Uniform" 
+                               Source="/assets/Personnages/Personnages-Importants/Fadriass.png" 
+                               Margin="0,0,0,10"/>
+
+                        <!-- Cartouche Nom & Type -->
+                        <Border Grid.Row="1" Background="#4C000000" Padding="5">
+                            <StackPanel>
+                                <TextBlock x:Name="NomEnnemi" 
+                                           Text="Fadriass" 
+                                           Foreground="White" 
+                                           FontSize="18" FontWeight="Bold" 
+                                           TextAlignment="Center" 
+                                           TextWrapping="NoWrap" 
+                                           TextTrimming="CharacterEllipsis"/>
+
+                                <TextBlock x:Name="TypeEnnemi" 
+                                           Text="BOSS" 
+                                           Foreground="#FFCCCCCC" 
+                                           FontSize="12" 
+                                           TextAlignment="Center" 
+                                           Margin="0,2,0,0"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- 2. BLOC HISTOIRE (CENTRE) -->
+                <Border Grid.Column="1" Background="#B3000000" BorderBrush="#FF555555" BorderThickness="2" CornerRadius="8" Margin="5">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="— JOURNAL DE QUÊTE —" 
+                                   Foreground="#FFD4AF37" FontSize="16" FontWeight="Bold" 
+                                   HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+                        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                            <TextBlock x:Name="Histoire" 
+                                       Text="Journal de la quête..." 
+                                       Foreground="White" 
+                                       FontSize="14" 
+                                       TextWrapping="Wrap" 
+                                       LineHeight="20"/>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+
+                <!-- 3. BLOC AVENTURIERS (DROITE) -->
+                <Border Grid.Column="2" Background="#B3000000" BorderBrush="#FF555555" BorderThickness="2" CornerRadius="8" Margin="5">
+                    <Grid Margin="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.8*"/>
+                            <!-- Combattant Principal -->
+                            <RowDefinition Height="1.2*"/>
+                            <!-- Soutiens 1 & 2 -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- Noms des Aventuriers -->
+                        </Grid.RowDefinitions>
+
+                        <!-- Combattant 1 (Principal) -->
+                        <Border Grid.Row="0" Margin="2" BorderBrush="#FF888888" BorderThickness="1" Background="#26000000">
+                            <Image x:Name="Combattant1" 
+                                   Stretch="Uniform" 
+                                   Source="/assets/Personnages/Aventuriers-Spéciaux/Fùchóu.png"/>
+                        </Border>
+
+                        <!-- Combattants 2 & 3 (Soutiens) -->
+                        <Grid Grid.Row="1" Margin="0,5,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Margin="2" BorderBrush="#FF666666" BorderThickness="1" Background="#26000000">
+                                <Image x:Name="Combattant2" 
+                                       Stretch="Uniform" 
+                                       Source="/assets/Personnages/Aventuriers/Profile_HBarabarian1.png"/>
+                            </Border>
+
+                            <Border Grid.Column="1" Margin="2" BorderBrush="#FF666666" BorderThickness="1" Background="#26000000">
+                                <Image x:Name="Combattant3" 
+                                       Stretch="Uniform" 
+                                       Source="/assets/Personnages/Aventuriers/Profile_HMage1.png"/>
+                            </Border>
+                        </Grid>
+
+                        <!-- Section Noms (Agrandie & Auto-Ajustée) -->
+                        <Border Grid.Row="2" Background="#4C000000" Padding="5">
+                            <StackPanel>
+                                <!-- Nom Combattant 1 -->
+                                <TextBlock x:Name="NomAventurier1" 
+                                           Text="Aventurier Principal" 
+                                           Foreground="#FF00FFCC" 
+                                           FontSize="15" FontWeight="Bold" 
+                                           TextAlignment="Center" 
+                                           TextWrapping="NoWrap" 
+                                           TextTrimming="CharacterEllipsis"/>
+
+                                <!-- Noms Soutiens -->
+                                <Grid Margin="0,4,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock x:Name="NomAventurier2" 
+                                               Grid.Column="0"
+                                               Text="Soutien 1" 
+                                               Foreground="White" 
+                                               FontSize="12" 
+                                               TextAlignment="Center" 
+                                               TextWrapping="NoWrap" 
+                                               TextTrimming="CharacterEllipsis" 
+                                               Margin="2,0"/>
+
+                                    <TextBlock x:Name="NomAventurier3" 
+                                               Grid.Column="1"
+                                               Text="Soutien 2" 
+                                               Foreground="White" 
+                                               FontSize="12" 
+                                               TextAlignment="Center" 
+                                               TextWrapping="NoWrap" 
+                                               TextTrimming="CharacterEllipsis" 
+                                               Margin="2,0"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

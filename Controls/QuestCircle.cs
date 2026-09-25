@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Threading.Tasks;
 
 namespace GuildManager.Controls
 {
@@ -15,8 +16,9 @@ namespace GuildManager.Controls
             mainWindow.XpQuestCircle.Text = xpcircle.ToString();
         }
 
-        public static void LaunchQuestCircle(ChoiceCharacter choiceCharacter, MainWindow? mainWindow)
+        public static async void LaunchQuestCircle(MainWindow? mainWindow, AdventurerManager adventurerManager)
         {
+            Adventurer myadventurer = new Adventurer();
             // 1. Récupération de sécurité si mainWindow est passée à null
             if (mainWindow == null)
             {
@@ -38,34 +40,49 @@ namespace GuildManager.Controls
 
             gameWindow.FondQueteChoisi.Source = new BitmapImage(new Uri("/assets/UI/Quest_Illustrations/Quest_Circle.png", UriKind.Relative));
             gameWindow.Ennemi.Source = new BitmapImage(new Uri("/assets/Personnages/Personnages-Importants/Meurtrier.png", UriKind.Relative));
-            gameWindow.NomEnnemi.Text = "Meurtrier";
-            gameWindow.TypeEnnemi.Text = "Monstre";
+            gameWindow.NomEnnemi.Text = "Le Meurtrier";
+            gameWindow.TypeEnnemi.Text = "Haut Gradé du Cercle";
 
-            gameWindow.Histoire.Text = "Histoire Quete Circle";
+           
 
-            gameWindow.Combattant1.Source = choiceCharacter.Slot1Image.Source;
-            gameWindow.NomAventurier1.Text = choiceCharacter.Slot1Name.Text;
+            gameWindow.Combattant1.Source = new BitmapImage(new Uri(AdventurerManager.MyAdventurersList[0].ImagePath, UriKind.RelativeOrAbsolute));
+            gameWindow.NomAventurier1.Text = AdventurerManager.MyAdventurersList[0].Name;
 
-            gameWindow.Combattant2.Source = choiceCharacter.Slot2Image.Source;
-            gameWindow.NomAventurier2.Text = choiceCharacter.Slot2Name.Text;
+            gameWindow.Combattant2.Source = new BitmapImage(new Uri(AdventurerManager.MyAdventurersList[1].ImagePath, UriKind.RelativeOrAbsolute));
+            gameWindow.NomAventurier2.Text = AdventurerManager.MyAdventurersList[1].Name;
 
-            gameWindow.Combattant3.Source = choiceCharacter.Slot3Image.Source;
-            gameWindow.NomAventurier3.Text = choiceCharacter.Slot3Name.Text;
+            gameWindow.Combattant3.Source = new BitmapImage(new Uri(AdventurerManager.MyAdventurersList[2].ImagePath, UriKind.RelativeOrAbsolute));
+            gameWindow.NomAventurier3.Text = AdventurerManager.MyAdventurersList[2].Name;
 
             gameWindow.Show();
 
-            // 4. Variables de quête et conversion sécurisée de la puissance
-            int facile = 150;
-            int Goldwin = 180;
-            int Xpwin = 200;
+            // Config Histoire Quete
 
-            int.TryParse(choiceCharacter.TxtTotalPower.Text, out int squadpower);
+            gameWindow.Histoire.Text =
+               "Ganam : « Suivez-moi sans bruit. J'ai mémorisé chaque patrouille pendant mon infiltration. Le haut gradé du Cercle est dans le sanctuaire. »\n\n";
+            await Task.Delay(2000);
+            gameWindow.Histoire.Text +=
+                "Fùchóu : *enclenche ses fléaux avec rage* « Enfin ! C'est lui qui a massacré notre famille... Il va payer ! »\n\n";
+            await Task.Delay(2000);
+            gameWindow.Histoire.Text +=
+                "Le Meurtrier : « Aveugles que vous êtes... Vous éliminez les monstres en croyant bien faire, mais vous nourrissez Fadriass avec leur énergie ! Le Cercle tente juste de stopper le réveil du Démon ! »\n\n";
+            await Task.Delay(2000);
+            gameWindow.Histoire.Text +=
+                "Hēi Jiǔ : *boit une gorgée* « Vos méthodes éco-terroristes et vos crimes ne vous sauveront pas. On règle ça maintenant ! »";
+
+            await Task.Delay(2000);
+            // 4. Variables de quête et conversion sécurisée de la puissance
+            int difficile = 700;
+            int Goldwin = 800;
+            int Xpwin = 900;
+            int squadpower = AdventurerManager.MyAdventurersList[0].Power + AdventurerManager.MyAdventurersList[1].Power + AdventurerManager.MyAdventurersList[2].Power;
+            
 
             // 5. Condition de victoire / défaite
-            if (squadpower < facile)
+            if (squadpower < difficile)
             {
                 MessageBox.Show($"Vous n'avez pas réussi la quête.\n" +
-                                $"La puissance de votre escouade ({squadpower}) est insuffisante ({facile} requise).",
+                                $"La puissance de votre escouade ({squadpower}) est insuffisante ({difficile} requise).",
                                 "Défaite",
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Warning);
@@ -76,7 +93,7 @@ namespace GuildManager.Controls
                 mainWindow.myPlayer.Gold += Goldwin;
                 mainWindow.myPlayer.Experience += Xpwin;
                 mainWindow.myPlayer.UpLvl();
-
+                //myadventurer.UpLvlAdventurerElite(Xpwin);
                 // Mises à jour de l'UI
                 mainWindow.NombreGoldFenetreMain.Text = mainWindow.myPlayer.Gold.ToString();
                 mainWindow.NombreLvlFenetreMain.Text = mainWindow.myPlayer.Level.ToString();

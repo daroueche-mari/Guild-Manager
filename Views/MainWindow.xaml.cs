@@ -36,13 +36,13 @@ namespace GuildManager
             NombreGoldFenetreMain.Text = myPlayer.Gold.ToString();
             NombreLvlFenetreMain.Text = myPlayer.Level.ToString();
             //NomJoueurFenetreMain.Text = Nomenvoyéàlabdd;
-            QuestCircle.GoldandxpCircle(180, 200, this);
-            QuestGoblins.GoldandxpGoblins(280, 300, this);
-            QuestZombies.GoldandxpZombies(380, 400, this);
-            QuestSpiders.GoldandxpSpiders(480, 500, this);
-            QuestDragon.GoldandxpDragon(580, 600, this);
-            QuestTrees.GoldandxpTrees(680, 700, this);
-            QuestFadriass.GoldandxpFadriass(780, 800, this);
+            QuestCircle.GoldandxpCircle(800, 900, this);
+            QuestGoblins.GoldandxpGoblins(350, 400, this);
+            QuestZombies.GoldandxpZombies(500, 550, this);
+            QuestSpiders.GoldandxpSpiders(250, 280, this);
+            QuestDragon.GoldandxpDragon(1200, 1400, this);
+            QuestTrees.GoldandxpTrees(180, 200, this);
+            QuestFadriass.GoldandxpFadriass(2500, 3000, this);
            
         }
         
@@ -81,11 +81,9 @@ namespace GuildManager
         // Bouton lancement de Quest
         private void LoadQuestCircleBtn(object sender, RoutedEventArgs e)
         {
-            ChoiceCharacter choiceCharacter = new ChoiceCharacter();
-
+            AdventurerManager adventurerManager = new AdventurerManager();
             QuestCircle questCircle = new QuestCircle();
-            choiceCharacter.TxtNomQuete.Text = "Quest Circle\nPuissance Requise : 150";
-            choiceCharacter.Show();
+            QuestCircle.LaunchQuestCircle(this, adventurerManager);
             this.Hide();
         }
         private void LoadQuestGoblinsBtn(object sender, RoutedEventArgs e)
@@ -94,7 +92,7 @@ namespace GuildManager
 
             QuestGoblins questGoblins = new QuestGoblins();
 
-            choiceCharacter.TxtNomQuete.Text = "Quest Goblins";
+            choiceCharacter.TxtNomQuete.Text = "Quest Goblins || Puissance Requise : 300";
             choiceCharacter.Show();
             this.Hide();
         }
@@ -104,29 +102,23 @@ namespace GuildManager
 
             QuestTrees questTrees = new QuestTrees();
 
-            choiceCharacter.TxtNomQuete.Text = "Quest Trees";
+            choiceCharacter.TxtNomQuete.Text = "Quest Trees || Puissance Requise : 150";
             choiceCharacter.Show();
             this.Hide();
         }
         private void LoadQuestDragonBtn(object sender, RoutedEventArgs e)
         {
-            ChoiceCharacter choiceCharacter = new ChoiceCharacter();
-
+            AdventurerManager adventurerManager = new AdventurerManager();
             QuestDragon questDragon = new QuestDragon();
-
-            choiceCharacter.TxtNomQuete.Text = "Quest Dragon";
-            choiceCharacter.Show();
+            QuestDragon.LaunchQuestDragon(this, adventurerManager);
             this.Hide();
         }
         private void LoadQuestFadriassBtn(object sender, RoutedEventArgs e)
         {
-            ChoiceCharacter choiceCharacter = new ChoiceCharacter();
-
+            AdventurerManager adventurerManager = new AdventurerManager();
             QuestFadriass questFadriass = new QuestFadriass();
-
-            choiceCharacter.TxtNomQuete.Text = "Quest Fadriass";
-            choiceCharacter.Show();
-            this.Hide();
+            QuestFadriass.LaunchQuestFadriass(this, adventurerManager);
+            this.Hide(); 
         }
         private void LoadQuestSpidersBtn(object sender, RoutedEventArgs e)
         {
@@ -134,7 +126,7 @@ namespace GuildManager
 
             QuestSpiders questSpiders = new QuestSpiders();
 
-            choiceCharacter.TxtNomQuete.Text = "Quest Spiders";
+            choiceCharacter.TxtNomQuete.Text = "Quest Spiders || Puissance Requise : 200";
             choiceCharacter.Show();
             this.Hide();
         }
@@ -144,7 +136,7 @@ namespace GuildManager
 
             QuestZombies questZombies = new QuestZombies();
 
-            choiceCharacter.TxtNomQuete.Text = "Quest Zombies";
+            choiceCharacter.TxtNomQuete.Text = "Quest Zombies || Puissance Requise : 450";
             choiceCharacter.Show();
             this.Hide();
         }

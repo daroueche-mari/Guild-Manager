@@ -33,14 +33,30 @@ namespace GuildManager.Controls
             Power = power;
         }
 
+        //public void UpLvlAdventurerSelected(int Experience)
+        //{
+        //    ChoiceCharacter choiceCharacter = new ChoiceCharacter();
+        //    if (Experience > 200)
+        //    {
+        //        choiceCharacter.SelectedAdventurers[0].Level += 1;
+        //        choiceCharacter.SelectedAdventurers[1].Level += 1;
+        //        choiceCharacter.SelectedAdventurers[2].Level += 1;
+        //        Experience = 0;
 
-
-        
-
-        
-
-
-
-
+        //    }
+        //}
+        //public void UpLvlAdventurerElite(int Experience)
+        //{
+        //    AdventurerManager adventurerManager = new AdventurerManager();
+            
+        //    if (Experience < 200)
+        //    {
+        //        AdventurerManager.MyAdventurersList[0].Level += 1;
+        //        AdventurerManager.MyAdventurersList[1].Level += 1;
+        //        AdventurerManager.MyAdventurersList[2].Level += 1;
+        //        Experience = 0;
+        //    }
+        //}
     }
+
 }

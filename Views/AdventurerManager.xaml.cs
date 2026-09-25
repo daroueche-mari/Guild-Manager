@@ -193,6 +193,19 @@ namespace GuildManager
                 Power = 100,
                 Infos = "Venger la mort de sa famille\nSage, Empathique"
             });
+            MyAdventurersList.Add(new Adventurer
+            {
+                ImagePath = GetAbsolutePath("assets/Personnages/Aventuriers/Profile_HRogue1.png"),
+                Name = "Ganam",
+                Ameliorate = 100,
+                Breed = "Humain",
+                Classe = "Voyou",
+                Level = 1,
+                Type = "Classique",
+                Inventory = "Dague d'infiltré",
+                Power = 100,
+                Infos = "Agent d'élite envoyé en couverture au cœur du Cercle de Fadriass.\nObservateur, Solitaire, Il ne laisse rien au hasard."
+            });
 
             // 2. Génération : Un seul personnage par nom unique du JSON
             foreach (var race in Config.Races)

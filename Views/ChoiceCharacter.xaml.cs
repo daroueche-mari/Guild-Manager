@@ -143,6 +143,7 @@ namespace GuildManager
         {
             MainWindow? mainWin = Application.Current.MainWindow as MainWindow;
             GameWindow? gameWin = new GameWindow();
+            AdventurerManager adventurerManager = new AdventurerManager();
             QuestCircle questCircle = new QuestCircle();
             QuestDragon questDragon = new QuestDragon();
             QuestFadriass questFadriass = new QuestFadriass();
@@ -157,46 +158,29 @@ namespace GuildManager
                 return;
             }
 
-            if (TxtNomQuete.Text == "Quest Circle\nPuissance Requise : 150")
-            {
-                QuestCircle.LaunchQuestCircle(this, mainWin);
-                this.Hide();
-            } else if (TxtNomQuete.Text == "Quest Goblins")
+           if (TxtNomQuete.Text == "Quest Goblins || Puissance Requise : 300")
             {
                 QuestGoblins.LaunchQuestGoblins(this, mainWin);
                 this.Hide();
             }
-            else if (TxtNomQuete.Text == "Quest Zombies")
+            else if (TxtNomQuete.Text == "Quest Zombies || Puissance Requise : 450")
             {
                 QuestZombies.LaunchQuestZombies(this, mainWin);
                 this.Hide();
             }
-            else if (TxtNomQuete.Text == "Quest Spiders")
+            else if (TxtNomQuete.Text == "Quest Spiders || Puissance Requise : 200")
             {
                 QuestSpiders.LaunchQuestSpiders(this, mainWin);
                 this.Hide();
-            }
-            else if (TxtNomQuete.Text == "Quest Dragon")
-            {
-                QuestDragon.LaunchQuestDragon(this, mainWin);
-                this.Hide();
-            }
-            else if (TxtNomQuete.Text == "Quest Trees")
+            } 
+            else if (TxtNomQuete.Text == "Quest Trees || Puissance Requise : 150")
             {
                 QuestTrees.LaunchQuestTrees(this, mainWin);
                 this.Hide();
             }
-            else if (TxtNomQuete.Text == "Quest Fadriass")
-            {
-                QuestFadriass.LaunchQuestFadriass(this, mainWin);
-                this.Hide();
+          
             
         }
 
-
-
-
-
         }
     }
-}

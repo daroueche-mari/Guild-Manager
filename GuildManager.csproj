@@ -65,6 +65,7 @@
     <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Voyou\Profile_NRogue3.png" />
     <None Remove="assets\Personnages\Personnages-Importants\Fadriass.png" />
     <None Remove="assets\Personnages\Personnages-Importants\Meurtrier.png" />
+    <None Remove="assets\Personnages\Personnages-Importants\Trees.png" />
     <None Remove="assets\UI\Background\Background_Adventurer.png" />
     <None Remove="assets\UI\Background\Background_Quest.png" />
     <None Remove="assets\UI\Background\Background_Quest_Resolution.png" />
@@ -138,6 +139,7 @@
     <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Voyou\Profile_NRogue3.png" />
     <Resource Include="assets\Personnages\Personnages-Importants\Fadriass.png" />
     <Resource Include="assets\Personnages\Personnages-Importants\Meurtrier.png" />
+    <Resource Include="assets\Personnages\Personnages-Importants\Trees.png" />
     <Resource Include="assets\UI\Background\Background_Adventurer.png" />
     <Resource Include="assets\UI\Background\Background_Quest.png" />
     <Resource Include="assets\UI\Background\Background_Quest_Resolution.png" />
