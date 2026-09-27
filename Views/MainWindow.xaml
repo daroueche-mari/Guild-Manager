@@ -1,0 +1,327 @@
+﻿<Window x:Class="GuildManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuildManager"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="650" Width="1050" Background="#4C000000">
+
+    <Window.Resources>
+        <ControlTemplate x:Key="BtnLancerTemplate" TargetType="Button">
+            <Border x:Name="border" Background="#33000000" CornerRadius="2">
+                <ContentPresenter x:Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="border" Property="Background" Value="#CC000000"/>
+                    <Setter Property="Foreground" Value="#FFFFCE00"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter TargetName="border" Property="Background" Value="#FF000000"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid Margin="10,88,10,-12">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="550*"/>
+            <ColumnDefinition Width="477*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <Image x:Name="SupportTitreFenetreMain" HorizontalAlignment="Left" Height="274" Margin="21,-180,0,0" VerticalAlignment="Top" Width="713" Panel.ZIndex="1" Source="/assets/UI/Background/Background_Top.png" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="TitreFenetreMain" HorizontalAlignment="Left" Margin="90,-59,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TABLEAU DE BORD" VerticalAlignment="Top" Width="330" Panel.ZIndex="2" Background="#7F000000" Foreground="#B2FF0000" FontSize="21" FontFamily="Castellar"/>
+        <Image x:Name="SupportInventaireFenetreMain" HorizontalAlignment="Left" Height="197" Margin="454,-137,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="557" Panel.ZIndex="1" Source="/assets/UI/Background/Background_State.png" Grid.ColumnSpan="2"/>
+
+        <!-- STATS / BARRE SUPÉRIEURE -->
+        <Image x:Name="IconGoldFenetreMain" HorizontalAlignment="Left" Height="24" Margin="11,-9,0,0" VerticalAlignment="Top" Width="32" Source="/assets/UI/Icon/Gold_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
+        <Image x:Name="IconLvlFenetreMain" HorizontalAlignment="Left" Height="29" Margin="452,-11,0,0" VerticalAlignment="Top" Width="28" Source="/assets/UI/Icon/Level_Icon.png" Panel.ZIndex="2" Grid.RowSpan="3"/>
+        <TextBlock x:Name="NomJoueurFenetreMain" HorizontalAlignment="Left" Margin="482,-54,0,0" TextWrapping="Wrap" Text="Nom du joueur" VerticalAlignment="Top" Width="120" Background="{x:Null}" Foreground="#FFFFFD00" Panel.ZIndex="2" Grid.ColumnSpan="2"/>
+        <Button Click="QuitBtn" x:Name="BtnQuitFenetreMain" Grid.Column="1" Content="Quitter" HorizontalAlignment="Left" Margin="370,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" BorderBrush="Red" Foreground="White" Height="21" Width="76"/>
+        <Button Click="ShowLogRegisterWindowBtn" x:Name="BtnLogRegister" Grid.Column="1" Content="Login / Register" HorizontalAlignment="Left" Margin="261,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Background="{x:Null}" Foreground="White" BorderBrush="Black" Height="21" Width="89"/>
+        <TextBlock x:Name="NombreGoldFenetreMain" Margin="39,-8,447,0" TextWrapping="Wrap" Text="Gold" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FFFFFD00" Grid.RowSpan="3"/>
+        <TextBlock x:Name="NombreLvlFenetreMain" Margin="487,-7,12,0" TextWrapping="Wrap" Text="Level" VerticalAlignment="Top" Height="20" Panel.ZIndex="2" Background="{x:Null}" Foreground="#FF00FFF1" Grid.RowSpan="3"/>
+
+        <!-- SECTEUR AVENTURIERS (GAUCHE) -->
+        <Grid Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="530" Height="503">
+            <Rectangle x:Name="RecAventurierDispo" Fill="#264A4A4A" Stroke="Black"/>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+                <TextBlock Text="Gestion de la Guilde" Foreground="#FFFFCE00" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,15"/>
+
+                <TextBlock x:Name="TxtInfoAventuriers" Text="Consultez, gérez et recrutez vos aventuriers dans le registre." Foreground="#FFCCCCCC" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,25"/>
+
+                <Button Click="ShowAdventurerManagerBtn" Content="Ouvrir le Registre des Aventuriers" Height="45" Background="#B2F10000" Foreground="White" FontWeight="Bold" FontSize="14" Cursor="Hand"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- SECTEUR QUÊTES (DROITE) -->
+        <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="444" Height="503">
+            <Rectangle Stroke="Black" Fill="#264A4A4A"/>
+
+            <DockPanel Margin="15">
+                <!-- EN-TÊTE QUÊTES ET BOUTON BOUTIQUE -->
+                <DockPanel DockPanel.Dock="Top" Margin="0,0,0,15">
+                    <TextBlock Text="Quêtes disponibles :" Foreground="#FFFFCE00" FontWeight="Bold" FontSize="14" VerticalAlignment="Center"/>
+                    <Button Click="ShowQuestManagerBtn" Content="Acheter Contrats" HorizontalAlignment="Right" Width="130" Height="22" Background="#B2FF8C00" Foreground="White" FontWeight="Bold" BorderBrush="#FFFFDE00" Cursor="Hand"/>
+                </DockPanel>
+
+                <!-- LISTE SCROLLABLE DES QUÊTES -->
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel x:Name="StackPanelQuetes">
+
+                        <!-- CHAPITRE 1 : Quest Trees -->
+                        <Grid Margin="0,0,0,12" Height="90">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Image Source="/assets/UI/Quest_Illustrations/Quest_Trees.png" Stretch="Fill"/>
+                                <Button Click="LoadQuestTreesBtn" x:Name="BtnQuestTrees" Content="Lancer" Foreground="White" Cursor="Hand" Template="{StaticResource BtnLancerTemplate}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="8,0,0,0">
+                                <Rectangle Fill="#33000000" RadiusX="4" RadiusY="4" Stroke="#55FFFFFF"/>
+                                <StackPanel Margin="10,4">
+                                    <DockPanel>
+                                        <TextBlock Text="Quest Trees" Foreground="White" FontWeight="Bold" FontSize="13"/>
+                                        <TextBlock x:Name="XpQuestTrees_Diff" Text="Diff. F" Foreground="#FF1BE100" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                    </DockPanel>
+
+                                    <TextBlock Text="Chapitre 1 : Les Murmures de la Forêt" Foreground="#FFFFCE00" FontSize="10" FontStyle="Italic" Margin="0,0,0,2"/>
+
+                                    <TextBlock x:Name="DescQuestTrees" Text="Purger la forêt enchantée des arbres possédés par la magie noire." Foreground="#FFCCCCCC" FontSize="9" TextWrapping="Wrap" Margin="0,0,0,3"/>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
+                                        <TextBlock Text="Or : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock x:Name="GoldQuestTrees" Text="100" Foreground="#FFFFB700" FontWeight="Bold" FontSize="11" Margin="0,0,15,0"/>
+                                        <TextBlock Text="XP : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock x:Name="XpQuestTrees" Text="100" Foreground="#FF00A7FF" FontWeight="Bold" FontSize="11"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                        <!-- CHAPITRE 2 : Quest Spiders -->
+                        <Grid Margin="0,0,0,12" Height="90">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Image Source="/assets/UI/Quest_Illustrations/Quest_Spiders.png" Stretch="Fill"/>
+                                <Button Click="LoadQuestSpidersBtn" x:Name="BtnQuestSpiders" Content="Lancer" Foreground="White" Cursor="Hand" Template="{StaticResource BtnLancerTemplate}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="8,0,0,0">
+                                <Rectangle Fill="#33000000" RadiusX="4" RadiusY="4" Stroke="#55FFFFFF"/>
+                                <StackPanel Margin="10,4">
+                                    <DockPanel>
+                                        <TextBlock Text="Quest Spiders" Foreground="White" FontWeight="Bold" FontSize="13"/>
+                                        <TextBlock x:Name="XpQuestSpiders_Diff" Text="Diff. F+" Foreground="#FF1BE100" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                    </DockPanel>
+
+                                    <TextBlock Text="Chapitre 2 : L'Invasion de la Cave" Foreground="#FFFFCE00" FontSize="10" FontStyle="Italic" Margin="0,0,0,2"/>
+
+                                    <TextBlock x:Name="DescQuestSpiders" Text="Éliminez les araignées géantes dans les grottes de cristal." Foreground="#FFCCCCCC" FontSize="9" TextWrapping="Wrap" Margin="0,0,0,3"/>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
+                                        <TextBlock Text="Or : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock x:Name="GoldQuestSpiders" Text="150" Foreground="#FFFFB700" FontWeight="Bold" FontSize="11" Margin="0,0,15,0"/>
+                                        <TextBlock Text="XP : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock x:Name="XpQuestSpiders" Text="150" Foreground="#FF00A7FF" FontWeight="Bold" FontSize="11"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                        <!-- CHAPITRE 3 : Quest Goblins -->
+                        <Grid Margin="0,0,0,12" Height="90">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Image Source="/assets/UI/Quest_Illustrations/Quest_Goblins.png" Stretch="Fill"/>
+                                <Button Click="LoadQuestGoblinsBtn" x:Name="BtnQuestGoblins" Content="Lancer" Foreground="White" Cursor="Hand" Template="{StaticResource BtnLancerTemplate}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="8,0,0,0">
+                                <Rectangle Fill="#33000000" RadiusX="4" RadiusY="4" Stroke="#55FFFFFF"/>
+                                <StackPanel Margin="10,4">
+                                    <DockPanel>
+                                        <TextBlock Text="Quest Goblins" Foreground="White" FontWeight="Bold" FontSize="13"/>
+                                        <TextBlock x:Name="XpQuestGoblins_Diff" Text="Diff. M" Foreground="#FF6773FF" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                    </DockPanel>
+
+                                    <TextBlock Text="Chapitre 3 : Les Pilleurs de Caravanes" Foreground="#FFFFCE00" FontSize="10" FontStyle="Italic" Margin="0,0,0,2"/>
+
+                                    <TextBlock x:Name="DescQuestGoblins" Text="Nettoyez le campement de goblins qui attaquent les convois." Foreground="#FFCCCCCC" FontSize="9" TextWrapping="Wrap" Margin="0,0,0,3"/>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
+                                        <TextBlock Text="Or : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock x:Name="GoldQuestGoblins" Text="250" Foreground="#FFFFB700" FontWeight="Bold" FontSize="11" Margin="0,0,15,0"/>
+                                        <TextBlock Text="XP : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock x:Name="XpQuestGoblins" Text="250" Foreground="#FF00A7FF" FontWeight="Bold" FontSize="11"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                        <!-- CHAPITRE 4 : Quest Zombies -->
+                        <Grid Margin="0,0,0,12" Height="90">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Image Source="/assets/UI/Quest_Illustrations/Quest_Zombies.png" Stretch="Fill"/>
+                                <Button Click="LoadQuestZombiesBtn" x:Name="BtnQuestZombies" Content="Lancer" Foreground="White" Cursor="Hand" Template="{StaticResource BtnLancerTemplate}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="8,0,0,0">
+                                <Rectangle Fill="#33000000" RadiusX="4" RadiusY="4" Stroke="#55FFFFFF"/>
+                                <StackPanel Margin="10,4">
+                                    <DockPanel>
+                                        <TextBlock Text="Quest Zombies" Foreground="White" FontWeight="Bold" FontSize="13"/>
+                                        <TextBlock x:Name="XpQuestZombies_Diff" Text="Diff. M+" Foreground="#FF6773FF" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                    </DockPanel>
+
+                                    <TextBlock Text="Chapitre 4 : La Malédiction des Tumulus" Foreground="#FFFFCE00" FontSize="10" FontStyle="Italic" Margin="0,0,0,2"/>
+
+                                    <TextBlock x:Name="DescQuestZombies" Text="Repoussez la horde de morts-vivants sortis des anciens tumulus." Foreground="#FFCCCCCC" FontSize="9" TextWrapping="Wrap" Margin="0,0,0,3"/>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,1,0,0">
+                                        <TextBlock Text="Or : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock x:Name="GoldQuestZombies" Text="400" Foreground="#FFFFB700" FontWeight="Bold" FontSize="11" Margin="0,0,15,0"/>
+                                        <TextBlock Text="XP : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock x:Name="XpQuestZombies" Text="400" Foreground="#FF00A7FF" FontWeight="Bold" FontSize="11"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                        <!-- CHAPITRE 5 : Quest Circle (Verrouillé par défaut) -->
+                        <Grid Margin="0,0,0,12" Height="90">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Image x:Name="ImgQuestCircle" Source="/assets/UI/Quest_Illustrations/Quest_Circle.png" Stretch="Fill" Opacity="0.3"/>
+                                <Button Click="LoadQuestCircleBtn" x:Name="BtnQuestCircle" Content="Lancer" Foreground="White" Cursor="Hand" Template="{StaticResource BtnLancerTemplate}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="8,0,0,0">
+                                <Rectangle Fill="#33000000" RadiusX="4" RadiusY="4" Stroke="#55FFFFFF"/>
+                                <StackPanel Margin="10,4">
+                                    <DockPanel>
+                                        <TextBlock x:Name="TitleQuestCircle" Text="Quest Circle [Verrouillé]" Foreground="Gray" FontWeight="Bold" FontSize="13"/>
+                                        <TextBlock x:Name="DiffQuestCircle" Text="Diff. ???" Foreground="Gray" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                    </DockPanel>
+
+                                    <TextBlock x:Name="SubTitleQuestCircle" Text="Chapitre 5 : Achat requis" Foreground="#FFFFCE00" FontSize="10" FontStyle="Italic" Margin="0,0,0,2"/>
+                                    <TextBlock x:Name="DescQuestCircle" Text="Achetez le contrat dans le shop pour débloquer cette quête." Foreground="#FF888888" FontSize="9" TextWrapping="Wrap" Margin="0,0,0,3"/>
+
+                                    <StackPanel x:Name="RewardQuestCircle" Orientation="Horizontal" Margin="0,1,0,0" Visibility="Collapsed">
+                                        <TextBlock Text="Or : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock Text="600" Foreground="#FFFFB700" FontWeight="Bold" FontSize="11" Margin="0,0,15,0"/>
+                                        <TextBlock Text="XP : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock Text="600" Foreground="#FF00A7FF" FontWeight="Bold" FontSize="11"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                        <!-- CHAPITRE 6 : Quest Dragon (Verrouillé par défaut) -->
+                        <Grid Margin="0,0,0,12" Height="90">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Image x:Name="ImgQuestDragon" Source="/assets/UI/Quest_Illustrations/Quest_Dragon.png" Stretch="Fill" Opacity="0.3"/>
+                                <Button Click="LoadQuestDragonBtn" x:Name="BtnQuestDragon" Content="Lancer" Foreground="White" Cursor="Hand" Template="{StaticResource BtnLancerTemplate}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="8,0,0,0">
+                                <Rectangle Fill="#33000000" RadiusX="4" RadiusY="4" Stroke="#55FFFFFF"/>
+                                <StackPanel Margin="10,4">
+                                    <DockPanel>
+                                        <TextBlock x:Name="TitleQuestDragon" Text="Quest Dragon [Verrouillé]" Foreground="Gray" FontWeight="Bold" FontSize="13"/>
+                                        <TextBlock x:Name="DiffQuestDragon" Text="Diff. ???" Foreground="Gray" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                    </DockPanel>
+
+                                    <TextBlock x:Name="SubTitleQuestDragon" Text="Chapitre 6 : Achat requis" Foreground="#FFFFCE00" FontSize="10" FontStyle="Italic" Margin="0,0,0,2"/>
+                                    <TextBlock x:Name="DescQuestDragon" Text="Achetez le contrat dans le shop pour débloquer cette quête." Foreground="#FF888888" FontSize="9" TextWrapping="Wrap" Margin="0,0,0,3"/>
+
+                                    <StackPanel x:Name="RewardQuestDragon" Orientation="Horizontal" Margin="0,1,0,0" Visibility="Collapsed">
+                                        <TextBlock Text="Or : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock Text="1000" Foreground="#FFFFB700" FontWeight="Bold" FontSize="11" Margin="0,0,15,0"/>
+                                        <TextBlock Text="XP : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock Text="1000" Foreground="#FF00A7FF" FontWeight="Bold" FontSize="11"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                        <!-- CHAPITRE 7 : Quest Fadriass (Verrouillé par défaut) -->
+                        <Grid Margin="0,0,0,12" Height="90">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Image x:Name="ImgQuestFadriass" Source="/assets/UI/Quest_Illustrations/Quest_Fadriass.png" Stretch="Fill" Opacity="0.3"/>
+                                <Button Click="LoadQuestFadriassBtn" x:Name="BtnQuestFadriass" Content="Lancer" Foreground="White" Cursor="Hand" Template="{StaticResource BtnLancerTemplate}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="8,0,0,0">
+                                <Rectangle Fill="#33000000" RadiusX="4" RadiusY="4" Stroke="#55FFFFFF"/>
+                                <StackPanel Margin="10,4">
+                                    <DockPanel>
+                                        <TextBlock x:Name="TitleQuestFadriass" Text="Quest Fadriass [Verrouillé]" Foreground="Gray" FontWeight="Bold" FontSize="13"/>
+                                        <TextBlock x:Name="DiffQuestFadriass" Text="Diff. ???" Foreground="Gray" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                    </DockPanel>
+
+                                    <TextBlock x:Name="SubTitleQuestFadriass" Text="Chapitre 7 : Achat requis" Foreground="#FFFFCE00" FontSize="10" FontStyle="Italic" Margin="0,0,0,2"/>
+                                    <TextBlock x:Name="DescQuestFadriass" Text="Achetez le contrat dans le shop pour débloquer cette quête." Foreground="#FF888888" FontSize="9" TextWrapping="Wrap" Margin="0,0,0,3"/>
+
+                                    <StackPanel x:Name="RewardQuestFadriass" Orientation="Horizontal" Margin="0,1,0,0" Visibility="Collapsed">
+                                        <TextBlock Text="Or : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock Text="2000" Foreground="#FFFFB700" FontWeight="Bold" FontSize="11" Margin="0,0,15,0"/>
+                                        <TextBlock Text="XP : " Foreground="Gray" FontSize="11"/>
+                                        <TextBlock Text="2500" Foreground="#FF00A7FF" FontWeight="Bold" FontSize="11"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </Grid>
+
+        <!-- NOUVELLE PARTIE -->
+        <Button Click="NewGameBtn" Grid.Column="1" Content="Nouvelle Partie" HorizontalAlignment="Left" Margin="128,-57,0,0" VerticalAlignment="Top" Panel.ZIndex="1" Width="96" Background="{x:Null}" Foreground="White" BorderBrush="#FF5CFF00" Height="23"/>
+
+    </Grid>
+</Window>

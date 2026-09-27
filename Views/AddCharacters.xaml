@@ -1,0 +1,112 @@
+﻿<Window x:Class="GuildManager.AddCharacters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GuildManager"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Taverne de Recrutement" Height="650" Width="1050" Background="#1E1E1E">
+
+    <Grid>
+        <!-- HEADER -->
+        <Image x:Name="SupportTitreFenetreAjouterPersonnage" HorizontalAlignment="Left" Height="274" Margin="18,-111,0,0" VerticalAlignment="Top" Width="713" Panel.ZIndex="1" Source="/assets/Ui/Background/Background_Top.png"/>
+        <TextBlock x:Name="TitreFenetreAjouterPersonnage" HorizontalAlignment="Left" Margin="87,9,0,0" TextWrapping="Wrap" Text="RECRUTER DES AVENTURIERS" VerticalAlignment="Top" Width="380" Panel.ZIndex="2" Background="#7F000000" Foreground="#B2FF0000" FontSize="21" FontFamily="Castellar"/>
+
+        <!-- AFFICHAGE DE L'OR DU JOUEUR (AVEC ICÔNE) -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,150,0" Panel.ZIndex="2">
+            <Image Source="/assets/UI/Icon/Gold_Icon.png" Height="40" Width="40" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock x:Name="CopyTotalGold" Text="TotalGold" Foreground="#FFFFFD00" FontSize="14" Margin="10,0,0,0" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- BOUTON FERMER -->
+        <Button Click="BackToAdventurerManageFromAddCharacterBtn" Content="Fermer" HorizontalAlignment="Right" Margin="0,15,20,0" VerticalAlignment="Top" Panel.ZIndex="2" Width="108" Height="30" Foreground="White" Background="#333333" BorderBrush="Gray" Cursor="Hand"/>
+
+        <!-- PANNEAU CENTRAL / LISTE DES RECRUTES DISPONIBLES -->
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="980" Height="500" Margin="0,50,0,0">
+            <Rectangle Fill="#2A2A2A" Stroke="#FFFFCE00" StrokeThickness="1" RadiusX="8" RadiusY="8"/>
+
+            <Grid Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Aventuriers Disponibles à la Taverne" Foreground="#FFFFCE00" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10" FontFamily="Castellar"/>
+
+                <!-- LISTE DES PERSONNAGES DISPONIBLES -->
+                <ListView x:Name="ShopAdventurersListView" Grid.Row="1" Background="#1E1E1E" BorderBrush="#55FFFFFF" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="#44FFFFFF" BorderThickness="0,0,0,1" Padding="10" Width="920">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <!-- 1. Portrait -->
+                                        <ColumnDefinition Width="65"/>
+                                        <!-- 2. Infos de base -->
+                                        <ColumnDefinition Width="220"/>
+                                        <!-- 3. Stats & Inventaire -->
+                                        <ColumnDefinition Width="220"/>
+                                        <!-- 4. Informations Diverses -->
+                                        <ColumnDefinition Width="230"/>
+                                        <!-- 5. Action (Prix + Bouton) -->
+                                        <ColumnDefinition Width="150"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- 1. PORTRAIT -->
+                                    <Image Grid.Column="0" Source="{Binding ImagePath}" Width="50" Height="50" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                    <!-- 2. INFOS DE BASE -->
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5,0">
+                                        <TextBlock Text="{Binding Name}" Foreground="#FFFFCE00" FontSize="14" FontWeight="Bold"/>
+                                        <TextBlock Foreground="#FFAAAAAA" FontSize="12">
+                                            <Run Text="Race : "/>
+                                            <Run Text="{Binding Breed}"/>
+                                        </TextBlock>
+                                        <TextBlock Foreground="#FF00FF17" FontSize="12">
+                                            <Run Text="Classe : "/>
+                                            <Run Text="{Binding Classe}"/>
+                                        </TextBlock>
+                                        <TextBlock Foreground="#FFFFB700" FontSize="11">
+                                            <Run Text="Type : "/>
+                                            <Run Text="{Binding Type}"/>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!-- 3. STATISTIQUES & ÉQUIPEMENT -->
+                                    <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="5,0">
+                                        <TextBlock Foreground="#FF00FFF1" FontSize="12">
+                                            <Run Text="Niveau : "/>
+                                            <Run Text="{Binding Level}"/>
+                                        </TextBlock>
+                                        <TextBlock Foreground="#FFFF4500" FontSize="12" FontWeight="Bold">
+                                            <Run Text="Puissance : "/>
+                                            <Run Text="{Binding Power}"/>
+                                        </TextBlock>
+                                        <TextBlock Foreground="#FF00E5FF" FontSize="11" TextTrimming="CharacterEllipsis">
+                                            <Run Text="Inventaire : "/>
+                                            <Run Text="{Binding Inventory}"/>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                    <!-- 4. INFORMATION DIVERS -->
+                                    <TextBlock Grid.Column="3" Text="{Binding Infos}" Foreground="#CCCCCC" FontSize="11" TextWrapping="Wrap" VerticalAlignment="Center" Margin="5,0"/>
+
+                                    <!-- 5. BOUTON D'ACHAT -->
+                                    <StackPanel Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Foreground="#FFFFD700" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,5">
+                                            <Run Text="{Binding Price}"/>
+                                            <Run Text=" Or"/>
+                                        </TextBlock>
+                                        <Button Content="Recruter" Click="BuyAdventurer_Click" Tag="{Binding}" Width="110" Height="28" Background="#B2F10000" Foreground="White" FontWeight="Bold" Cursor="Hand"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,195 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="assets\Personnages\Aventuriers-Spéciaux\Fùchóu.png" />
+    <None Remove="assets\Personnages\Aventuriers-Spéciaux\Hēi Jiǔ.png" />
+    <None Remove="assets\Personnages\Aventuriers-Spéciaux\Zhìyuān.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profile_HBarabarian1.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profile_HMage1.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profile_HPriest1.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profile_HRanger1.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profile_HRogue1.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profile_HTank1.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profile_HWarrior1.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Archer\Profile_ERanger2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Archer\Profile_ERanger3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Barbare\Profile_EBarabarian2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Barbare\Profile_EBarabarian3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Chevalier\Profile_EWarrior2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Chevalier\Profile_EWarrior3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Mage\Profile_EMage2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Mage\Profile_EMage3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Mage\Profile_EMage4.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Pretre\Profile_EPriest2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Pretre\Profile_EPriest3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Pretre\Profile_EPriest4.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Tank\Profile_ETank2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Tank\Profile_ETank3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Voyou\Profile_ERogue2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Voyou\Profile_ERogue3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Elfes\Voyou\Profile_ERogue4.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Archer\Profile_HRanger2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Archer\Profile_HRanger3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Barbare\Profile_HBarabarian2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Barbare\Profile_HBarabarian3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Chevalier\Profile_HWarrior2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Chevalier\Profile_HWarrior3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Mage\Profile_HMage2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Mage\Profile_HMage3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Pretre\Profile_HPriest1.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Pretre\Profile_HPriest2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Pretre\Profile_HPriest3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Tank\Profile_HTank2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Tank\Profile_HTank3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Voyou\Profile_HRogue1.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Voyou\Profile_HRogue2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Humains\Voyou\Profile_HRogue3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Archer\Profile_NRanger2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Archer\Profile_NRanger3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Barbare\Profile_NBarbarian2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Barbare\Profile_NBarbarian3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Chevalier\Profile_NWarrior2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Chevalier\Profile_NWarrior3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Mage\Profile_NMage2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Mage\Profile_NMage3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Pretre\Profile_NPriest2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Pretre\Profile_NPriest3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Tank\Profile_NTank2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Tank\Profile_NTank3.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Voyou\Profile_NRogue2.png" />
+    <None Remove="assets\Personnages\Aventuriers\Profils_Nains\Voyou\Profile_NRogue3.png" />
+    <None Remove="assets\Personnages\Personnages-Importants\Circle.png" />
+    <None Remove="assets\Personnages\Personnages-Importants\Dragon.png" />
+    <None Remove="assets\Personnages\Personnages-Importants\Fadriass.png" />
+    <None Remove="assets\Personnages\Personnages-Importants\Goblins.png" />
+    <None Remove="assets\Personnages\Personnages-Importants\Meurtrier.png" />
+    <None Remove="assets\Personnages\Personnages-Importants\Spiders.png" />
+    <None Remove="assets\Personnages\Personnages-Importants\Trees.png" />
+    <None Remove="assets\Personnages\Personnages-Importants\Zombies.png" />
+    <None Remove="assets\UI\Background\Background_Adventurer.png" />
+    <None Remove="assets\UI\Background\Background_Quest.png" />
+    <None Remove="assets\UI\Background\Background_Quest_Resolution.png" />
+    <None Remove="assets\UI\Background\Background_State.png" />
+    <None Remove="assets\UI\Background\Background_Top.png" />
+    <None Remove="assets\UI\Icon\Gold_Icon.png" />
+    <None Remove="assets\UI\Icon\Level_Icon.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Circle.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Dragon.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Fadriass.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Goblins.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Spiders.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Trees.png" />
+    <None Remove="assets\UI\Quest_Illustrations\Quest_Zombies.png" />
+    <None Remove="save_game.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="save_game.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\Personnages\Aventuriers-Spéciaux\Fùchóu.png" />
+    <Resource Include="assets\Personnages\Aventuriers-Spéciaux\Hēi Jiǔ.png" />
+    <Resource Include="assets\Personnages\Aventuriers-Spéciaux\Zhìyuān.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profile_HBarabarian1.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profile_HMage1.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profile_HPriest1.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profile_HRanger1.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profile_HRogue1.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profile_HTank1.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profile_HWarrior1.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Archer\Profile_ERanger2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Archer\Profile_ERanger3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Barbare\Profile_EBarabarian2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Barbare\Profile_EBarabarian3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Chevalier\Profile_EWarrior2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Chevalier\Profile_EWarrior3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Mage\Profile_EMage2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Mage\Profile_EMage3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Mage\Profile_EMage4.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Pretre\Profile_EPriest2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Pretre\Profile_EPriest3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Pretre\Profile_EPriest4.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Tank\Profile_ETank2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Tank\Profile_ETank3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Voyou\Profile_ERogue2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Voyou\Profile_ERogue3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Elfes\Voyou\Profile_ERogue4.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Archer\Profile_HRanger2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Archer\Profile_HRanger3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Barbare\Profile_HBarabarian2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Barbare\Profile_HBarabarian3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Chevalier\Profile_HWarrior2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Chevalier\Profile_HWarrior3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Mage\Profile_HMage2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Mage\Profile_HMage3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Pretre\Profile_HPriest1.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Pretre\Profile_HPriest2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Pretre\Profile_HPriest3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Tank\Profile_HTank2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Tank\Profile_HTank3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Voyou\Profile_HRogue1.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Voyou\Profile_HRogue2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Humains\Voyou\Profile_HRogue3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Archer\Profile_NRanger2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Archer\Profile_NRanger3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Barbare\Profile_NBarbarian2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Barbare\Profile_NBarbarian3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Chevalier\Profile_NWarrior2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Chevalier\Profile_NWarrior3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Mage\Profile_NMage2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Mage\Profile_NMage3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Pretre\Profile_NPriest2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Pretre\Profile_NPriest3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Tank\Profile_NTank2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Tank\Profile_NTank3.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Voyou\Profile_NRogue2.png" />
+    <Resource Include="assets\Personnages\Aventuriers\Profils_Nains\Voyou\Profile_NRogue3.png" />
+    <Resource Include="assets\Personnages\Personnages-Importants\Circle.png" />
+    <Resource Include="assets\Personnages\Personnages-Importants\Dragon.png" />
+    <Resource Include="assets\Personnages\Personnages-Importants\Fadriass.png" />
+    <Resource Include="assets\Personnages\Personnages-Importants\Goblins.png" />
+    <Resource Include="assets\Personnages\Personnages-Importants\Meurtrier.png" />
+    <Resource Include="assets\Personnages\Personnages-Importants\Spiders.png" />
+    <Resource Include="assets\Personnages\Personnages-Importants\Trees.png" />
+    <Resource Include="assets\Personnages\Personnages-Importants\Zombies.png" />
+    <Resource Include="assets\UI\Background\Background_Adventurer.png" />
+    <Resource Include="assets\UI\Background\Background_Quest.png" />
+    <Resource Include="assets\UI\Background\Background_Quest_Resolution.png" />
+    <Resource Include="assets\UI\Background\Background_State.png" />
+    <Resource Include="assets\UI\Background\Background_Top.png" />
+    <Resource Include="assets\UI\Icon\Gold_Icon.png" />
+    <Resource Include="assets\UI\Icon\Level_Icon.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Circle.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Dragon.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Fadriass.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Goblins.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Spiders.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Trees.png" />
+    <Resource Include="assets\UI\Quest_Illustrations\Quest_Zombies.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
