@@ -1,3 +1,3 @@
 # Guild-Manager
 
-Version 1.0 du jeu, avec seulement l'offline. Téléchargez l'archive .zip ci-dessous, extrayez-la, mettez le fichier character_config.json dans le dossier dezippé et lancez GuildManager.exe pour jouer !
+Version 1.0 du jeu, avec seulement l'offline. Téléchargez l'archive GuildManagerv1.0-Offline et son json, dans la section "Release" à droite. Extrayez-la, mettez le fichier character_config.json dans le dossier dezippé et lancez GuildManager.exe pour jouer !
