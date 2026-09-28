@@ -53,7 +53,7 @@ namespace GuildManager.Controls
             // Config Histoire Quete
 
             gameWindow.Histoire.Text =
-               "Ganam : « Suivez-moi sans bruit. J'ai mémorisé chaque patrouille pendant mon infiltration. Le haut gradé du Cercle est dans le sanctuaire. »\n\n";
+               "Zhìyuān : « Suivez-moi sans bruit. J'ai mémorisé chaque patrouille pendant mon infiltration. Le haut gradé du Cercle est dans le sanctuaire. »\n\n";
             await Task.Delay(1500);
             gameWindow.Histoire.Text +=
                 "Fùchóu : *enclenche ses fléaux avec rage* « Enfin ! C'est lui qui a massacré notre famille... Il va payer ! »\n\n";
